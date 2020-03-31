@@ -19,8 +19,9 @@ hitpoints: [6]
 
 
 # Enter these as you play:
-gold: 120
 temporary_hitpoints: 0
 hitpoints_lost: 0
 hitpoints_spent: 0 # Use if you're a Spellcaster
+gold: 120
+# equipment:
 ---

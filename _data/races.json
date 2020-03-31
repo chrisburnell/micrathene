@@ -1,6 +1,7 @@
 [
   {
     "title": "Human",
+    "size_class": "Medium",
     "communication_bonus": 1,
     "knowledge_bonus": 1,
     "physical_bonus": 1,
@@ -8,32 +9,39 @@
   },
   {
     "title": "Elf",
+    "size_class": "Medium",
     "mind_bonus": 2
   },
   {
     "title": "Dwarf",
+    "size_class": "Medium",
     "strength_bonus": 2
   },
   {
     "title": "Halfling",
+    "size_class": "Small",
     "dexterity_bonus": 2
   },
   {
     "title": "Gnome",
+    "size_class": "Small",
     "dexterity_bonus": 1,
     "mind_bonus": 1
   },
   {
     "title": "Half-Orc",
+    "size_class": "Medium",
     "strength_bonus": 4,
     "mind_bonus": -2
   },
   {
     "title": "Half-Elf",
+    "size_class": "Medium",
     "dexterity_bonus": 1
   },
   {
     "title": "Lizardman",
+    "size_class": "Medium",
     "strength_bonus": 2,
     "dexterity_bonus": 2,
     "mind_bonus": -2

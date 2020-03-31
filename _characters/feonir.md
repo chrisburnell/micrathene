@@ -37,6 +37,8 @@ temporary_hitpoints: 0
 hitpoints_lost: 0
 hitpoints_spent: 0 # Use if you're a Spellcaster
 gold: 75
-# equipment:
+equipment:
+  - name: Light Crossbow
+    equipped: true
 armour: Mage Armour
 ---

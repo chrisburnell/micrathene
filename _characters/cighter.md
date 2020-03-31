@@ -18,14 +18,22 @@ stat_bonuses: []
 hitpoints: [6]
 
 
+##
 # Enter these as you play:
+##
 hitpoints_lost: 0
 temporary_hitpoints: 0
 gold: 150
-armour: Scale Mail
-shield: Light Steel Shield
-weapons:
-  - Greataxe
-  - Warhammer
-  - Heavy Crossbow
+equipment:
+  - name: Scale Mail
+    equipped: true
+  - name: Light Steel Shield
+    equipped: true
+  - name: Greataxe
+    equipped: true
+  - name: Warhammer
+  - name: Heavy Crossbow
+  - name: Light Pick
+    equipped: true
+  - name: Handaxe
 ---

@@ -26,6 +26,10 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <th>Level</th>
+                            <td class="nobold">{{ level }} / 20</td>
+                        </tr>
+                        <tr>
                             <th>Race</th>
                             <td class="nobold">{{ race | default: "N/A" }}</td>
                         </tr>
@@ -34,8 +38,12 @@
                             <td class="nobold">{{ class | default: "N/A" }}</td>
                         </tr>
                         <tr>
-                            <th>Level</th>
-                            <td class="nobold">{{ level }} / 20</td>
+                            <th>Size</th>
+                            <td class="nobold">{{ race_data.size_class | default: 'Medium' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Speed</th>
+                            <td class="nobold">{% if race_data.size_class == 'Small' %}25 ft. <span class="muted">/</span> 5 squares{% else %}30 ft. <span class="muted">/</span> 6 squares{% endif %}</td>
                         </tr>
                         <tr>
                             <th>Proficiencies</th>
@@ -67,9 +75,9 @@
                             </tr>
                         {% endif %}
                         <tr>
-                            <th>Gold</th>
+                            <th>Wealth</th>
                             <td class="nobold">
-                                {{ gold | default: 0 }}
+                                {{ wealth | default: gold | default: class_data.starting_wealth | default: 0 | append: ' gold' | replace: 'gold gold', 'gold' }}
                             </td>
                         </tr>
                     </tbody>
@@ -241,7 +249,6 @@
                 </table>
             </figure>
 
-            <!-- {{ armour }} -->
             {% if armour or shield %}
                 <figure id="armour">
                     <table>
@@ -282,14 +289,16 @@
                 </figure>
             {% endif %}
 
+            {%- assign weapons = weapons_equipped | concat: weapons_unequipped -%}
             <figure id="weapons">
                 <table>
                     <thead>
                         <tr>
-                            <th class="center  stretch" colspan="4">Weapons</th>
+                            <th class="center  stretch" colspan="5">Weapons</th>
                         </tr>
                         <tr>
                             <th> </th>
+                            <th class="center  stretch">Class</th>
                             <th class="center  stretch">Range</th>
                             <th class="center  stretch">Attack</th>
                             <th class="center  stretch">Damage</th>
@@ -297,15 +306,22 @@
                     </thead>
                     <tbody>
                         {% comment %} For <tfoot> notice {% endcomment %}
-                        {%- assign non_ranged_range_weapon = false -%}
+                        {%- assign found_non_ranged_range_weapon = false -%}
                         {% for weapon in weapons %}
-                            {%- if weapon.range and non_ranged_range_weapon == false -%}
-                                {% assign non_ranged_range_weapon = true %}
+                            {% comment %} TODO: Fix duplicate Unarmed Strike {% endcomment %}
+                            {%- if forloop.index > 1 and weapon.title == 'Unarmed Strike' -%}
+                                {% continue %}
                             {%- endif -%}
-                            <tr{% if forloop.index > weapons_equipped %} class="unavailable"{% endif %}>
+                            {%- if weapon.class != 'Ranged' and weapon.range and found_non_ranged_range_weapon == false -%}
+                                {% assign found_non_ranged_range_weapon = true %}
+                            {%- endif -%}
+                            <tr class="{% if forloop.index > weapons_equipped.size %}unavailable{% endif %}">
                                 <th class="stretch">
                                     {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
                                 </th>
+                                <td class="stretch{% unless weapon.class %}  center{% endunless %}">
+                                    {{ weapon.class | default: '—' }}
+                                </td>
                                 <td class="center  stretch">
                                     {% if weapon.range %}
                                         {{ weapon.range }} ft.
@@ -321,6 +337,9 @@
                                         {% unless attack_melee == attack_ranged %}
                                             / {% plusminus attack_ranged false %}
                                         {% endunless %}
+                                    {% elsif weapons_equipped.size == 3 and forloop.index <= 3 and forloop.index > 1 %}
+                                        {%- assign attack_melee_dual = attack_melee | minus: 2 -%}
+                                        {% plusminus attack_melee_dual false %}
                                     {% else %}
                                         {% plusminus attack_melee false %}
                                     {% endif %}
@@ -345,18 +364,35 @@
                                     {% else %}
                                         {{ weapon.damage }}
                                         {% if damage_bonus_melee > 0 or damage_bonus_melee < 0 %}
-                                            {% plusminus damage_bonus_melee false %}
+                                            {% if weapon.class == 'Two-Handed' %}
+                                                {%- assign damage_bonus_melee_two_handed = damage_bonus_melee | plus: strength_modifier -%}
+                                                {% plusminus damage_bonus_melee_two_handed false %}
+                                            {% else %}
+                                                {% plusminus damage_bonus_melee false %}
+                                            {% endif %}
                                         {% endif %}
                                     {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
                     </tbody>
-                    {% if non_ranged_range_weapon %}
+                    {% if found_non_ranged_range_weapon or weapons_equipped[1].class == 'Two-Handed' %}
                         <tfoot>
-                            <tr>
-                                <th class="nobold" colspan="4">† Designates a weapon as both Melee and Ranged.</th>
-                            </tr>
+                            {% if found_non_ranged_range_weapon %}
+                                <tr>
+                                    <th class="nobold" colspan="5">† Designates a weapon as both melee and ranged.</th>
+                                </tr>
+                            {% endif %}
+                            {% if too_many_weapons == true %}
+                                <tr>
+                                    <th class="nobold  negative" colspan="5">You have marked too many weapons as equipped, so spillovers are shown above as unequipped.</th>
+                                </tr>
+                            {% endif %}
+                            {% if weapons_equipped[1].class == 'Two-Handed' %}
+                                <tr>
+                                    <th class="nobold  negative" colspan="5">You are unable to cast spells when wielding a two-handed weapon!</th>
+                                </tr>
+                            {% endif %}
                         </tfoot>
                     {% endif %}
                 </table>

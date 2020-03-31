@@ -1,7 +1,7 @@
 {%- comment %} HP = Strength + (Level × 1d6) {% endcomment -%}
 {%- assign hitpoints_data = hitpoints | default: site.emptyArray -%}
 {%- if hitpoints_data.size == 0 -%}
-    {% assign hitpoints_data = site.emptyArray | push: 6 %}
+    {% assign hitpoints_data = site.emptyArray | add: 6 %}
 {%- endif -%}
 {%- assign hitpoints = 0 -%}
 {%- for hitpoint in hitpoints_data -%}
@@ -27,21 +27,16 @@
 {%- assign shield_lookup = shield | default: '' | remove: ' Shield' -%}
 {%- assign shield = equipment_shields | where: 'title', shield_lookup | first | default: false -%}
 {%- assign unarmed_strike = equipment_weapons | where: 'title', 'Unarmed Strike' | first -%}
-{%- assign weapons = site.emptyArray | add: unarmed_strike | uniq -%}
-{%- assign weapons_equipped = 1 -%}
+{%- assign weapons_equipped = site.emptyArray | add: unarmed_strike | uniq -%}
+{%- assign weapons_unequipped = site.emptyArray | uniq -%}
+{% assign too_many_weapons = false %}
 {%- for item in equipment -%}
-    {% assign armour_lookup = false %}
-    {% assign shield_lookup = false %}
-    {% if item.name contains 'Armour' %}
-        {% assign armour_name = item.name | remove: ' Armour' %}
-        {% assign armour_lookup = equipment_armour | where: 'title', armour_name | first | default: false %}
-    {% elsif item.name contains 'Shield' or item.name contains 'Buckler' %}
-        {% assign shield_name = item.name | remove: ' Shield' %}
-        {% assign shield_lookup = equipment_shields | where: 'title', shield_name | first | default: false %}
-    {% else %}
-        {% assign weapon_name = item.name %}
-        {% assign weapon_lookup = equipment_weapons | where: 'title', weapon_name | first | default: false %}
-    {% endif %}
+    {% assign armour_name = item.name | replace: ' Armour', '' %}
+    {% assign armour_lookup = equipment_armour | where: 'title', armour_name | first | default: false %}
+    {% assign shield_name = item.name | replace: ' Shield', '' %}
+    {% assign shield_lookup = equipment_shields | where: 'title', shield_name | first | default: false %}
+    {% assign weapon_name = item.name %}
+    {% assign weapon_lookup = equipment_weapons | where: 'title', weapon_name | first | default: false %}
     {% if item.equipped %}
         {% if armour_lookup %}
             {% unless armour %}
@@ -52,12 +47,29 @@
                 {% assign shield = shield_lookup %}
             {% endunless %}
         {% elsif weapon_lookup %}
-            {% assign weapons = weapons | add: weapon_lookup %}
-            {% assign weapons_equipped = weapons_equipped | plus: 1 %}
+            {% if class == 'Fighter' or class == 'Rogue' %}
+                {% if weapon_lookup.class == 'Light' and weapons_equipped.size == 1 %}
+                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
+                {% elsif weapon_lookup.class == 'Light' and weapons_equipped[2].class == 'Light' and weapons_equipped.size < 3 %}
+                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
+                {% elsif weapons_equipped.size < 2 %}
+                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
+                {% else %}
+                    {% assign weapons_unequipped = weapons_unequipped | add: weapon_lookup %}
+                    {% assign too_many_weapons = true %}
+                {% endif %}
+            {% else %}
+                {% if weapons_equipped.size < 2 %}
+                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
+                {% else %}
+                    {% assign weapons_unequipped = weapons_unequipped | add: weapon_lookup %}
+                    {% assign too_many_weapons = true %}
+                {% endif %}
+            {% endif %}
         {% endif %}
     {% else %}
         {% if weapon_lookup %}
-            {% assign weapons = weapons | add: weapon_lookup %}
+            {% assign weapons_unequipped = weapons_unequipped | add: weapon_lookup %}
         {% endif %}
     {% endif %}
 {%- endfor -%}
