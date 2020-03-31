@@ -1,0 +1,28 @@
+{%- assign strength = strength_rolled | default: 10 -%}
+{%- assign dexterity = dexterity_rolled | default: 10 -%}
+{%- assign mind = mind_rolled | default: 10 -%}
+
+{%- assign strength_nobonus = strength -%}
+{%- assign dexterity_nobonus = dexterity -%}
+{%- assign mind_nobonus = mind -%}
+
+{%- assign strength_bonus = 0 -%}
+{%- assign dexterity_bonus = 0 -%}
+{%- assign mind_bonus = 0 -%}
+
+{%- comment %} Loop through Stat Bonuses based on Level {% endcomment -%}
+{%- assign stat_bonuses = stat_bonuses | default: site.emptyArray -%}
+{%- assign stat_bonus_limit = level | divided_by: 3 | floor -%}
+{%- for i in (0..stat_bonus_limit) -%}
+    {% if stat_bonuses[i] == 'STR' %}
+        {% assign strength_bonus = strength_bonus | plus: 1 %}
+    {% elsif stat_bonuses[i] == 'DEX' %}
+        {% assign dexterity_bonus = dexterity_bonus | plus: 1 %}
+    {% elsif stat_bonuses[i] == 'MIND' %}
+        {% assign mind_bonus = mind_bonus | plus: 1 %}
+    {% endif %}
+{%- endfor -%}
+
+{%- assign strength = strength | plus: strength_bonus -%}
+{%- assign dexterity = dexterity | plus: dexterity_bonus -%}
+{%- assign mind = mind | plus: mind_bonus -%}

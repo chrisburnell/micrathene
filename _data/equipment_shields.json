@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Buckler",
+    "bonus": 1,
+    "cost": 15
+  },
+  {
+    "title": "Light Wooden",
+    "nonmetal": true,
+    "bonus": 1,
+    "cost": 3
+  },
+  {
+    "title": "Light Steel",
+    "bonus": 1,
+    "cost": 9
+  },
+  {
+    "title": "Heavy Wooden",
+    "nonmetal": true,
+    "bonus": 2,
+    "cost": 7
+  },
+  {
+    "title": "Heavy Steel",
+    "bonus": 2,
+    "cost": 20
+  },
+  {
+    "title": "Tower",
+    "bonus": 4,
+    "cost": 30
+  }
+]

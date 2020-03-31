@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+:root {
+    --color-raven: #6e2c2c;
+    --color-canada: #6e2c2c;
+    --color-bowhead: #4a1d1d;
+    --color-coyote: hsl(0, 43%, 55%);
+
+    /* Darken Black (Delta) */
+    --color-black--delta: rgba(6, 6, 6, 0.3);
+
+    --color-white: #f0f0f0;
+
+    /* Swap Kaiser and Alto */
+    --color-alto-placeholder: var(--color-alto);
+    --color-kaiser-placeholder: var(--color-kaiser);
+}
+body {
+    --color-alto: var(--color-kaiser-placeholder);
+    --color-kaiser: var(--color-alto-placeholder);
+}
+
+html,
+body {
+    background-color: var(--color-mineshaft);
+    color: var(--color-white);
+}
+
+table {
+    font-weight: var(--font-weight-bold);
+}
+@media (max-width: 600px) {
+    table {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #weapons tbody th,
+    #weapons tfoot th {
+        font-size: var(--font-size-small);
+    }
+}
+
+@media (max-width: 600px) {
+    #spells tbody th {
+        max-width: 40vw !important;
+        font-size: var(--font-size-small);
+        white-space: normal;
+    }
+}
+
+p,
+.nobold {
+    font-weight: initial;
+}
+
+.stretch {
+    transition: all 0.2s ease;
+    max-width: 100%;
+}
+@media (max-width: 600px) {
+    .stretch {
+        min-width: 5.5em;
+    }
+}
+@media (min-width: 601px) {
+    .stretch {
+        min-width: 7em;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.muted {
+    color: var(--color-kaiser);
+    font-size: var(--font-size-small);
+    font-weight: initial;
+}
+
+.positive {
+    color: var(--color-liquid);
+}
+
+.negative {
+    color: var(--color-coyote);
+}
+
+.unavailable {
+    color: var(--color-dove);
+}
+
+.inline-list {
+    font-size: 0;
+}
+.inline-list li {
+    font-size: 1rem;
+    display: inline;
+}
+.inline-list li + li::before {
+    content: ", ";
+}
+
+sup {
+    font-size: 12px;
+}

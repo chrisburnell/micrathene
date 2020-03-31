@@ -1,0 +1,30 @@
+{
+  "name": "micrathene",
+  "version": "1.0.0",
+  "description": "An 11ty site for Microlite20 Characters.",
+  "main": "index.md",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve"
+  },
+  "author": "Chris Burnell <me@chrisburnell.com>",
+  "contributors": [
+    {
+      "name": "Chris Burnell",
+      "email": "me@chrisburnell.com",
+      "url": "https://chrisburnell.com",
+      "twitter": "@iamchrisburnell"
+    }
+  ],
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chrisburnell/micrathene.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisburnell/micrathene/issues"
+  }
+}

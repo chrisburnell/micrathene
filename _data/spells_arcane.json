@@ -1,0 +1,350 @@
+[
+  {
+     "level": 0,
+     "title": "Arcane Mark",
+     "description": "Inscribes a permanent personal rune (visible or invisible)."
+  },
+  {
+     "level": 0,
+     "title": "Detect Magic",
+     "description": "Detects spells and magic items within 60 ft. for up to PER_LEVEL min. or until Concentration ends.",
+     "per_level": 1
+  },
+  {
+     "level": 0,
+     "title": "Ghost Sound",
+     "description": "Figment sounds for PER_LEVEL rds.",
+     "per_level": 1
+  },
+  {
+     "level": 0,
+     "title": "Light",
+     "description": "Object shines like a torch for PER_LEVEL min.",
+     "per_level": 10
+  },
+  {
+     "level": 0,
+     "title": "Mage Hand",
+     "description": "5-pound telekinesis. Lasts until Concentration ends."
+  },
+  {
+     "level": 0,
+     "title": "Prestidigitation",
+     "description": "Performs minor tricks for 1 hrs."
+  },
+  {
+     "level": 0,
+     "title": "Read Magic",
+     "description": "Read scrolls and spellbooks for PER_LEVEL min.",
+     "per_level": 10
+  },
+  {
+     "level": 1,
+     "title": "Feather Fall",
+     "description": "Objects or creatures fall slowly for PER_LEVEL rds. or until landing.",
+     "per_level": 1
+  },
+  {
+     "level": 1,
+     "title": "Floating Disk",
+     "description": "Creates 3-ft.-diameter horizontal disk that holds PER_LEVEL lb. Lasts for PER_LEVEL_SECOND hrs.",
+     "per_level": 100,
+     "per_level_second": 1
+  },
+  {
+     "level": 1,
+     "title": "Mage Armor",
+     "description": "Gives subject +4 Armor Bonus for PER_LEVEL hrs.",
+     "per_level": 1
+  },
+  {
+     "level": 1,
+     "title": "Magic Missile",
+     "description": "PER_LEVELd4+PER_LEVEL dmg. Unerring. UNERRING.",
+     "per_level": 0.5,
+     "per_level_max": 5
+  },
+  {
+     "level": 1,
+     "title": "Sleep",
+     "description": "Puts 4 HD of creatures into magical slumber for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 1,
+     "title": "Shocking Grasp",
+     "description": "Touch delivers PER_LEVELd6 Electricity dmg.",
+     "per_level": 1,
+     "per_level_max": 5
+  },
+  {
+     "level": 2,
+     "title": "Acid Arrow",
+     "description": "Ranged Attack; 2d4 dmg. for 1 rds. + PER_LEVEL rds.",
+     "per_level": 0.33
+  },
+  {
+     "level": 2,
+     "title": "Flaming Sphere",
+     "description": "Creates rolling ball of Fire for 2d6 dmg, lasts PER_LEVEL rds.",
+     "per_level": 1
+  },
+  {
+     "level": 2,
+     "title": "Invisibility",
+     "description": "Subject is invisible for PER_LEVEL min. or until it attacks.",
+     "per_level": 1
+  },
+  {
+     "level": 2,
+     "title": "Knock",
+     "description": "Opens locked or magically sealed door."
+  },
+  {
+     "level": 2,
+     "title": "Levitate",
+     "description": "Subject moves up and down at your direction for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 2,
+     "title": "Spider Climb",
+     "description": "Grants ability to walk on walls and ceilings for PER_LEVEL min.",
+     "per_level": 10
+  },
+  {
+     "level": 3,
+     "title": "Clairaudience / Clairvoyance",
+     "description": "Hear or see at a distance for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 3,
+     "title": "Dispel Magic",
+     "description": "Cancels magical spells and effects."
+  },
+  {
+     "level": 3,
+     "title": "Fireball",
+     "description": "PER_LEVELd6 Fire dmg, 20-ft. radius.",
+     "per_level": 1
+  },
+  {
+     "level": 3,
+     "title": "Fly",
+     "description": "Subject flies at speed of 60 ft. for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 3,
+     "title": "Lightning Bolt",
+     "description": "Electricity deals PER_LEVELd6 dmg.",
+     "per_level": 1
+  },
+  {
+     "level": 3,
+     "title": "Vampiric Touch",
+     "description": "Touch deals PER_LEVELd6 dmg; Spellcaster gains damage as Temporary Hitpoints which lasts for 1 hrs.",
+     "per_level": 0.5
+  },
+  {
+     "level": 4,
+     "title": "Animate Dead",
+     "description": "Creates PER_LEVEL undead skeletons or zombies.",
+     "per_level": 1
+  },
+  {
+     "level": 4,
+     "title": "Arcane Eye",
+     "description": "Invisible floating eye moves 30 ft./round for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 4,
+     "title": "Black Tentacles",
+     "description": "Tentacles grapple all within 20 ft. spread for PER_LEVEL rds.",
+     "per_level": 1
+  },
+  {
+     "level": 4,
+     "title": "Dimension Door",
+     "description": "Teleports you short distance."
+  },
+  {
+     "level": 4,
+     "title": "Polymorph",
+     "description": "Gives one willing subject a new form for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 4,
+     "title": "Stoneskin",
+     "description": "Ignore 10 points of dmg. per attack. Lasts for PER_LEVELmin. or until discharged.",
+     "per_level": 10
+  },
+  {
+     "level": 5,
+     "title": "Cloudkill",
+     "description": "Kills 3 HD or less; 4-6 HD save or die, 6+HD take STR dmg. Lasts for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 5,
+     "title": "Contact Other Plane",
+     "description": "Lets you ask one question of extraplanar entity. Lasts until concentration ends."
+  },
+  {
+     "level": 5,
+     "title": "Feeblemind",
+     "description": "Subject’s MIND score drops to 1."
+  },
+  {
+     "level": 5,
+     "title": "Passwall",
+     "description": "Creates passage through wood or stone wall for PER_LEVEL hrs.",
+     "per_level": 1
+  },
+  {
+     "level": 5,
+     "title": "Permanency",
+     "description": "Makes certain spells permanent."
+  },
+  {
+     "level": 5,
+     "title": "Teleport",
+     "description": "Instantly transports you as far as 100 miles.",
+     "per_level": 100
+  },
+  {
+     "level": 6,
+     "title": "Antimagic Field",
+     "description": "Negates magic within 10 ft. for PER_LEVEL min.",
+     "per_level": 10
+  },
+  {
+     "level": 6,
+     "title": "Chain Lightning",
+     "description": "PER_LEVELd6 dmg; PER_LEVEL secondary bolt(s) each deals ½ dmg.",
+     "per_level": 1
+  },
+  {
+     "level": 6,
+     "title": "Contingency",
+     "description": "Sets trigger condition for another spell. Lasts for PER_LEVEL day(s) or until discharged.",
+     "per_level": 1
+  },
+  {
+     "level": 6,
+     "title": "Disintegrate",
+     "description": "Destroys one creature or object."
+  },
+  {
+     "level": 6,
+     "title": "Geas",
+     "description": "Commands any creature, binding it to a specific task. Lasts for PER_LEVEL day(s) or until discharged.",
+     "per_level": 1
+  },
+  {
+     "level": 6,
+     "title": "True Seeing",
+     "description": "Lets you see all things as they really are for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 7,
+     "title": "Delayed Blast Fireball",
+     "description": "PER_LEVELd6 fire dmg; you can postpone blast for 5 rds.",
+     "per_level": 1
+  },
+  {
+     "level": 7,
+     "title": "Ethereal Jaunt",
+     "description": "You become ethereal for PER_LEVEL rds.",
+     "per_level": 1
+  },
+  {
+     "level": 7,
+     "title": "Finger of Death",
+     "description": "Kills one subject."
+  },
+  {
+     "level": 7,
+     "title": "Plane Shift",
+     "description": "As many as eight subjects travel to another plane."
+  },
+  {
+     "level": 7,
+     "title": "Power Word Blind",
+     "description": "Blinds creature with 200 Hitpoints or less for 1d4+1 min. (permanent if creature has less than 50 Hitpoints)."
+  },
+  {
+     "level": 7,
+     "title": "Spell Turning",
+     "description": "Reflect 1d4+6 Spell Levels back at Spellcaster for PER_LEVEL min. or until expended.",
+     "per_level": 10
+  },
+  {
+     "level": 8,
+     "title": "Clone",
+     "description": "Duplicate awakens when original dies."
+  },
+  {
+     "level": 8,
+     "title": "Horrid Wilting",
+     "description": "Deals PER_LEVELd6 dmg. within 30 ft.",
+     "per_level": 1
+  },
+  {
+     "level": 8,
+     "title": "Incendiary Cloud",
+     "description": "Cloud deals 4d6 fire dmg./round for PER_LEVEL rds.",
+     "per_level": 1
+  },
+  {
+     "level": 8,
+     "title": "Irresistible Dance",
+     "description": "Forces subject to dance for 1d4+1 rds."
+  },
+  {
+     "level": 8,
+     "title": "Power Word Stun",
+     "description": "Stuns creature with 150 Hitpoints or less for 2d4 rds."
+  },
+  {
+     "level": 8,
+     "title": "Trap the Soul",
+     "description": "Imprisons subject within gem."
+  },
+  {
+     "level": 9,
+     "title": "Astral Projection",
+     "description": "Projects you and companions onto Astral Plane."
+  },
+  {
+     "level": 9,
+     "title": "Etherealness",
+     "description": "Travel to Ethereal Plane with companions for PER_LEVEL min.",
+     "per_level": 1
+  },
+  {
+     "level": 9,
+     "title": "Gate",
+     "description": "Connects two planes for travel or summoning. Open for PER_LEVEL rds.",
+     "per_level": 1
+  },
+  {
+     "level": 9,
+     "title": "Meteor Swarm",
+     "description": "4 × exploding spheres each deal 6d6 fire dmg."
+  },
+  {
+     "level": 9,
+     "title": "Power Word Kill",
+     "description": "Kills one creature with 100 Hitpoints or less."
+  },
+  {
+     "level": 9,
+     "title": "Soul Bind",
+     "description": "Traps newly dead soul to prevent resurrection."
+  }
+]

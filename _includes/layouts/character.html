@@ -1,0 +1,416 @@
+{% include calculations/level.liquid %}
+{% include calculations/stats_before.liquid %}
+{% include calculations/skills.liquid %}
+{% include calculations/races.liquid %}
+{% include calculations/classes.liquid %}
+{% include calculations/stats_after.liquid %}
+{% include calculations/combat.liquid %}
+{% include partials/header.liquid %}
+
+<main class="wrap  stretch" role="main">
+    <div class="content  content--wide" id="content" role="document">
+
+        <h1>{{ title | default: site.title }}</h1>
+
+        <div class="content__body">
+            <p class="beta  lede  lede--featured">{{ description | default: site.description }}</p>
+
+            {{ content }}
+
+            <figure id="personal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center  stretch" colspan="2">Personal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Race</th>
+                            <td class="nobold">{{ race | default: "N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Class</th>
+                            <td class="nobold">{{ class | default: "N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Level</th>
+                            <td class="nobold">{{ level }} / 20</td>
+                        </tr>
+                        <tr>
+                            <th>Proficiencies</th>
+                            <td class="nobold">
+                                <ul class="inline-list">
+                                    {% unless class %}<li>N/A</li>{% endunless %}
+                                    {% if light_armour %}<li>Light Armour</li>{% endif %}
+                                    {% if medium_armour %}<li>Medium Armour</li>{% endif %}
+                                    {% if heavy_armour %}<li>Heavy Armour</li>{% endif %}
+                                    {% if nonmetal_armour %}<li>Non-Metal Armour</li>{% endif %}
+                                    {% if shields %}<li>Shields</li>{% endif %}
+                                    {% if nonmetal_shields %}<li>Non-Metal Shields</li>{% endif %}
+                                    {% if buckler_shields %}<li>Bucklers</li>{% endif %}
+                                    {% if has_spells_arcane %}<li>Arcane Spellcasting</li>{% endif %}
+                                    {% if has_spells_divine %}<li>Divine Spellcasting</li>{% endif %}
+                                    {% if has_spells_illusionist %}<li>Illusionist Spellcasting</li>{% endif %}
+                                    {% if has_spells_druid %}<li>Druid Spellcasting</li>{% endif %}
+                                </ul>
+                            </td>
+                        </tr>
+                        {% if class_data.features %}
+                            <tr>
+                                <th>Class Features</th>
+                                <td class="nobold">
+                                    {% for feature in class_data.features %}
+                                        <div>{{ feature | replace: 'REPLACE_ONE', replace_one | replace: 'REPLACE_TWO', replace_two }}</div>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <th>Gold</th>
+                            <td class="nobold">
+                                {{ gold | default: 0 }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+
+            <figure id="stats">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center" colspan="3">Stats</th>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <!-- th class="center  stretch">Rolled</th -->
+                            <th class="center  stretch">Score</th>
+                            <!-- th class="center  stretch">R + B</th -->
+                            <th class="center  stretch">Modifier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>💪 Strength <span class="muted">(STR)</span></th>
+                            <!-- td class="center">{{ strength_rolled }}</td -->
+                            <td class="center">{{ strength }}</td>
+                            <!-- td class="center">{{ strength_nobonus }}{% if strength_bonus != 0 %} {% plusminus strength_bonus false %}{% endif %}</td -->
+                            <td class="center">{% plusminus strength_modifier %}</td>
+                        </tr>
+                        <tr>
+                            <th>💨 Dexterity <span class="muted">(DEX)</span></th>
+                            <!-- td class="center">{{ dexterity_rolled }}</td -->
+                            <td class="center">{{ dexterity }}</td>
+                            <!-- td class="center">{{ dexterity_nobonus }}{% if dexterity_bonus != 0 %} {% plusminus dexterity_bonus false %}{% endif %}</td -->
+                            <td class="center">{% plusminus dexterity_modifier %}</td>
+                        </tr>
+                        <tr>
+                            <th>🧠 Mind <span class="muted">(MIND)</span></th>
+                            <!-- td class="center">{{ mind_rolled }}</td -->
+                            <td class="center">{{ mind }}</td>
+                            <!-- td class="center">{{ mind_nobonus }}{% if mind_bonus != 0 %} {% plusminus mind_bonus false %}{% endif %}</td -->
+                            <td class="center">{% plusminus mind_modifier %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+
+            <figure id="skills">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center" colspan="2">Skills</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>🗣 Communication</th>
+                            <td class="center  stretch">{% plusminus communication %}</td>
+                        </tr>
+                        <tr>
+                            <th>📖 Knowledge</th>
+                            <td class="center  stretch">{% plusminus knowledge %}</td>
+                        </tr>
+                        <tr>
+                            <th>🏃‍♂️ Physical</th>
+                            <td class="center  stretch">{% plusminus physical %}</td>
+                        </tr>
+                        <tr>
+                            <th>🔎 Subterfuge</th>
+                            <td class="center  stretch">{% plusminus subterfuge %}</td>
+                        </tr>
+                        <tr>
+                            <th>🍃 Survival</th>
+                            <td class="center  stretch">{% plusminus survival %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+
+            <figure id="combat">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center  stretch" colspan="2">Combat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="stretch">❤️ HP <span class="muted">(Hitpoints{% if temporary_hitpoints > 0 %} + Temp{% endif %})</span></th>
+                            {% if hitpoints > hitpoints_max_quarter %}
+                                <td class="center  stretch">{{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}</td>
+                            {% elsif hitpoints > 1 %}
+                                <td class="center  stretch  negative">
+                                    {{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
+                                    <br>
+                                    <small>Cutting it close!</small>
+                                </td>
+                                <style>
+                                    body {
+                                        background-color: #fff2f2;
+                                    }
+                                </style>
+                            {% elsif hitpoints > 0 %}
+                                <td class="center  stretch  negative">
+                                    {{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
+                                    <br>
+                                    <small>About to rely on STR for {{ strength_modifier }} HP!</small>
+                                </td>
+                                <style>
+                                    body {
+                                        background-color: #fff8f8;
+                                    }
+                                </style>
+                            {% elsif hitpoints_laststand > 0 %}
+                                <td class="center  stretch  negative">
+                                    {{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %} {% plusminus hitpoints_laststand false %}
+                                    <br>
+                                    <small>Unconscious and surviving on STR alone!</small>
+                                </td>
+                                <style>
+                                    body {
+                                        background-color: #ffdddd;
+                                    }
+                                </style>
+                            {% else %}
+                                <td class="center  stretch  negative">
+                                    DEAD
+                                </td>
+                                <style>
+                                    body {
+                                        background-color: #ffbbbb;
+                                    }
+                                </style>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th class="stretch">🛡 AC <span class="muted">(Armour Class)</span></th>
+                            <td class="center  stretch">{{ armour_class }}</td>
+                        </tr>
+                        <tr><th> </th><td></td></tr>
+                        <tr>
+                            <th class="stretch">🎲 Melee <span class="muted">Attack Bonus</span></th>
+                            <td class="center  stretch">{% plusminus attack_melee %}</td>
+                        </tr>
+                        <tr>
+                            <th class="stretch">⚔️ Melee <span class="muted">Damage Bonus</span></th>
+                            <td class="center  stretch">{% plusminus damage_bonus_melee %}</td>
+                        </tr>
+                        <tr><th> </th><td></td></tr>
+                        <tr>
+                            <th class="stretch">🎲 Ranged <span class="muted">Attack Bonus</span></th>
+                            <td class="center  stretch">{% plusminus attack_ranged %}</td>
+                        </tr>
+                        <tr>
+                            <th class="stretch">🏹 Ranged <span class="muted">Damage Bonus</span></th>
+                            <td class="center  stretch">{% plusminus damage_bonus_ranged %}</td>
+                        </tr>
+                        {% if spells %}
+                            <tr><th> </th><td></td></tr>
+                            <tr>
+                                <th class="stretch">🎲 Spell <span class="muted">Attack Bonus</span></th>
+                                <td class="center  stretch">{% plusminus attack_magic %}</td>
+                            </tr>
+                            <tr>
+                                <th class="stretch">✨ Spell <span class="muted">Difficulty Class</span></th>
+                                <td class="center  stretch">{{ magic_dc }}</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </figure>
+
+            <!-- {{ armour }} -->
+            {% if armour or shield %}
+                <figure id="armour">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="center  stretch" colspan="3">Armoury</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if armour %}
+                                <tr>
+                                    <th class="stretch">
+                                        {{ armour.title | replace: 'Mage', 'Mage Armour' }}
+                                    </th>
+                                    <td class="stretch">
+                                        {{ armour.class | append: ' Armour' | replace: 'Magic Armour', 'Magic' }}
+                                    </td>
+                                    <td class="center  stretch">
+                                        {% plusminus armour.bonus false %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            {% if shield %}
+                                <tr>
+                                    <th class="stretch">
+                                        {{ shield.title }}
+                                    </th>
+                                    <td class="stretch">
+                                        Shield
+                                    </td>
+                                    <td class="center  stretch">
+                                        {% plusminus shield.bonus false %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </figure>
+            {% endif %}
+
+            <figure id="weapons">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center  stretch" colspan="4">Weapons</th>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <th class="center  stretch">Range</th>
+                            <th class="center  stretch">Attack</th>
+                            <th class="center  stretch">Damage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% comment %} For <tfoot> notice {% endcomment %}
+                        {%- assign non_ranged_range_weapon = false -%}
+                        {% for weapon in weapons %}
+                            {%- if weapon.range and non_ranged_range_weapon == false -%}
+                                {% assign non_ranged_range_weapon = true %}
+                            {%- endif -%}
+                            <tr{% if forloop.index > weapons_equipped %} class="unavailable"{% endif %}>
+                                <th class="stretch">
+                                    {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
+                                </th>
+                                <td class="center  stretch">
+                                    {% if weapon.range %}
+                                        {{ weapon.range }} ft.
+                                    {% else %}
+                                        —
+                                    {% endif %}
+                                </td>
+                                <td class="center  stretch">
+                                    {% if weapon.class == "Ranged" %}
+                                        {% plusminus attack_ranged false %}
+                                    {% elsif weapon.range %}
+                                        {% plusminus attack_melee false %}
+                                        {% unless attack_melee == attack_ranged %}
+                                            / {% plusminus attack_ranged false %}
+                                        {% endunless %}
+                                    {% else %}
+                                        {% plusminus attack_melee false %}
+                                    {% endif %}
+                                </td>
+                                <td class="center  stretch  mono">
+                                    {% if weapon.damage == null %}
+                                        —
+                                    {% elsif weapon.class == "Ranged" %}
+                                        {{ weapon.damage }}
+                                        {% if damage_bonus_ranged > 0 or damage_bonus_ranged < 0 %}
+                                            {% plusminus damage_bonus_ranged false %}
+                                        {% endif %}
+                                    {% elsif weapon.range %}
+                                        {{ weapon.damage }}
+                                        {% if damage_bonus_melee > 0 or damage_bonus_melee < 0 %}
+                                            {% plusminus damage_bonus_melee false %}
+                                            / {{ weapon.damage }}
+                                            {% if damage_bonus_ranged > 0 or damage_bonus_ranged < 0 %}
+                                                {% plusminus damage_bonus_ranged false %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {{ weapon.damage }}
+                                        {% if damage_bonus_melee > 0 or damage_bonus_melee < 0 %}
+                                            {% plusminus damage_bonus_melee false %}
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    {% if non_ranged_range_weapon %}
+                        <tfoot>
+                            <tr>
+                                <th class="nobold" colspan="4">† Designates a weapon as both Melee and Ranged.</th>
+                            </tr>
+                        </tfoot>
+                    {% endif %}
+                </table>
+            </figure>
+
+            {% if spells %}
+                <figure id="spells">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="center  stretch" colspan="2">Spells</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for spell in spells %}
+                                {% unless spell.level > magic_level %}
+                                    {% assign discount = 0 %}
+                                    {%- if spell_level != spell.level -%}
+                                        {% assign spell_level = spell.level %}
+                                        {% assign discount_taken_for_level = false %}
+                                    {%- endif -%}
+                                    {%- assign per_level = spell.per_level | times: level | ceil -%}
+                                    {%- if spell.per_level_max -%}
+                                        {% assign per_level = per_level | at_most: spell.per_level_max %}
+                                    {%- endif -%}
+                                    {%- assign per_level_second = spell.per_level_second | times: level | ceil -%}
+                                    {%- if spell.per_level_second_max -%}
+                                        {% assign per_level_second = per_level_second | at_most: spell.per_level_second_max %}
+                                    {%- endif -%}
+                                    {%- if spell_specialisations contains spell.title and discount_taken_for_level != true -%}
+                                        {% assign discount = 1 %}
+                                        {% assign discount_taken_for_level = true %}
+                                    {%- endif -%}
+                                    <tr>
+                                        <th class="stretch{% if discount > 0 %}  positive{% endif %}">
+                                            <small>{{ spell.level }}.</small> {{ spell.title }}
+                                        </th>
+                                        <td class="stretch">
+                                            <p style="max-width: 24em">
+                                                <span class="muted{% if discount > 0 %}  positive{% endif %}">Hitpoints Cost:</span> <strong{% if discount > 0 %} class="positive"{% endif %}>{{ spell.level | times: 2 | plus: 1 | minus: discount }}{% if discount > 0 %} <small>✨ Specialisation</small>{% endif %}</strong>
+                                                <br>
+                                                <small>{{ spell.description | replace: 'PER_LEVEL_SECOND_MAX', per_level_second_max | replace: 'PER_LEVEL_MAX', per_level_max | replace: 'PER_LEVEL_SECOND', per_level_second | replace: 'PER_LEVEL', per_level }}</small>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                {% endunless %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </figure>
+            {% endif %}
+        </div>
+
+    </div>
+</main>
+
+{% include partials/footer.liquid %}

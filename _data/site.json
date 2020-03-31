@@ -1,0 +1,18 @@
+{
+  "title": "Micrathene",
+  "title_short": "Micrathene",
+  "description": "An 11ty site for Microlite20 Characters.",
+  "url": "https://micrathene.chrisburnell.com",
+  "repo": "http://github.com/chrisburnell/micrathene",
+  "locale": "en_GB",
+  "timezone": "Europe/London",
+  "authors": [
+    {
+      "name": "Chris Burnell",
+      "github": "chrisburnell",
+      "twitter": "iamchrisburnell",
+      "pgp": "9604F098260A0057"
+    }
+  ],
+  "emptyArray": []
+}

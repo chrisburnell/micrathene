@@ -1,0 +1,302 @@
+[
+  {
+     "level": 0,
+     "title": "Create Water",
+     "description": "Creates 2 gallons/level of pure water."
+  },
+  {
+     "level": 0,
+     "title": "Guidance",
+     "description": "+1 on one attack roll, saving throw, or skill check. Lasts for 1 min. or until discharged."
+  },
+  {
+     "level": 0,
+     "title": "Light",
+     "description": "Object shines like a torch for 10 min./level."
+  },
+  {
+     "level": 0,
+     "title": "Purify Food and Drink",
+     "description": "Purifies 1 cu. ft./level of food or water."
+  },
+  {
+     "level": 0,
+     "title": "Resistance",
+     "description": "Subject gains +1 on saving throws for 1 minute."
+  },
+  {
+     "level": 0,
+     "title": "Virtue",
+     "description": "Subject gains 1 temporary hp for 1 minute."
+  },
+  {
+     "level": 1,
+     "title": "Bless",
+     "description": "Allies gain +1 on attack rolls and communication +MIND checks against fear for 1 min./level."
+  },
+  {
+     "level": 1,
+     "title": "Bless Water",
+     "description": "Makes holy water."
+  },
+  {
+     "level": 1,
+     "title": "Cure Light Wounds",
+     "description": "Cures 1d8 damage +1/level (max +5)."
+  },
+  {
+     "level": 1,
+     "title": "Divine Favor",
+     "description": "You gain +1 per three levels on attack and damage rolls for 1 minute."
+  },
+  {
+     "level": 1,
+     "title": "Magic Stone",
+     "description": "Three stones gain +1 on attack, deal 1d6+1 damage. Lasts for 30 minutes or until discharged."
+  },
+  {
+     "level": 1,
+     "title": "Shield of Faith",
+     "description": "Aura grants +2 or higher AC bonus for 1 min./level."
+  },
+  {
+     "level": 2,
+     "title": "Aid",
+     "description": "+1 on attack rolls and saves against fear, 1d8 temporary hp+1/level (max +10)."
+  },
+  {
+     "level": 2,
+     "title": "Cure Moderate Wounds",
+     "description": "Cures 2d8 damage +1/level (max+10)."
+  },
+  {
+     "level": 2,
+     "title": "Delay Poison",
+     "description": "Stops poison from harming subject for 1"
+  },
+  {
+     "level": 2,
+     "title": "Gentle Repose",
+     "description": "Preserves one corpse."
+  },
+  {
+     "level": 2,
+     "title": "Remove Paralysis",
+     "description": "Frees one or more creatures from paralysis or slow effect."
+  },
+  {
+     "level": 2,
+     "title": "Restoration, Lesser",
+     "description": "Dispels magical ability penalty or repairs 1d4 ability damage."
+  },
+  {
+     "level": 3,
+     "title": "Create Food and Water",
+     "description": "Feeds three humans (or one horse)/level."
+  },
+  {
+     "level": 3,
+     "title": "Cure Serious Wounds",
+     "description": "Cures 3d8 damage +1/level (max+15)."
+  },
+  {
+     "level": 3,
+     "title": "Prayer",
+     "description": "Allies get a +1 bonus on most rolls, enemies take a –1penalty for 1 round/level."
+  },
+  {
+     "level": 3,
+     "title": "Remove Disease",
+     "description": "Cures all diseases affecting subject."
+  },
+  {
+     "level": 3,
+     "title": "Searing Light",
+     "description": "Ray deals 1d8/two levels damage, or 1d8/level against undead."
+  },
+  {
+     "level": 3,
+     "title": "Speak with Dead",
+     "description": "Corpse answers one question/two levels. Lasts for 1 min./level."
+  },
+  {
+     "level": 4,
+     "title": "Cure Critical Wounds",
+     "description": "Cures 4d8 damage +1/level (max+20)."
+  },
+  {
+     "level": 4,
+     "title": "Discern Lies",
+     "description": "Reveals deliberate falsehoods for 1 round/level or until concentration ends."
+  },
+  {
+     "level": 4,
+     "title": "Freedom of Movement",
+     "description": "Subject moves normally despite impediments for 10 min./level."
+  },
+  {
+     "level": 4,
+     "title": "Neutralize Poison",
+     "description": "Immunizes subject against poison for 10 min./level, detoxifies venom in or on subject."
+  },
+  {
+     "level": 4,
+     "title": "Restoration",
+     "description": "Restores level and ability score drains."
+  },
+  {
+     "level": 4,
+     "title": "Tongues",
+     "description": "Speak any language for 10 min./level."
+  },
+  {
+     "level": 5,
+     "title": "Atonement",
+     "description": "Removes burden of misdeeds from subject."
+  },
+  {
+     "level": 5,
+     "title": "Commune",
+     "description": "Deity answers one yes-or-no question/level. Lasts for 1 round/level"
+  },
+  {
+     "level": 5,
+     "title": "Cure Light Wounds, Mass",
+     "description": "Cures 1d8 damage +1/level for many creatures."
+  },
+  {
+     "level": 5,
+     "title": "Flame Strike",
+     "description": "Smite foes with divine fire (1d6/level damage)."
+  },
+  {
+     "level": 5,
+     "title": "Raise Dead",
+     "description": "Restores life to subject who died as long as 1 day/level ago."
+  },
+  {
+     "level": 5,
+     "title": "True Seeing",
+     "description": "Lets you see all things as they really are for 1 min./level."
+  },
+  {
+     "level": 6,
+     "title": "Banishment",
+     "description": "Banishes 2 HD/level of extraplanar creatures."
+  },
+  {
+     "level": 6,
+     "title": "Cure Moderate Wounds, Mass",
+     "description": "Cures 2d8 damage +1/level for many creatures."
+  },
+  {
+     "level": 6,
+     "title": "Harm",
+     "description": "Deals 10 points/level damage to target."
+  },
+  {
+     "level": 6,
+     "title": "Heal",
+     "description": "Cures 10 points/level of damage, all diseases and mental conditions."
+  },
+  {
+     "level": 6,
+     "title": "Heroes’ Feast",
+     "description": "Food for one creature/level cures disease and grants +1 combat bonus for 12 hours. Lasts for 1 hour."
+  },
+  {
+     "level": 6,
+     "title": "Quest",
+     "description": "Commands any creature, binding it to a specific task. Lasts for 1 day/level or until discharged."
+  },
+  {
+     "level": 7,
+     "title": "Cure Serious Wounds, Mass",
+     "description": "Cures 3d8 damage +1/level for many creatures."
+  },
+  {
+     "level": 7,
+     "title": "Destruction",
+     "description": "Kills subject and destroys remains."
+  },
+  {
+     "level": 7,
+     "title": "Ethereal Jaunt",
+     "description": "You become ethereal for 1 round/level."
+  },
+  {
+     "level": 7,
+     "title": "Regenerate",
+     "description": "Subject’s severed limbs grow back, cures 4d8 damage +1/level (max +35)."
+  },
+  {
+     "level": 7,
+     "title": "Restoration, Greater",
+     "description": "As restoration, plus restores all levels and ability scores."
+  },
+  {
+     "level": 7,
+     "title": "Resurrection",
+     "description": "Fully restores a dead subject from a small portion of the corpse."
+  },
+  {
+     "level": 8,
+     "title": "Antimagic Field",
+     "description": "Negates magic within 10 ft. for 10 min./level."
+  },
+  {
+     "level": 8,
+     "title": "Cure Critical Wounds, Mass",
+     "description": "Cures 4d8 damage +1/level for many creatures."
+  },
+  {
+     "level": 8,
+     "title": "Dimensional Lock",
+     "description": "Teleportation and interplanar travel blocked for 1 day/level."
+  },
+  {
+     "level": 8,
+     "title": "Discern Location",
+     "description": "Reveals exact loc of creat or object."
+  },
+  {
+     "level": 8,
+     "title": "Fire Storm",
+     "description": "Deals 1d6/level fire damage."
+  },
+  {
+     "level": 8,
+     "title": "Holy Aura",
+     "description": "+4 to AC, +4 resistance, and SR 25 against evil spells for 1 round/level."
+  },
+  {
+     "level": 9,
+     "title": "Astral Projection",
+     "description": "Projects you and companions onto Astral Plane."
+  },
+  {
+     "level": 9,
+     "title": "Etherealness",
+     "description": "Travel to Ethereal Plane with companions for 1min./level."
+  },
+  {
+     "level": 9,
+     "title": "Gate",
+     "description": "Connects two planes for travel or summoning. Open for 1round/level."
+  },
+  {
+     "level": 9,
+     "title": "Heal, Mass",
+     "description": "As heal, but with several subjects."
+  },
+  {
+     "level": 9,
+     "title": "Implosion",
+     "description": "Kills one creature/round for 4 rounds or until concentration ends."
+  },
+  {
+     "level": 9,
+     "title": "Soul Bind",
+     "description": "Traps newly dead soul to prevent resurrection."
+  }
+]

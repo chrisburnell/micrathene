@@ -1,0 +1,300 @@
+[
+  {
+    "title": "Unarmed Strike",
+    "damage": "1d3"
+  },
+  {
+    "title": "Throwing Axe",
+    "class": "Light",
+    "damage": "1d6",
+    "range": 10,
+    "cost": 8
+  },
+  {
+    "title": "Dagger",
+    "class": "Light",
+    "damage": "1d4",
+    "range": 10,
+    "cost": 2
+  },
+  {
+    "title": "Light Hammer",
+    "class": "Light",
+    "damage": "1d6",
+    "range": 20,
+    "cost": 1
+  },
+  {
+    "title": "Handaxe",
+    "class": "Light",
+    "damage": "1d4",
+    "cost": 6
+  },
+  {
+    "title": "Light Mace",
+    "class": "Light",
+    "damage": "1d6",
+    "cost": 5
+  },
+  {
+    "title": "Light Pick",
+    "class": "Light",
+    "damage": "1d4",
+    "cost": 4
+  },
+  {
+    "title": "Sap",
+    "class": "Light",
+    "damage": "1d6",
+    "cost": 1
+  },
+  {
+    "title": "Sickle",
+    "class": "Light",
+    "damage": "1d6",
+    "cost": 6
+  },
+  {
+    "title": "Short Sword",
+    "class": "Light",
+    "damage": "1d6",
+    "cost": 10
+  },
+  {
+    "title": "Rapier",
+    "class": "Light",
+    "damage": "1d6",
+    "cost": 60
+  },
+  {
+    "title": "Battleaxe",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "cost": 10
+  },
+  {
+    "title": "Club",
+    "class": "One-Handed",
+    "damage": "1d6",
+    "range": 10
+  },
+  {
+    "title": "Flail",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "cost": 8
+  },
+  {
+    "title": "Longsword",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "cost": 15
+  },
+  {
+    "title": "Heavy Mace",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "cost": 12
+  },
+  {
+    "title": "Morningstar",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "cost": 8
+  },
+  {
+    "title": "Heavy Pick",
+    "class": "One-Handed",
+    "damage": "1d6",
+    "cost": 8
+  },
+  {
+    "title": "Scimitar",
+    "class": "One-Handed",
+    "damage": "1d6",
+    "cost": 15
+  },
+  {
+    "title": "Shortspear",
+    "class": "One-Handed",
+    "damage": "1d6",
+    "range": 20,
+    "cost": 1
+  },
+  {
+    "title": "Bastard Sword",
+    "class": "One-Handed",
+    "damage": "1d10",
+    "cost": 35
+  },
+  {
+    "title": "Trident",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "range": 10,
+    "cost": 15
+  },
+  {
+    "title": "Dwarven Waraxe",
+    "class": "One-Handed",
+    "damage": "1d10",
+    "cost": 30
+  },
+  {
+    "title": "Warhammer",
+    "class": "One-Handed",
+    "damage": "1d8",
+    "cost": 12
+  },
+  {
+    "title": "Whip",
+    "class": "One-Handed",
+    "damage": "1d3",
+    "cost": 1
+  },
+  {
+    "title": "Spiked Chain",
+    "class": "Two-Handed",
+    "damage": "2d4",
+    "cost": 25
+  },
+  {
+    "title": "Falchion",
+    "class": "Two-Handed",
+    "damage": "1d6",
+    "cost": 75
+  },
+  {
+    "title": "Heavy Flail",
+    "class": "Two-Handed",
+    "damage": "1d8",
+    "cost": 15
+  },
+  {
+    "title": "Glaive",
+    "class": "Two-Handed",
+    "damage": "1d8",
+    "cost": 8
+  },
+  {
+    "title": "Greataxe",
+    "class": "Two-Handed",
+    "damage": "1d10",
+    "cost": 20
+  },
+  {
+    "title": "Greatclub",
+    "class": "Two-Handed",
+    "damage": "1d8",
+    "cost": 5
+  },
+  {
+    "title": "Greatsword",
+    "class": "Two-Handed",
+    "damage": "2d6",
+    "cost": 50
+  },
+  {
+    "title": "Guisarme",
+    "class": "Two-Handed",
+    "damage": "2d4",
+    "cost": 9
+  },
+  {
+    "title": "Halberd",
+    "class": "Two-Handed",
+    "damage": "1d10",
+    "cost": 10
+  },
+  {
+    "title": "Lance",
+    "class": "Two-Handed",
+    "damage": "1d8",
+    "cost": 10
+  },
+  {
+    "title": "Longspear",
+    "class": "Two-Handed",
+    "damage": "1d8",
+    "cost": 5
+  },
+  {
+    "title": "Quarterstaff",
+    "class": "Two-Handed",
+    "damage": "1d6"
+  },
+  {
+    "title": "Scythe",
+    "class": "Two-Handed",
+    "damage": "2d4",
+    "cost": 18
+  },
+  {
+    "title": "Spear",
+    "class": "Two-Handed",
+    "damage": "1d8",
+    "range": 20,
+    "cost": 2
+  },
+  {
+    "title": "Hand Crossbow",
+    "class": "Ranged",
+    "damage": "1d4",
+    "range": 30,
+    "cost": 100
+  },
+  {
+    "title": "Heavy Crossbow",
+    "class": "Ranged",
+    "damage": "1d10",
+    "range": 120,
+    "cost": 50
+  },
+  {
+    "title": "Light Crossbow",
+    "class": "Ranged",
+    "damage": "1d8",
+    "range": 80,
+    "cost": 35
+  },
+  {
+    "title": "Dart",
+    "class": "Ranged",
+    "damage": "1d4",
+    "range": 20,
+    "cost": 0.05
+  },
+  {
+    "title": "Javelin",
+    "class": "Ranged",
+    "damage": "1d6",
+    "range": 30,
+    "cost": 1
+  },
+  {
+    "title": "Longbow",
+    "class": "Ranged",
+    "damage": "1d8",
+    "range": 100,
+    "cost": 75
+  },
+  {
+    "title": "Net",
+    "class": "Ranged",
+    "range": 10,
+    "cost": 20
+  },
+  {
+    "title": "Shortbow",
+    "class": "Ranged",
+    "damage": "1d6",
+    "range": 60,
+    "cost": 30
+  },
+  {
+    "title": "Sling",
+    "class": "Ranged",
+    "damage": "1d4",
+    "range": 50
+  }
+]

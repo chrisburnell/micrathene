@@ -1,0 +1,17 @@
+{% include partials/header.liquid %}
+
+<main class="wrap  stretch" role="main">
+    <div class="content  content--wide" id="content" role="document">
+
+        <h1>{{ title | default: site.title }}</h1>
+
+        <div class="content__body">
+            <p class="beta  lede  lede--featured">{{ description | default: site.description }}</p>
+
+            {{ content }}
+        </div>
+
+    </div>
+</main>
+
+{% include partials/footer.liquid %}

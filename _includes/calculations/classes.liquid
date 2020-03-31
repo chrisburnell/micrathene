@@ -1,0 +1,44 @@
+{%- assign class_data = classes | where: 'title', class | first -%}
+
+{%- assign communication = class_data.communication_bonus | default: 0 | plus: communication -%}
+{%- assign knowledge = class_data.knowledge_bonus | default: 0 | plus: knowledge -%}
+{%- assign physical = class_data.physical_bonus | default: 0 | plus: physical -%}
+{%- assign subterfuge = class_data.subterfuge_bonus | default: 0 | plus: subterfuge -%}
+{%- assign survival = class_data.survival_bonus | default: 0 | plus: survival -%}
+
+{%- assign light_armour = class_data.light_armour | default: false -%}
+{%- assign medium_armour = class_data.medium_armour | default: false -%}
+{%- assign heavy_armour = class_data.heavy_armour | default: false -%}
+{%- assign nonmetal_armour = class_data.nonmetal_armour | default: false -%}
+
+{%- assign shields = class_data.shields | default: false -%}
+{%- assign buckler_shields = class_data.buckler_shields | default: false -%}
+{%- assign nonmetal_shields = class_data.nonmetal_shields | default: false -%}
+
+{%- assign has_spells_arcane = class_data.arcane_spells | default: false -%}
+{%- assign has_spells_divine = class_data.divine_spells | default: false -%}
+{%- assign has_spells_illusionist = class_data.illusionist_spells | default: false -%}
+{%- assign has_spells_druid = class_data.druid_spells | default: false -%}
+
+{%- if class == 'Bard' and level >= 6 -%}
+    {% assign magic_level = level | minus: 5 | divided_by: 2 | ceil %}
+    {% if bard_spell_list == 'Arcane' %}
+        {%- assign has_spells_arcane = true -%}
+    {% elsif bard_spell_list == 'Divine' %}
+        {%- assign has_spells_divine = true -%}
+    {% elsif bard_spell_list == 'Illusionist' %}
+        {%- assign has_spells_illusionist = true -%}
+    {% elsif bard_spell_list == 'Druid' %}
+        {%- assign has_spells_druid = true -%}
+    {% endif %}
+{%- endif -%}
+
+{%- if has_spells_arcane -%}
+    {% assign spells = spells_arcane %}
+{%- elsif has_spells_divine -%}
+    {% assign spells = spells_divine %}
+{%- elsif has_spells_illusionistt -%}
+    {% assign spells = spells_illusionist %}
+{%- elsif has_spells_druid -%}
+    {% assign spells = spells_druid %}
+{%- endif -%}

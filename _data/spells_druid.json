@@ -1,0 +1,242 @@
+[
+  {
+     "level": 0,
+     "title": "Create Water",
+     "description": "Creates 2 gallons/level of pure water."
+  },
+  {
+     "level": 0,
+     "title": "Detect Magic",
+     "description": "Detects spells and magic items within 60’ for 1 minute per level."
+  },
+  {
+     "level": 0,
+     "title": "Detect Poison",
+     "description": "Detects poison in one creature or object."
+  },
+  {
+     "level": 0,
+     "title": "Mending",
+     "description": "Makes minor repairs on an object."
+  },
+  {
+     "level": 0,
+     "title": "Read Magic",
+     "description": "Read scrolls and spellbooks."
+  },
+  {
+     "level": 0,
+     "title": "Resistance",
+     "description": "Subject gains +1 on saving throws for 1 minute."
+  },
+  {
+     "level": 1,
+     "title": "Entangle",
+     "description": "Plants entangle everyone in 40’ radius for 1 minute/level."
+  },
+  {
+     "level": 1,
+     "title": "Faerie Fire",
+     "description": "Outlines subjects with light for 1 minute/level, cancels blur, invisibility, etc."
+  },
+  {
+     "level": 1,
+     "title": "Goodberry",
+     "description": "2d4 berries each cure 1 hp (max 8 hp/24 hours)."
+  },
+  {
+     "level": 1,
+     "title": "Obscuring Mist",
+     "description": "Fog surrounds you, provides concealment for 1 minute/level"
+  },
+  {
+     "level": 1,
+     "title": "Produce Flame",
+     "description": "1d6 damage +1/level, touch or thrown."
+  },
+  {
+     "level": 1,
+     "title": "Speak with Animals",
+     "description": "You can communicate with animals for 1min/level."
+  },
+  {
+     "level": 2,
+     "title": "Barkskin",
+     "description": "Grants +2 or higher bonus to AC for for 10min/level."
+  },
+  {
+     "level": 2,
+     "title": "Gust of Wind",
+     "description": "Blows away or knocks down smaller creatures."
+  },
+  {
+     "level": 2,
+     "title": "Heat Metal",
+     "description": "Makes metal so hot it damages those who touch it"
+  },
+  {
+     "level": 2,
+     "title": "Summon Swarm",
+     "description": "Summons swarm of bats, rats, or spiders for concentration plus 2 rounds"
+  },
+  {
+     "level": 2,
+     "title": "Tree Shape",
+     "description": "You look exactly like a tree for 1hour/level."
+  },
+  {
+     "level": 2,
+     "title": "Warp Wood",
+     "description": "Bends wood within 20’ radius."
+  },
+  {
+     "level": 3,
+     "title": "Call Lightning",
+     "description": "Calls down 3d6-damage lightning bolts from the sky once per round for 1min/level."
+  },
+  {
+     "level": 3,
+     "title": "Protection from Energy",
+     "description": "Absorb 12 points/level of damage from one kind of energy for 10min/level."
+  },
+  {
+     "level": 3,
+     "title": "Speak with Plants",
+     "description": "You can talk to normal plants and plant creatures for 1min/level."
+  },
+  {
+     "level": 3,
+     "title": "Spike Growth",
+     "description": "For 1hr/level, creatures in area take d4 damage per 5’ movement, may be slowed."
+  },
+  {
+     "level": 3,
+     "title": "Stone Shape",
+     "description": "Sculpts stone into any shape."
+  },
+  {
+     "level": 3,
+     "title": "Water Breathing",
+     "description": "Subjects can breathe under water for 2 hours/level divided by number of subjects."
+  },
+  {
+     "level": 4,
+     "title": "Air Walk",
+     "description": "Subject treads on air for 10min/level"
+  },
+  {
+     "level": 4,
+     "title": "Anti-Plant Shell",
+     "description": "Keeps animated plants at bay for 10min/level, 10’ radius."
+  },
+  {
+     "level": 4,
+     "title": "Ice Storm",
+     "description": "Hail does 5d6 damage in cylinder 40’ across"
+  },
+  {
+     "level": 4,
+     "title": "Reincarnate",
+     "description": "Brings dead subject back in random body."
+  },
+  {
+     "level": 4,
+     "title": "Repel Vermin",
+     "description": "Insects, spiders, and other vermin stay 10’ away for 10min/level."
+  },
+  {
+     "level": 4,
+     "title": "Spike Stones",
+     "description": "Creatures in area take 1d8 damage, may be slowed."
+  },
+  {
+     "level": 5,
+     "title": "Awaken",
+     "description": "Animal or Tree gains human intellect."
+  },
+  {
+     "level": 5,
+     "title": "Baleful Polymorph",
+     "description": "Transforms subject into harmless animal."
+  },
+  {
+     "level": 5,
+     "title": "Call Lightning Storm",
+     "description": "As call lightning, but does 5d6 per bolt."
+  },
+  {
+     "level": 5,
+     "title": "Insect Plague",
+     "description": "Up to 6 Locust Swarms attack creatures for 1min/level."
+  },
+  {
+     "level": 5,
+     "title": "Transmute Rock to Mud",
+     "description": "Transforms 2 10’ cubes per level."
+  },
+  {
+     "level": 5,
+     "title": "Wall of Fire",
+     "description": "Deals 2d4 fire damage out to 10 ft. and 1d4 out to 20 ft. Passing through wall deals 2d6 damage +1/level."
+  },
+  {
+     "level": 6,
+     "title": "Fire Seeds",
+     "description": "Creates Acorn Grenades (1d6 fire dmg/lvl divided among up to 4 seeds) that explode in a 10’ radius and ignite combustibles."
+  },
+  {
+     "level": 6,
+     "title": "LiveOak",
+     "description": "Oak becomes treant guardian."
+  },
+  {
+     "level": 6,
+     "title": "Move Earth",
+     "description": "Digs trenches and builds hills, in an area up to 750’ square and 10’ deep."
+  },
+  {
+     "level": 6,
+     "title": "Stone Tell",
+     "description": "Talk to natural or worked stone for 1min/lvl."
+  },
+  {
+     "level": 6,
+     "title": "Transport via Plants",
+     "description": "Move instantly from one plant to another of its type anywhere."
+  },
+  {
+     "level": 6,
+     "title": "Wall of Stone",
+     "description": "Creates a wall of stone that can be shaped."
+  },
+  {
+     "level": 7,
+     "title": "Changestaff",
+     "description": "Your staff becomes a treant on command."
+  },
+  {
+     "level": 7,
+     "title": "Control Weather",
+     "description": "Changes weather in local area."
+  },
+  {
+     "level": 7,
+     "title": "Earthquake",
+     "description": "Intense tremor shakes 80’ radius, collapsing ceilings, opening fissures, etc."
+  },
+  {
+     "level": 7,
+     "title": "Finger of Death",
+     "description": "Kills one subject."
+  },
+  {
+     "level": 7,
+     "title": "Fire Storm",
+     "description": "Does 1d6/lvl fire damage to 2 10’ cubes per level."
+  },
+  {
+     "level": 7,
+     "title": "Wind Walk",
+     "description": "You and your allies turn vaporous and travel at up to 60mph for 1 hour/level."
+  }
+]

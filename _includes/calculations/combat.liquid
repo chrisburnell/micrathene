@@ -1,0 +1,140 @@
+{%- comment %} HP = Strength + (Level × 1d6) {% endcomment -%}
+{%- assign hitpoints_data = hitpoints | default: site.emptyArray -%}
+{%- if hitpoints_data.size == 0 -%}
+    {% assign hitpoints_data = site.emptyArray | push: 6 %}
+{%- endif -%}
+{%- assign hitpoints = 0 -%}
+{%- for hitpoint in hitpoints_data -%}
+    {% if forloop.first %}
+        {% assign hitpoints = 6 | plus: hitpoints %}
+    {% else %}
+        {% assign hitpoints = hitpoint | at_most: 6 | plus: hitpoints %}
+    {% endif %}
+{%- endfor -%}
+{%- assign hitpoints_max = hitpoints | plus: strength -%}
+{%- assign hitpoints_max_quarter = hitpoints_max | divided_by: 4 | ceil -%}
+{%- assign hitpoints_lost = hitpoints_lost | default: 0 | at_least: 0 -%}
+{%- assign temp_hitpoints = temporary_hitpoints | default: 0 | at_least: 0 -%}
+{%- assign overflow_hitpoints = temp_hitpoints | minus: hitpoints_lost | at_most: 0 | abs -%}
+{%- assign temp_hitpoints = temp_hitpoints | minus: hitpoints_lost | at_least: 0 -%}
+{%- assign hitpoints = hitpoints_max | minus: overflow_hitpoints -%}
+{%- assign hitpoints_laststand = hitpoints | plus: strength_modifier -%}
+
+{% comment %} Lookup Equipment {% endcomment %}
+{%- assign equipment = equipment | default: site.emptyArray -%}
+{%- assign armour_lookup = armour | default: '' | remove: ' Armour' -%}
+{%- assign armour = equipment_armour | where: 'title', armour_lookup | first | default: false -%}
+{%- assign shield_lookup = shield | default: '' | remove: ' Shield' -%}
+{%- assign shield = equipment_shields | where: 'title', shield_lookup | first | default: false -%}
+{%- assign unarmed_strike = equipment_weapons | where: 'title', 'Unarmed Strike' | first -%}
+{%- assign weapons = site.emptyArray | add: unarmed_strike | uniq -%}
+{%- assign weapons_equipped = 1 -%}
+{%- for item in equipment -%}
+    {% assign armour_lookup = false %}
+    {% assign shield_lookup = false %}
+    {% if item.name contains 'Armour' %}
+        {% assign armour_name = item.name | remove: ' Armour' %}
+        {% assign armour_lookup = equipment_armour | where: 'title', armour_name | first | default: false %}
+    {% elsif item.name contains 'Shield' or item.name contains 'Buckler' %}
+        {% assign shield_name = item.name | remove: ' Shield' %}
+        {% assign shield_lookup = equipment_shields | where: 'title', shield_name | first | default: false %}
+    {% else %}
+        {% assign weapon_name = item.name %}
+        {% assign weapon_lookup = equipment_weapons | where: 'title', weapon_name | first | default: false %}
+    {% endif %}
+    {% if item.equipped %}
+        {% if armour_lookup %}
+            {% unless armour %}
+                {% assign armour = armour_lookup %}
+            {% endunless %}
+        {% elsif shield_lookup %}
+            {% unless shield %}
+                {% assign shield = shield_lookup %}
+            {% endunless %}
+        {% elsif weapon_lookup %}
+            {% assign weapons = weapons | add: weapon_lookup %}
+            {% assign weapons_equipped = weapons_equipped | plus: 1 %}
+        {% endif %}
+    {% else %}
+        {% if weapon_lookup %}
+            {% assign weapons = weapons | add: weapon_lookup %}
+        {% endif %}
+    {% endif %}
+{%- endfor -%}
+
+{% comment %} Process Armour {% endcomment %}
+{%- assign armour_bonus = 0 -%}
+{%- if light_armour and armour.class == 'Light' -%}
+    {% assign armour_bonus = armour.bonus | default: 0 | plus: armour_bonus %}
+{%- elsif medium_armour and armour.class == 'Medium' -%}
+    {% assign armour_bonus = armour.bonus | default: 0 | plus: armour_bonus %}
+{%- elsif heavy_armour and armour.class == 'Heavy' -%}
+    {% assign armour_bonus = armour.bonus | default: 0 | plus: armour_bonus %}
+{%- elsif nonmetal_armour and armour.nonmetal -%}
+    {% assign armour_bonus = armour.bonus | default: 0 | plus: armour_bonus %}
+{%- elsif armour.class == 'Magic' -%}
+    {% assign armour_bonus = armour.bonus | default: 0 | plus: armour_bonus %}
+{%- endif -%}
+
+{% comment %} Process Shield {% endcomment %}
+{%- if shields -%}
+    {% assign armour_bonus = shield.bonus | default: 0 | plus: armour_bonus %}
+{%- elsif buckler_shields and shield.title == 'Buckler' -%}
+    {% assign armour_bonus = shield.bonus | default: 0 | plus: armour_bonus %}
+{%- elsif nonmetal_shields and shield.nonmetal -%}
+    {% assign armour_bonus = shield.bonus | default: 0 | plus: armour_bonus %}
+{%- endif -%}
+
+{%- comment %} AB = MOD + Level {% endcomment -%}
+{%- assign attack_melee = strength_modifier | plus: level -%}
+{%- assign attack_ranged = dexterity_modifier | plus: level -%}
+{%- assign attack_magic = mind_modifier | plus: level -%}
+
+{%- comment %} Generic DB {% endcomment -%}
+{%- assign damage_bonus = 0 %}
+
+{%- comment %} Melee DB = Generic DB + STR {% endcomment -%}
+{%- assign damage_bonus_melee = damage_bonus | plus: strength_modifier -%}
+
+{%- comment %} Ranged DB = Generic DB {% endcomment -%}
+{%- assign damage_bonus_ranged = damage_bonus -%}
+
+{% comment %} Magic DC = 10 + Level + MIND {% endcomment %}
+{% assign magic_dc = 10 | plus: level | plus: mind_modifier %}
+
+{%- comment %} AC = 10 + DEX + Armour Bonus {% endcomment -%}
+{%- assign armour_class = 10 | plus: dexterity_modifier | plus: armour_bonus -%}
+
+{%- comment %} Fighter/Rogue: Finesse {% endcomment -%}
+{%- if class == 'Fighter' or class == 'Rogue' -%}
+    {% assign attack_melee = strength_modifier | at_least: dexterity_modifier | plus: level %}
+{%- endif -%}
+
+{%- comment %} Fighter: +1-5 AB from Levels 1–20 {% endcomment -%}
+{%- if class == 'Fighter' -%}
+    {% assign attack_melee = level | divided_by: 5 | floor | plus: 1 | plus: attack_melee %}
+    {% assign attack_ranged = level | divided_by: 5 | floor | plus: 1 | plus: attack_ranged %}
+    {% assign attack_magic = level | divided_by: 5 | floor | plus: 1 | plus: attack_magic %}
+{%- endif -%}
+
+{%- comment %} Fighter: +1-5 Generic DB from Levels 1–20 {% endcomment -%}
+{%- if class == 'Fighter' -%}
+    {% assign damage_bonus = level | divided_by: 5 | floor | plus: 1 %}
+{%- endif -%}
+
+{% comment %} Cleric: Turn Undead per day = 2 + Level + MIND {% endcomment %}
+{%- if class == 'Cleric' -%}
+    {% assign replace_one = 2 | plus: level | plus: mind_modifier %}
+{%- endif -%}
+
+{% comment %} Paladin: +1-5 Saving Throws from Levels 1–20 {% endcomment %}
+{%- if class == 'Paladin' -%}
+    {% assign replace_one = level | divided_by: 5 | floor | plus: 1 %}
+    {% assign replace_two = level | times: 2 %}
+{%- endif -%}
+
+{% comment %} Ranger: +1 to Ranged Attack and Damage {% endcomment %}
+{%- if class == 'Ranger' -%}
+    {% assign attack_ranged = attack_ranged | plus: 1 %}
+    {% assign damage_bonus_ranged = damage_bonus | plus: 1 %}
+{%- endif -%}

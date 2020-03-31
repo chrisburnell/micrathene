@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Strength",
+    "short": "STR"
+  },
+  {
+    "title": "Dexterity",
+    "short": "DEX"
+  },
+  {
+    "title": "Mind",
+    "short": "MIND"
+  }
+]

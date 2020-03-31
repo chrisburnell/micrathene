@@ -1,0 +1,9 @@
+<nav class="nav-primary" role="navigation">
+    <ol class="nav-primary-list" role="list">
+        {% for item in navigation %}
+            <li role="listitem">
+                <a href="{{ item.url }}"{% if body_class contains item.body_class %} aria-current="page"{% endif %}>{{ item.title }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+</nav>

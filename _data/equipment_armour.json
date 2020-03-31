@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Padded",
+    "class": "Light",
+    "nonmetal": true,
+    "bonus": 1,
+    "cost": 2
+  },
+  {
+    "title": "Leather",
+    "class": "Light",
+    "nonmetal": true,
+    "bonus": 2,
+    "cost": 10
+  },
+  {
+    "title": "Studded Leather",
+    "class": "Light",
+    "bonus": 3,
+    "cost": 25
+  },
+  {
+    "title": "Chain Shirt",
+    "class": "Light",
+    "bonus": 4,
+    "cost": 100
+  },
+  {
+    "title": "Hide",
+    "class": "Medium",
+    "nonmetal": true,
+    "bonus": 3,
+    "cost": 15
+  },
+  {
+    "title": "Scale Mail",
+    "class": "Medium",
+    "bonus": 4,
+    "cost": 50
+  },
+  {
+    "title": "Chainmail",
+    "class": "Medium",
+    "bonus": 5,
+    "cost": 150
+  },
+  {
+    "title": "Breastplate",
+    "class": "Medium",
+    "bonus": 5,
+    "cost": 200
+  },
+  {
+    "title": "Splint Mail",
+    "class": "Heavy",
+    "bonus": 6,
+    "cost": 200
+  },
+  {
+    "title": "Banded Mail",
+    "class": "Heavy",
+    "bonus": 6,
+    "cost": 250
+  },
+  {
+    "title": "Half Plate",
+    "class": "Heavy",
+    "bonus": 7,
+    "cost": 600
+  },
+  {
+    "title": "Full Plate",
+    "class": "Heavy",
+    "bonus": 8,
+    "cost": 1500
+  },
+  {
+    "title": "Mage",
+    "class": "Magic",
+    "nonmetal": true,
+    "bonus": 4
+  }
+]

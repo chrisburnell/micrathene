@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Human",
+    "communication_bonus": 1,
+    "knowledge_bonus": 1,
+    "physical_bonus": 1,
+    "subterfuge_bonus": 1
+  },
+  {
+    "title": "Elf",
+    "mind_bonus": 2
+  },
+  {
+    "title": "Dwarf",
+    "strength_bonus": 2
+  },
+  {
+    "title": "Halfling",
+    "dexterity_bonus": 2
+  },
+  {
+    "title": "Gnome",
+    "dexterity_bonus": 1,
+    "mind_bonus": 1
+  },
+  {
+    "title": "Half-Orc",
+    "strength_bonus": 4,
+    "mind_bonus": -2
+  },
+  {
+    "title": "Half-Elf",
+    "dexterity_bonus": 1
+  },
+  {
+    "title": "Lizardman",
+    "strength_bonus": 2,
+    "dexterity_bonus": 2,
+    "mind_bonus": -2
+  }
+]

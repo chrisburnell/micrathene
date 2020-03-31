@@ -1,0 +1,29 @@
+{%- assign race_data = races | where: "title", race | first -%}
+
+{%- assign strength = race_data.strength_bonus | default: 0 | plus: strength -%}
+{%- assign dexterity = race_data.dexterity_bonus | default: 0 | plus: dexterity -%}
+{%- assign mind = race_data.mind_bonus | default: 0 | plus: mind -%}
+
+{%- assign communication = race_data.communication_bonus | default: 0 | plus: communication -%}
+{%- assign knowledge = race_data.knowledge_bonus | default: 0 | plus: knowledge -%}
+{%- assign physical = race_data.physical_bonus | default: 0 | plus: physical -%}
+{%- assign subterfuge = race_data.subterfuge_bonus | default: 0 | plus: subterfuge -%}
+{%- assign survival = race_data.survival_bonus | default: 0 | plus: survival -%}
+
+{%- comment %} 2 Bonus Skills for Half-elves {% endcomment -%}
+{%- assign half_elf_skills_limit = half_elf_skills.size | default: 0 | at_most: 2 | minus: 1 -%}
+{%- if race == 'Half-Elf' -%}
+    {% for i in (0..half_elf_skills_limit) %}
+        {% if half_elf_skills[i] == 'Communication' %}
+            {% assign communication = communication | plus: 1 %}
+        {% elsif half_elf_skills[i] == 'Knowledge' %}
+            {% assign knowledge = knowledge | plus: 1 %}
+        {% elsif half_elf_skills[i] == 'Physical' %}
+            {% assign physical = physical | plus: 1 %}
+        {% elsif half_elf_skills[i] == 'Subterfuge' %}
+            {% assign subterfuge = subterfuge | plus: 1 %}
+        {% elsif half_elf_skills[i] == 'Survival' and (class == 'Druid' or class == 'Ranger') %}
+            {% assign survival = survival | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+{%- endif -%}

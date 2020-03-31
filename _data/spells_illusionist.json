@@ -1,0 +1,242 @@
+[
+  {
+     "level": 0,
+     "title": "Arcane Mark",
+     "description": "Inscribes a permanent personal rune (visible or invisible)."
+  },
+  {
+     "level": 0,
+     "title": "Dancing Lights",
+     "description": "Creates torches or other lights for 1 minute."
+  },
+  {
+     "level": 0,
+     "title": "Detect Illusion",
+     "description": "Detects Illusions in a 60’ radius for 1 minute per level."
+  },
+  {
+     "level": 0,
+     "title": "Ghost Sound",
+     "description": "Figment sounds for 1 round/level."
+  },
+  {
+     "level": 0,
+     "title": "Prestidigitation",
+     "description": "Performs minor tricks for 1 hour."
+  },
+  {
+     "level": 0,
+     "title": "Read Magic",
+     "description": "Read Scrolls and Spellbooks for 10/min per level."
+  },
+  {
+     "level": 1,
+     "title": "Charm Person",
+     "description": "Makes one person your friend for 1 hour per level."
+  },
+  {
+     "level": 1,
+     "title": "Color Spray",
+     "description": "Incapacitates creatures within a 15’ cone."
+  },
+  {
+     "level": 1,
+     "title": "Disguise Self",
+     "description": "Changes your appearance for 10 minutes per level."
+  },
+  {
+     "level": 1,
+     "title": "Hypnotism",
+     "description": "Fascinates 2d4 HD of creatures for 2d4 rounds."
+  },
+  {
+     "level": 1,
+     "title": "Silent Image",
+     "description": "Creates minor illusion of your design."
+  },
+  {
+     "level": 1,
+     "title": "Ventriloquism",
+     "description": "Throws voice for 1 minute per level."
+  },
+  {
+     "level": 2,
+     "title": "Blur",
+     "description": "Spellcaster gains +4 to AC, cannot be Sneak Attacked for 1 minute per level."
+  },
+  {
+     "level": 2,
+     "title": "Hideous Laughter",
+     "description": "Subject loses actions for 1 round/level."
+  },
+  {
+     "level": 2,
+     "title": "Hypnotic Pattern",
+     "description": "Fascinates 2d4+level HD of creatures for concentration plus 2 rounds."
+  },
+  {
+     "level": 2,
+     "title": "Invisibility",
+     "description": "Subject is invisible for 1 minute/ level or until it attacks."
+  },
+  {
+     "level": 2,
+     "title": "Minor Image",
+     "description": "As Silent Image plus some sound."
+  },
+  {
+     "level": 2,
+     "title": "Mirror Image",
+     "description": "Creates 1d4+1 decoys of Spellcaster for 1 minute per level."
+  },
+  {
+     "level": 3,
+     "title": "Daylight",
+     "description": "60’ radius of daylight for 10 minute/level."
+  },
+  {
+     "level": 3,
+     "title": "Deep Slumber",
+     "description": "Puts 10HD of creatures to sleep for 1 minute per level."
+  },
+  {
+     "level": 3,
+     "title": "Displacement",
+     "description": "Attacks against the subject miss 50% of the time for 1 round/level."
+  },
+  {
+     "level": 3,
+     "title": "Invisibility Sphere",
+     "description": "Makes everyone within 10’ invisible."
+  },
+  {
+     "level": 3,
+     "title": "Major Image",
+     "description": "As minor image, plus sound, smell, and thermal effects."
+  },
+  {
+     "level": 3,
+     "title": "Suggestion",
+     "description": "Compels subject to follow stated course of action for 1 hour/level or until completed."
+  },
+  {
+     "level": 4,
+     "title": "Charm Monster",
+     "description": "Make one monster believe it is your ally for 1 day/level."
+  },
+  {
+     "level": 4,
+     "title": "Confusion",
+     "description": "Subjects behave oddly for 1 round/level."
+  },
+  {
+     "level": 4,
+     "title": "Invisibility, Greater",
+     "description": "As invisibility, but subject can attack and stay invisible."
+  },
+  {
+     "level": 4,
+     "title": "Minor Creation",
+     "description": "Create one cloth or wood object."
+  },
+  {
+     "level": 4,
+     "title": "Phantasmal Killer",
+     "description": "Fearsome illusion kills subject or deals 3d6 damage."
+  },
+  {
+     "level": 4,
+     "title": "Rainbow Pattern",
+     "description": "Lights Fascinate 24HD of creatures for concentration plus 1rnd/level."
+  },
+  {
+     "level": 5,
+     "title": "Break Enchantment",
+     "description": "Frees subjects from enchantments, alterations, curses, and petrification."
+  },
+  {
+     "level": 5,
+     "title": "Dominate Person",
+     "description": "Controls subject telepathically for 1 day/level."
+  },
+  {
+     "level": 5,
+     "title": "Major Creation",
+     "description": "As minor creation, plus stone or metal."
+  },
+  {
+     "level": 5,
+     "title": "Persistent Image",
+     "description": "As major image, but no concentration required; 1 minute/level."
+  },
+  {
+     "level": 5,
+     "title": "Seeming",
+     "description": "Changes appearance of 1 person per 2 levels for 12 hours."
+  },
+  {
+     "level": 5,
+     "title": "Sending",
+     "description": "Delivers short message anywhere, instantly."
+  },
+  {
+     "level": 6,
+     "title": "Mislead",
+     "description": "Turns you invisible and creates illusory double."
+  },
+  {
+     "level": 6,
+     "title": "Permanent Image",
+     "description": "Permanent illusion with sight, sound, and smell controlled by concentration."
+  },
+  {
+     "level": 6,
+     "title": "Programmed Image",
+     "description": "As major image, triggered by specific event."
+  },
+  {
+     "level": 6,
+     "title": "Shadow Walk",
+     "description": "Step into shadow and travel rapidly; 50mph for 1 hour/level."
+  },
+  {
+     "level": 6,
+     "title": "Suggestion, Mass",
+     "description": "As suggestion, plus one subject per level."
+  },
+  {
+     "level": 6,
+     "title": "True Seeing",
+     "description": "Lets you see things as they truly are."
+  },
+  {
+     "level": 7,
+     "title": "Invisibility, Mass",
+     "description": "As invisibility, but affects all in range."
+  },
+  {
+     "level": 7,
+     "title": "Phase Door",
+     "description": "Creates invisible passage through wood and stone."
+  },
+  {
+     "level": 7,
+     "title": "Power Word",
+     "description": "Blinds creature with 200hp or less."
+  },
+  {
+     "level": 7,
+     "title": "Prismatic Spray",
+     "description": "60’ Cone-shaped burst of rays for variety of effects."
+  },
+  {
+     "level": 7,
+     "title": "Project Image",
+     "description": "Illusory double can talk and cast spells at medium range for 1 round/level."
+  },
+  {
+     "level": 7,
+     "title": "Weird",
+     "description": "As phantasmal killer, but affects all within 30’."
+  }
+]

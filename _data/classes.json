@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Fighter",
+    "physical_bonus": 3,
+    "light_armour": true,
+    "medium_armour": true,
+    "heavy_armour": true,
+    "shields": true,
+    "starting_wealth": 150
+  },
+  {
+    "title": "Rogue",
+    "subterfuge_bonus": 3,
+    "light_armour": true,
+    "starting_wealth": 120,
+    "features": [
+      "If you successfully Sneak up on a foe (usually Subterfuge + DEX, but depends on the situation), you can add your Subterfuge bonus to the damage of your first attack."
+    ]
+  },
+  {
+    "title": "Mage",
+    "knowledge_bonus": 3,
+    "arcane_spells": true,
+    "starting_wealth": 75
+  },
+  {
+    "title": "Cleric",
+    "communication_bonus": 3,
+    "light_armour": true,
+    "medium_armour": true,
+    "divine_spells": true,
+    "starting_wealth": 125,
+    "features": [
+      "You can Turn Undead with a successful Magic Attack. DC is the current Hitpoints of the Undead. If the DC is exceeded by 10 it is destroyed. This can be used REPLACE_ONE times per day."
+    ]
+  },
+  {
+    "title": "Paladin",
+    "communication_bonus": 2,
+    "physical_bonus": 1,
+    "light_armour": true,
+    "medium_armour": true,
+    "heavy_armour": true,
+    "shields": true,
+    "starting_wealth": 150,
+    "features": [
+      "You are immune to diseases.",
+      "You apply a + REPLACE_ONE bonus to all Saving Throws.",
+      "You can Detect Evil with 60 ft. at will and can Heal up to REPLACE_TWO Hitpoints per day by Laying on Hands."
+    ]
+  },
+  {
+    "title": "Ranger",
+    "survival_bonus": 3,
+    "light_armour": true,
+    "medium_armour": true,
+    "shields": true,
+    "starting_wealth": 120,
+    "features": [
+      "You uncur only a <span class='negative'>- 1</span> Attack penalty when fighting with two weapons."
+    ]
+  },
+  {
+    "title": "Illusionist",
+    "communication_bonus": 2,
+    "subterfuge_bonus": 1,
+    "illusionist_spells": true,
+    "starting_wealth": 75
+  },
+  {
+    "title": "Druid",
+    "knowledge_bonus": 2,
+    "survival_bonus": 2,
+    "nonmetal_armour": true,
+    "nonmetal_shields": true,
+    "druid_spells": true,
+    "starting_wealth": 125,
+    "features": [
+      "You are immune to the spell-like effect of woodland fey.",
+      "At 3<sup>RD</sup> Level you can Pass Without Trace at will.",
+      "At 7<sup>TH</sup> Level you can assume the form of any small or medium-sized animal up to 3 times per day, and you heal 2 Hitpoints when changing back into your normal form."
+    ]
+  },
+  {
+    "title": "Bard",
+    "communication_bonus": 2,
+    "knowledge_bonus": 2,
+    "subterfuge_bonus": 2,
+    "light_armour": true,
+    "buckler_shields": true,
+    "starting_wealth": 120,
+    "features": [
+      "You can counter sound effects within a 30 ft. radius.",
+      "You can perform to Charm Person or Remove Fear up to 3 times (total) per day.",
+      "Beginning at 6<sup>TH</sup> Level, you can cast spells as either a Druid or Illusionist, at your choice, of five levels lower."
+    ]
+  }
+]
