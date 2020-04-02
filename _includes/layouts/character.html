@@ -1,9 +1,10 @@
 {% include calculations/level.liquid %}
 {% include calculations/stats_before.liquid %}
-{% include calculations/skills.liquid %}
+{% include calculations/skills_before.liquid %}
 {% include calculations/races.liquid %}
 {% include calculations/classes.liquid %}
 {% include calculations/stats_after.liquid %}
+{% include calculations/skills_after.liquid %}
 {% include calculations/combat.liquid %}
 {% include partials/header.liquid %}
 
@@ -18,7 +19,7 @@
 
             <hr>
 
-            <h4>Table of Contents</h4>
+            <h2 class="delta">Table of Contents</h2>
             <ol class="table-of-contents  default-list">
                 <li><a href="#personal">Personal</a></li>
                 <li><a href="#stats">Stats</a></li>
@@ -28,7 +29,7 @@
                 <li><a href="#weapons">Weapons</a></li>{% if spells %}
                 <li><a href="#spells">Spells</a></li>{% endif %}
                 <li><a href="#equipment">Equipment</a></li>
-                <li><a href="#notes">Notes</a></li>
+                <!-- <li><a href="#notes">Notes</a></li> -->
             </ol>
 
             <hr>
@@ -37,7 +38,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="center  stretch" colspan="2">Personal</th>
+                            <th class="center  stretch" colspan="2"><a href="#personal">Personal</a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,36 +99,28 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="center" colspan="3">Stats</th>
+                            <th class="center" colspan="3"><a href="#stats">Stats</a></th>
                         </tr>
                         <tr>
                             <th> </th>
-                            <!-- th class="center  stretch">Rolled</th -->
                             <th class="center  stretch">Score</th>
-                            <!-- th class="center  stretch">R + B</th -->
                             <th class="center  stretch">Modifier</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>💪 Strength <span class="muted">(STR)</span></th>
-                            <!-- td class="center">{{ strength_rolled }}</td -->
-                            <td class="center">{{ strength }}</td>
-                            <!-- td class="center">{{ strength_nobonus }}{% if strength_bonus != 0 %} {% plusminus strength_bonus false %}{% endif %}</td -->
+                            <td class="center"><abbr title="Rolled ({{ strength_nobonus }}){% if strength_bonus_race > 0 or strength_bonus_race < 0 %} + Race Bonus ({{ strength_bonus_race }}){% endif %}{% if strength_bonus > 0 or strength_bonus < 0 %} + Levelling Bonus ({{ strength_bonus }}){% endif %}">{{ strength }}</abbr></td>
                             <td class="center">{% plusminus strength_modifier %}</td>
                         </tr>
                         <tr>
                             <th>💨 Dexterity <span class="muted">(DEX)</span></th>
-                            <!-- td class="center">{{ dexterity_rolled }}</td -->
-                            <td class="center">{{ dexterity }}</td>
-                            <!-- td class="center">{{ dexterity_nobonus }}{% if dexterity_bonus != 0 %} {% plusminus dexterity_bonus false %}{% endif %}</td -->
+                            <td class="center"><abbr title="Rolled ({{ dexterity_nobonus }}){% if dexterity_bonus_race > 0 or dexterity_bonus_race < 0 %} + Race Bonus ({{ dexterity_bonus_race }}){% endif %}{% if dexterity_bonus > 0 or dexterity_bonus < 0 %} + Levelling Bonus ({{ dexterity_bonus }}){% endif %}">{{ dexterity }}</abbr></td>
                             <td class="center">{% plusminus dexterity_modifier %}</td>
                         </tr>
                         <tr>
                             <th>🧠 Mind <span class="muted">(MIND)</span></th>
-                            <!-- td class="center">{{ mind_rolled }}</td -->
-                            <td class="center">{{ mind }}</td>
-                            <!-- td class="center">{{ mind_nobonus }}{% if mind_bonus != 0 %} {% plusminus mind_bonus false %}{% endif %}</td -->
+                            <td class="center"><abbr title="Rolled ({{ mind_nobonus }}){% if mind_bonus_race > 0 or mind_bonus_race < 0 %} + Race Bonus ({{ mind_bonus_race }}){% endif %}{% if mind_bonus > 0 or mind_bonus < 0 %} + Levelling Bonus ({{ mind_bonus }}){% endif %}">{{ mind }}</abbr></td>
                             <td class="center">{% plusminus mind_modifier %}</td>
                         </tr>
                     </tbody>
@@ -138,29 +131,29 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="center" colspan="2">Skills</th>
+                            <th class="center" colspan="2"><a href="#skills">Skills</a></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>🗣 Communication</th>
-                            <td class="center  stretch">{% plusminus communication %}</td>
+                            <td class="center  stretch"><abbr title="0{% if communication_bonus_race > 0 or communication_bonus_race < 0 %} + Race Bonus ({{ communication_bonus_race }}){% endif %}{% if communication_bonus_class > 0 or communication_bonus_class < 0 %} + Class Bonus ({{ communication_bonus_class }}){% endif %}{% if communication_nobonus > 0 %} + Level Bonus ({{ communication_nobonus }}){% endif %}">{% plusminus communication %}</abbr></td>
                         </tr>
                         <tr>
                             <th>📖 Knowledge</th>
-                            <td class="center  stretch">{% plusminus knowledge %}</td>
+                            <td class="center  stretch"><abbr title="0{% if knowledge_bonus_race > 0 or knowledge_bonus_race < 0 %} + Race Bonus ({{ knowledge_bonus_race }}){% endif %}{% if knowledge_bonus_class > 0 or knowledge_bonus_class < 0 %} + Class Bonus ({{ knowledge_bonus_class }}){% endif %}{% if knowledge_nobonus > 0 %} + Level Bonus ({{ knowledge_nobonus }}){% endif %}">{% plusminus knowledge %}</abbr></td>
                         </tr>
                         <tr>
                             <th>🏃‍♂️ Physical</th>
-                            <td class="center  stretch">{% plusminus physical %}</td>
+                            <td class="center  stretch"><abbr title="0{% if physical_bonus_race > 0 or physical_bonus_race < 0 %} + Race Bonus ({{ physical_bonus_race }}){% endif %}{% if physical_bonus_class > 0 or physical_bonus_class < 0 %} + Class Bonus ({{ physical_bonus_class }}){% endif %}{% if physical_nobonus > 0 %} + Level Bonus ({{ physical_nobonus }}){% endif %}">{% plusminus physical %}</abbr></td>
                         </tr>
                         <tr>
                             <th>🔎 Subterfuge</th>
-                            <td class="center  stretch">{% plusminus subterfuge %}</td>
+                            <td class="center  stretch"><abbr title="0{% if subterfuge_bonus_race > 0 or subterfuge_bonus_race < 0 %} + Race Bonus ({{ subterfuge_bonus_race }}){% endif %}{% if subterfuge_bonus_class > 0 or subterfuge_bonus_class < 0 %} + Class Bonus ({{ subterfuge_bonus_class }}){% endif %}{% if subterfuge_nobonus > 0 %} + Level Bonus ({{ subterfuge_nobonus }}){% endif %}">{% plusminus subterfuge %}</abbr></td>
                         </tr>
                         <tr>
                             <th>🍃 Survival</th>
-                            <td class="center  stretch">{% plusminus survival %}</td>
+                            <td class="center  stretch"><abbr title="0{% if survival_bonus_race > 0 or survival_bonus_race < 0 %} + Race Bonus ({{ survival_bonus_race }}){% endif %}{% if survival_bonus_class > 0 or survival_bonus_class < 0 %} + Class Bonus ({{ survival_bonus_class }}){% endif %}{% if survival_nobonus > 0 %} + Level Bonus ({{ survival_nobonus }}){% endif %}">{% plusminus survival %}</abbr></td>
                         </tr>
                     </tbody>
                 </table>
@@ -170,66 +163,63 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="center  stretch" colspan="2">Combat</th>
+                            <th class="center  stretch" colspan="2"><a href="#combat">Combat</a></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th class="stretch">❤️ HP <span class="muted">(Hitpoints{% if temporary_hitpoints > 0 %} + Temp{% endif %})</span></th>
                             {% if hitpoints > hitpoints_max_quarter %}
-                                <td class="center  stretch">{{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}</td>
+                                <td class="center  stretch"><abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}</td>
                             {% elsif hitpoints > 1 %}
                                 <td class="center  stretch  negative">
-                                    {{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
+                                    <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
                                     <br>
                                     <small>Cutting it close!</small>
                                 </td>
-                                <style>
-                                    body {
-                                        background-color: #fff2f2;
-                                    }
-                                </style>
                             {% elsif hitpoints > 0 %}
                                 <td class="center  stretch  negative">
-                                    {{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
+                                    <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
                                     <br>
                                     <small>About to rely on STR for {{ strength_modifier }} HP!</small>
                                 </td>
-                                <style>
-                                    body {
-                                        background-color: #fff8f8;
-                                    }
-                                </style>
                             {% elsif hitpoints_laststand > 0 %}
                                 <td class="center  stretch  negative">
-                                    {{ hitpoints }}{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %} {% plusminus hitpoints_laststand false %}
+                                    <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %} {% plusminus hitpoints_laststand false %}
                                     <br>
                                     <small>Unconscious and surviving on STR alone!</small>
                                 </td>
-                                <style>
-                                    body {
-                                        background-color: #ffdddd;
-                                    }
-                                </style>
                             {% else %}
                                 <td class="center  stretch  negative">
                                     DEAD
                                 </td>
-                                <style>
-                                    body {
-                                        background-color: #ffbbbb;
-                                    }
-                                </style>
                             {% endif %}
                         </tr>
                         <tr>
                             <th class="stretch">🛡 AC <span class="muted">(Armour Class)</span></th>
-                            <td class="center  stretch">{{ armour_class }}</td>
+                            <td class="center  stretch"><abbr title="10 + DEX ({{ dexterity_modifier }}){% if armour.bonus > 0 or armour.bonus < 0 %} + Armour Bonus ({{ armour.bonus }}){% endif %}{% if shield.bonus > 0 or shield.bonus < 0 %} + Shield Bonus ({{ shield.bonus }}){% endif %}">{{ armour_class }}</abbr></td>
+                        </tr>
+                        <tr aria-hidden="true"><th> </th><td></td></tr>
+                        <tr>
+                            <th class="stretch">💪 Fortitude <span class="muted">Save</span></th>
+                            <td class="center  stretch"><abbr title="Physical ({{ physical }}) + STR ({{ strength_modifier }})">{% plusminus fortitude %}</abbr></td>
+                        </tr>
+                        <tr>
+                            <th class="stretch">💨 Reflex <span class="muted">Save</span></th>
+                            <td class="center  stretch"><abbr title="Physical ({{ physical }}) + DEX ({{ dexterity_modifier }})">{% plusminus reflex %}</abbr></td>
+                        </tr>
+                        <tr>
+                            <th class="stretch">🧠 Will <span class="muted">Save</span></th>
+                            <td class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }})">{% plusminus will %}</abbr></td>
                         </tr>
                         <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
                             <th class="stretch">🎲 Melee <span class="muted">Attack Bonus</span></th>
-                            <td class="center  stretch">{% plusminus attack_melee %}</td>
+                            {% if dexterity_modifier > strength_modifier and class == 'Fighter' or class == 'Rogue' %}
+                                <td class="center  stretch"><abbr title="STR/DEX ({{ strength_modifier }}/{{ dexterity_modifier }}) + Level ({{ level }}{% if attack_melee_fighter_bonus > 0%} + Fighter Bonus ({{ attack_melee_fighter_bonus }}/{{ attack_ranged_fighter_bonus }}){% endif %})">{% plusminus attack_melee %} <span class="muted">/</span> {% plusminus attack_ranged %}</abbr></td>
+                            {% else %}
+                                <td class="center  stretch"><abbr title="STR ({{ strength_modifier }}) + Level ({{ level }}){% if attack_melee_fighter_bonus > 0%} + Fighter Bonus ({{ attack_melee_fighter_bonus }}){% endif %}">{% plusminus attack_melee %}</abbr></td>
+                            {% endif %}
                         </tr>
                         <tr>
                             <th class="stretch">⚔️ Melee <span class="muted">Damage Bonus</span></th>
@@ -238,7 +228,7 @@
                         <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
                             <th class="stretch">🎲 Ranged <span class="muted">Attack Bonus</span></th>
-                            <td class="center  stretch">{% plusminus attack_ranged %}</td>
+                            <td class="center  stretch"><abbr title="DEX ({{ dexterity_modifier }}) + Level ({{ level }}){% if attack_ranged_fighter_bonus > 0%} + Fighter Bonus ({{ attack_ranged_fighter_bonus }}){% endif %}">{% plusminus attack_ranged %}</abbr></td>
                         </tr>
                         <tr>
                             <th class="stretch">🏹 Ranged <span class="muted">Damage Bonus</span></th>
@@ -248,11 +238,11 @@
                             <tr aria-hidden="true"><th> </th><td></td></tr>
                             <tr>
                                 <th class="stretch">🎲 Spell <span class="muted">Attack Bonus</span></th>
-                                <td class="center  stretch">{% plusminus attack_magic %}</td>
+                                <td class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }}){% if attack_magic_fighter_bonus > 0%} + Fighter Bonus ({{ attack_magic_fighter_bonus }}){% endif %}">{% plusminus attack_magic %}</abbr></td>
                             </tr>
                             <tr>
                                 <th class="stretch">✨ Spell <span class="muted">Difficulty Class</span></th>
-                                <td class="center  stretch">{{ magic_dc }}</td>
+                                <td class="center  stretch"><abbr title="10 + MIND ({{ mind_modifier }}) + Level ({{ level }})">{{ magic_dc }}</abbr></td>
                             </tr>
                         {% endif %}
                     </tbody>
@@ -264,7 +254,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="center  stretch" colspan="3">Defences</th>
+                                <th class="center  stretch" colspan="3"><a href="#defences">Defences</a></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -304,7 +294,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="center  stretch" colspan="5">Weapons</th>
+                            <th class="center  stretch" colspan="5"><a href="#weapons">Weapons</a></th>
                         </tr>
                         <tr>
                             <th> </th>
@@ -413,7 +403,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="center  stretch" colspan="2">Spells</th>
+                                <th class="center  stretch" colspan="2"><a href="#spells">Spells</a></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -453,19 +443,27 @@
                         </tbody>
                     </table>
                 </figure>
+                <dl>
+                    <dt>Extending</dt>
+                    <dd>Spell lasts 2&times; longer. Costs an additional <strong>2 HP</strong> to cast.</dd>
+                    <dt>Empowering</dt>
+                    <dd>Spell does 50% more damage. Costs an additional <strong>4 HP</strong> to cast.</dd>
+                    <dt>Widening</dt>
+                    <dd>Spell area-of-effect is 2&times; larger. Costs an additional <strong>6 HP</strong> to cast.</dd>
+                </dl>
             {% endif %}
 
             <figure id="equipment">
                 <table>
                     <thead>
                         <tr>
-                            <th class="center  stretch" colspan="2">Equipment</th>
+                            <th class="center  stretch" colspan="2"><a href="#equipment">Equipment</a></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>Wealth</th>
-                            <td class="nobold">
+                            <td class="nobold" style="color: gold;">
                                 {{ wealth | default: gold | default: class_data.starting_wealth | default: 0 | append: ' gold' | replace: 'gold gold', 'gold' }}
                             </td>
                         </tr>
@@ -473,7 +471,7 @@
                             <tr>
                                 <th>Equipment</th>
                                 <td class="nobold">
-                                    <ul class="table-of-contents">
+                                    <ul class="table-of-contents  default-list">
                                         {% for item in equipment %}
                                             {%- assign emoji = '❧' -%}
                                             <li>{{ item.name | default: item }}</li>

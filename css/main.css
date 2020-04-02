@@ -84,12 +84,23 @@ p {
     font-weight: initial;
 }
 
+abbr[title] {
+    color: inherit;
+    border-bottom-width: 0;
+    font-style: normal;
+    font-weight: var(--font-weight-bold) !important;
+}
+
 .positive {
     color: var(--color-liquid);
 }
 
 .negative {
     color: var(--color-coyote);
+}
+
+.neutral {
+    color: var(--color-white);
 }
 
 .unavailable {
@@ -135,4 +146,14 @@ thead tr:first-child th:first-child::before {
         columns: var(--max-columns);
         column-gap: var(--measure-large);
     }
+}
+
+th a {
+    color: inherit;
+    text-decoration: none;
+}
+th a:hover,
+th a:focus,
+th a:active {
+    text-decoration-color: currentColor;
 }

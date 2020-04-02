@@ -76,7 +76,7 @@ module.exports = function(eleventyConfig) {
     // Plus-Minus Shortcode
     eleventyConfig.addShortcode("plusminus", function(number, color = true, space = true) {
         if (color) {
-            return (number < 0 ? `<span class="negative">` : number > 0 ? `<span class="positive">` : `<span>`) + plusminus(number, space) + `</span>`;
+            return (number < 0 ? `<span class="negative">` : number > 0 ? `<span class="positive">` : `<span class="neutral">`) + plusminus(number, space) + `</span>`;
         }
         return plusminus(number, space);
     });

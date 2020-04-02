@@ -112,7 +112,7 @@
 {%- assign damage_bonus_ranged = damage_bonus -%}
 
 {% comment %} Magic DC = 10 + Level + MIND {% endcomment %}
-{% assign magic_dc = 10 | plus: level | plus: mind_modifier %}
+{% assign magic_dc = 10 | plus: mind_modifier | plus: level %}
 
 {%- comment %} AC = 10 + DEX + Armour Bonus {% endcomment -%}
 {%- assign armour_class = 10 | plus: dexterity_modifier | plus: armour_bonus -%}
@@ -124,9 +124,12 @@
 
 {%- comment %} Fighter: +1-5 AB from Levels 1–20 {% endcomment -%}
 {%- if class == 'Fighter' -%}
-    {% assign attack_melee = level | divided_by: 5 | floor | plus: 1 | plus: attack_melee %}
-    {% assign attack_ranged = level | divided_by: 5 | floor | plus: 1 | plus: attack_ranged %}
-    {% assign attack_magic = level | divided_by: 5 | floor | plus: 1 | plus: attack_magic %}
+    {% assign attack_melee_fighter_bonus = level | divided_by: 5 | floor | plus: 1 %}
+    {% assign attack_ranged_fighter_bonus = level | divided_by: 5 | floor | plus: 1 %}
+    {% assign attack_magic_fighter_bonus = level | divided_by: 5 | floor | plus: 1 %}
+    {% assign attack_melee = attack_melee | plus: attack_melee_fighter_bonus %}
+    {% assign attack_ranged = attack_ranged | plus: attack_ranged_fighter_bonus %}
+    {% assign attack_magic = attack_magic | plus: attack_magic_fighter_bonus %}
 {%- endif -%}
 
 {%- comment %} Fighter: +1-5 Generic DB from Levels 1–20 {% endcomment -%}
@@ -150,3 +153,7 @@
     {% assign attack_ranged = attack_ranged | plus: 1 %}
     {% assign damage_bonus_ranged = damage_bonus | plus: 1 %}
 {%- endif -%}
+
+{%- assign fortitude = physical | plus: strength_modifier -%}
+{%- assign reflex = physical | plus: dexterity_modifier -%}
+{%- assign will = mind_modifier | plus: level -%}

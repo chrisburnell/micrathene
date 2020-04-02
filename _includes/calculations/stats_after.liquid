@@ -1,3 +1,7 @@
+{%- assign strength = strength | plus: strength_bonus | plus: strength_bonus_race -%}
+{%- assign dexterity = dexterity | plus: dexterity_bonus | plus: dexterity_bonus_race -%}
+{%- assign mind = mind | plus: mind_bonus | plus: mind_bonus_race -%}
+
 {%- assign strength_modifier = strength | minus: 10 | divided_by: 2 | floor -%}
 {%- assign dexterity_modifier = dexterity | minus: 10 | divided_by: 2 | floor -%}
 {%- assign mind_modifier = mind | minus: 10 | divided_by: 2 | floor -%}

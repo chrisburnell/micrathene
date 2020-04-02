@@ -23,7 +23,7 @@ mind_rolled: 10
 stat_bonuses: []
 # Every Level except first for which you automatically get a 6, add the result
 # of 1d6 to this array (20 at Level 20):
-hitpoints: [6]
+hitpoints: [6, 1, 2, 4, 5]
 
 
 ##

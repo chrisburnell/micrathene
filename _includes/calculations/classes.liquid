@@ -1,10 +1,10 @@
 {%- assign class_data = classes | where: 'title', class | first -%}
 
-{%- assign communication = class_data.communication_bonus | default: 0 | plus: communication -%}
-{%- assign knowledge = class_data.knowledge_bonus | default: 0 | plus: knowledge -%}
-{%- assign physical = class_data.physical_bonus | default: 0 | plus: physical -%}
-{%- assign subterfuge = class_data.subterfuge_bonus | default: 0 | plus: subterfuge -%}
-{%- assign survival = class_data.survival_bonus | default: 0 | plus: survival -%}
+{%- assign communication_bonus_class = class_data.communication_bonus | default: 0 -%}
+{%- assign knowledge_bonus_class = class_data.knowledge_bonus | default: 0 -%}
+{%- assign physical_bonus_class = class_data.physical_bonus | default: 0 -%}
+{%- assign subterfuge_bonus_class = class_data.subterfuge_bonus | default: 0 -%}
+{%- assign survival_bonus_class = class_data.survival_bonus | default: 0 -%}
 
 {%- assign light_armour = class_data.light_armour | default: false -%}
 {%- assign medium_armour = class_data.medium_armour | default: false -%}
