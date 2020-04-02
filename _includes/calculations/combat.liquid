@@ -73,6 +73,7 @@
         {% endif %}
     {% endif %}
 {%- endfor -%}
+{%- assign weapons_names = weapons_equipped | concat: weapons_unequipped | map: 'title' -%}
 
 {% comment %} Process Armour {% endcomment %}
 {%- assign armour_bonus = 0 -%}

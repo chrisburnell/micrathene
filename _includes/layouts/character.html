@@ -471,10 +471,18 @@
                             <tr>
                                 <th>Equipment</th>
                                 <td class="nobold">
-                                    <ul class="table-of-contents  default-list">
+                                    <ul class="table-of-contents">
                                         {% for item in equipment %}
+                                            {%- assign name = item.name | default: item -%}
                                             {%- assign emoji = '❧' -%}
-                                            <li>{{ item.name | default: item }}</li>
+                                            {%- if weapons_names contains name -%}
+                                                {%- assign emoji = '⚔️' -%}
+                                            {%- elsif name contains armour.title -%}
+                                                {%- assign emoji = '⛓' -%}
+                                            {%- elsif name contains shield.title -%}
+                                                {%- assign emoji = '🛡' -%}
+                                            {%- endif -%}
+                                            <li>{{ emoji }} {{ item.name | default: item }}</li>
                                         {% endfor %}
                                     </ul>
                                 </td>
