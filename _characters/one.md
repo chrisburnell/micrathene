@@ -1,14 +1,15 @@
 ---
-title: Cighter
-description: Outstanding Ol' Half-Orc
+list_priority: true
+title: Example
+description: Description
 
 
 ##
 # CHARACTER CREATION
-# Enter these once:
+# Enter these once.
 ##
-race: Half-Orc
-class: Fighter
+race: Dwarf
+class: Rogue
 strength_rolled: 10
 dexterity_rolled: 10
 mind_rolled: 10
@@ -28,10 +29,17 @@ hitpoints: [6]
 
 ##
 # GAMEPLAY
-# Enter these as you play:
+# Enter these as you play.
 ##
-hitpoints_lost: 0
 temporary_hitpoints: 0
-gold: 150
-# equipment:
+hitpoints_lost: 0
+gold: 120
+equipment:
+  - name: Leather Armour
+    equipped: true
+  - name: Buckler
+    equipped: true
+  - name: Rapier
+    equipped: true
+  - name: Thieves Tools
 ---

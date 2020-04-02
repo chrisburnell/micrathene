@@ -13,9 +13,25 @@
         <h1>{{ title | default: site.title }}</h1>
 
         <div class="content__body">
+
             <p class="beta  lede  lede--featured">{{ description | default: site.description }}</p>
 
-            {{ content }}
+            <hr>
+
+            <h4>Table of Contents</h4>
+            <ol class="table-of-contents  default-list">
+                <li><a href="#personal">Personal</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#combat">Combat</a></li>{% if armour or shield %}
+                <li><a href="#defences">Defences</a></li>{% endif %}
+                <li><a href="#weapons">Weapons</a></li>{% if spells %}
+                <li><a href="#spells">Spells</a></li>{% endif %}
+                <li><a href="#equipment">Equipment</a></li>
+                <li><a href="#notes">Notes</a></li>
+            </ol>
+
+            <hr>
 
             <figure id="personal">
                 <table>
@@ -74,12 +90,6 @@
                                 </td>
                             </tr>
                         {% endif %}
-                        <tr>
-                            <th>Wealth</th>
-                            <td class="nobold">
-                                {{ wealth | default: gold | default: class_data.starting_wealth | default: 0 | append: ' gold' | replace: 'gold gold', 'gold' }}
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </figure>
@@ -250,11 +260,11 @@
             </figure>
 
             {% if armour or shield %}
-                <figure id="armour">
+                <figure id="defences">
                     <table>
                         <thead>
                             <tr>
-                                <th class="center  stretch" colspan="3">Armoury</th>
+                                <th class="center  stretch" colspan="3">Defences</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -385,10 +395,10 @@
                             {% endif %}
                             {% if too_many_weapons == true %}
                                 <tr>
-                                    <th class="nobold  negative" colspan="5">You have marked too many weapons as equipped, so spillovers are shown above as unequipped.</th>
+                                    <th class="nobold  negative" colspan="5">You have marked too many weapons as equipped, so spillovers are shown as unequipped.</th>
                                 </tr>
                             {% endif %}
-                            {% if weapons_equipped[1].class == 'Two-Handed' %}
+                            {% if spells and weapons_equipped[1].class == 'Two-Handed' %}
                                 <tr>
                                     <th class="nobold  negative" colspan="5">You are unable to cast spells when wielding a two-handed weapon!</th>
                                 </tr>
@@ -431,7 +441,7 @@
                                             <small>{{ spell.level }}.</small> {{ spell.title }}
                                         </th>
                                         <td class="stretch">
-                                            <p style="max-width: 24em">
+                                            <p>
                                                 <span class="muted{% if discount > 0 %}  positive{% endif %}">Hitpoints Cost:</span> <strong{% if discount > 0 %} class="positive"{% endif %}>{{ spell.level | times: 2 | plus: 1 | minus: discount }}{% if discount > 0 %} <small>✨ Specialisation</small>{% endif %}</strong>
                                                 <br>
                                                 <small>{{ spell.description | replace: 'PER_LEVEL_SECOND_MAX', per_level_second_max | replace: 'PER_LEVEL_MAX', per_level_max | replace: 'PER_LEVEL_SECOND', per_level_second | replace: 'PER_LEVEL', per_level }}</small>
@@ -444,6 +454,37 @@
                     </table>
                 </figure>
             {% endif %}
+
+            <figure id="equipment">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center  stretch" colspan="2">Equipment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Wealth</th>
+                            <td class="nobold">
+                                {{ wealth | default: gold | default: class_data.starting_wealth | default: 0 | append: ' gold' | replace: 'gold gold', 'gold' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Equipment</th>
+                            <td class="nobold">
+                                <ul class="table-of-contents">
+                                    {% for item in equipment %}
+                                        {%- assign emoji = '❧' -%}
+                                        <li>{{ item.name | default: item }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+
+            {{ content }}
         </div>
 
     </div>

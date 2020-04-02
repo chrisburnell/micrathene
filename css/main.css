@@ -55,6 +55,10 @@ p,
     font-weight: initial;
 }
 
+p {
+    max-width: 24em;
+}
+
 .stretch {
     transition: all 0.2s ease;
     max-width: 100%;
@@ -105,4 +109,30 @@ p,
 
 sup {
     font-size: 12px;
+}
+
+thead tr:first-child th:first-child {
+    text-transform: uppercase;
+}
+thead tr:first-child th:first-child::before,
+thead tr:first-child th:first-child::after {
+    content: "❧";
+    color: var(--color-dove);
+    display: inline-block;
+    padding-left: var(--measure-small);
+    padding-right: var(--measure-small);
+    font-size: var(--font-size-delta);
+}
+thead tr:first-child th:first-child::before {
+    transform: rotateY(180deg);
+}
+
+.table-of-contents a {
+    color: inherit;
+}
+@media screen and (min-width: 801px) {
+    .table-of-contents {
+        columns: var(--max-columns);
+        column-gap: var(--measure-large);
+    }
 }
