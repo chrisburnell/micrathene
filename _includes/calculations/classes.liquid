@@ -22,11 +22,7 @@
 
 {%- if class == 'Bard' and level >= 6 -%}
     {% assign magic_level = level | minus: 5 | divided_by: 2 | ceil %}
-    {% if bard_spell_list == 'Arcane' %}
-        {%- assign has_spells_arcane = true -%}
-    {% elsif bard_spell_list == 'Divine' %}
-        {%- assign has_spells_divine = true -%}
-    {% elsif bard_spell_list == 'Illusionist' %}
+    {% if bard_spell_list == 'Illusionist' %}
         {%- assign has_spells_illusionist = true -%}
     {% elsif bard_spell_list == 'Druid' %}
         {%- assign has_spells_druid = true -%}
@@ -37,8 +33,14 @@
     {% assign spells = spells_arcane %}
 {%- elsif has_spells_divine -%}
     {% assign spells = spells_divine %}
-{%- elsif has_spells_illusionistt -%}
+{%- elsif has_spells_illusionist -%}
     {% assign spells = spells_illusionist %}
 {%- elsif has_spells_druid -%}
     {% assign spells = spells_druid %}
+{%- endif -%}
+
+{%- if spells -%}
+    {%- assign spell_specialisations_limit = magic_level | divided_by: 2 | floor | plus: 1 -%}
+    {%- assign spell_specialisations_size = spell_specialisations.size | default: 0 -%}
+    {%- assign spell_specialisations_offset = spell_specialisations_limit | minus: spell_specialisations_size -%}
 {%- endif -%}

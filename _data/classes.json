@@ -31,7 +31,7 @@
     "divine_spells": true,
     "starting_wealth": 125,
     "features": [
-      "You can Turn Undead with a successful Magic Attack. DC is the current Hitpoints of the Undead. If the DC is exceeded by 10 it is destroyed. This can be used REPLACE_ONE times per day."
+      "You can Turn Undead with a successful Magic Attack. DC is the current HP of the Undead. If the DC is exceeded by 10 it is destroyed. This can be used REPLACE_ONE times per day."
     ]
   },
   {
@@ -46,7 +46,7 @@
     "features": [
       "You are immune to diseases.",
       "You apply a + REPLACE_ONE bonus to all Saving Throws.",
-      "You can Detect Evil with 60 ft. at will and can Heal up to REPLACE_TWO Hitpoints per day by Laying on Hands."
+      "You can Detect Evil with 60 ft. at will and can Heal up to REPLACE_TWO HP per day by Laying on Hands."
     ]
   },
   {
@@ -78,7 +78,7 @@
     "features": [
       "You are immune to the spell-like effect of woodland fey.",
       "At 3<sup>RD</sup> Level you can Pass Without Trace at will.",
-      "At 7<sup>TH</sup> Level you can assume the form of any small or medium-sized animal up to 3 times per day, and you heal 2 Hitpoints when changing back into your normal form."
+      "At 7<sup>TH</sup> Level you can assume the form of any small or medium-sized animal up to 3 times per day, and you heal 2 HP when changing back into your normal form."
     ]
   },
   {
@@ -91,8 +91,8 @@
     "starting_wealth": 120,
     "features": [
       "You can counter sound effects within a 30 ft. radius.",
-      "You can perform to Charm Person or Remove Fear up to 3 times (total) per day.",
-      "Beginning at 6<sup>TH</sup> Level, you can cast spells as either a Druid or Illusionist, at your choice, of five levels lower."
+      "You can perform to <strong>Charm Person</strong> or <strong>Remove Fear</strong> up to 3 times (total) per day.",
+      "Beginning at 6<sup>TH</sup> Level, you can cast spells as either a <strong>Druid</strong> or <strong>Illusionist</strong>, at your choice, of 5 levels lower."
     ]
   }
 ]

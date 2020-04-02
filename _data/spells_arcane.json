@@ -144,7 +144,7 @@
   {
      "level": 3,
      "title": "Vampiric Touch",
-     "description": "Touch deals PER_LEVELd6 dmg; Spellcaster gains damage as Temporary Hitpoints which lasts for 1 hrs.",
+     "description": "Touch deals PER_LEVELd6 dmg; Spellcaster gains damage as Temporary HP which lasts for 1 hrs.",
      "per_level": 0.5
   },
   {
@@ -275,7 +275,7 @@
   {
      "level": 7,
      "title": "Power Word Blind",
-     "description": "Blinds creature with 200 Hitpoints or less for 1d4+1 min. (permanent if creature has less than 50 Hitpoints)."
+     "description": "Blinds creature with 200 HP or less for 1d4+1 min. (permanent if creature has less than 50 HP)."
   },
   {
      "level": 7,
@@ -308,7 +308,7 @@
   {
      "level": 8,
      "title": "Power Word Stun",
-     "description": "Stuns creature with 150 Hitpoints or less for 2d4 rds."
+     "description": "Stuns creature with 150 HP or less for 2d4 rds."
   },
   {
      "level": 8,
@@ -340,7 +340,7 @@
   {
      "level": 9,
      "title": "Power Word Kill",
-     "description": "Kills one creature with 100 Hitpoints or less."
+     "description": "Kills one creature with 100 HP or less."
   },
   {
      "level": 9,

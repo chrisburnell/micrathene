@@ -34,6 +34,21 @@
 
             <hr>
 
+            {% unless race %}
+                <p class="negative  strong">You must choose a <code>race</code> for the builder to work!</p>
+            {% endunless %}
+            {% unless class %}
+                <p class="negative  strong">You must choose a <code>class</code> for the builder to work!</p>
+            {% endunless %}
+            {% if race == 'Half-Elf' and half_elf_skills.size < 2 or half_elf_skills.size > 2 %}
+                <p class="negative  strong">As a Half-Elf, you must add 2 Skills (<code>Communication</code><small>/</small><code>Knowledge</code><small>/</small><code>Physical</code><small>/</small><code>Subterfuge</code>{% if class == 'Druid' or class == 'Ranger' %}<small>/</small><code>Survival</code>{% endif %}) to your <code>half_elf_skills</code> array!</p>
+            {% endif %}
+            {% if class == 'Bard' and level == 6 %}
+                {% unless bard_spell_list == 'Illusionist' or bard_spell_list == 'Druid' %}
+                    <p class="negative  strong">As a Level 6 Bard, you must choose a Spell List (<code>Illusionist</code><small>/</small><code>Druid</code>) for your <code>bard_spell_list</code>!</p>
+                {% endunless %}
+            {% endif %}
+
             <figure id="personal">
                 <table>
                     <thead>
@@ -95,6 +110,19 @@
                 </table>
             </figure>
 
+            {% unless strength_rolled %}
+                <p class="negative  strong">You must fill in your <code>strength_rolled</code> for the builder to work!</p>
+            {% endunless %}
+            {% unless dexterity_rolled %}
+                <p class="negative  strong">You must fill in your <code>dexterity_rolled</code> for the builder to work!</p>
+            {% endunless %}
+            {% unless mind_rolled %}
+                <p class="negative  strong">You must fill in your <code>mind_rolled</code> for the builder to work!</p>
+            {% endunless %}
+            {% if stat_bonus_offset > 0 %}
+                <p class="negative  strong">You are missing {{ stat_bonus_offset }} Stat Bonus{% if stat_bonus_offset > 1 %}es{% endif %} (<code>STR</code>/<code>DEX</code>/<code>MIND</code>) in your <code>stat_bonuses</code> array!</p>
+            {% endif %}
+
             <figure id="stats">
                 <table>
                     <thead>
@@ -110,17 +138,17 @@
                     <tbody>
                         <tr>
                             <th>💪 Strength <span class="muted">(STR)</span></th>
-                            <td class="center"><abbr title="Rolled ({{ strength_nobonus }}){% if strength_bonus_race > 0 or strength_bonus_race < 0 %} + Race Bonus ({{ strength_bonus_race }}){% endif %}{% if strength_bonus > 0 or strength_bonus < 0 %} + Levelling Bonus ({{ strength_bonus }}){% endif %}">{{ strength }}</abbr></td>
+                            <td class="center"><abbr title="Rolled ({{ strength_nobonus }}){% if strength_bonus_race > 0 or strength_bonus_race < 0 %} + Race Bonus ({{ strength_bonus_race }}){% endif %}{% if strength_bonus > 0 or strength_bonus < 0 %} + Level Stat Bonus ({{ strength_bonus }}){% endif %}">{{ strength }}</abbr></td>
                             <td class="center">{% plusminus strength_modifier %}</td>
                         </tr>
                         <tr>
                             <th>💨 Dexterity <span class="muted">(DEX)</span></th>
-                            <td class="center"><abbr title="Rolled ({{ dexterity_nobonus }}){% if dexterity_bonus_race > 0 or dexterity_bonus_race < 0 %} + Race Bonus ({{ dexterity_bonus_race }}){% endif %}{% if dexterity_bonus > 0 or dexterity_bonus < 0 %} + Levelling Bonus ({{ dexterity_bonus }}){% endif %}">{{ dexterity }}</abbr></td>
+                            <td class="center"><abbr title="Rolled ({{ dexterity_nobonus }}){% if dexterity_bonus_race > 0 or dexterity_bonus_race < 0 %} + Race Bonus ({{ dexterity_bonus_race }}){% endif %}{% if dexterity_bonus > 0 or dexterity_bonus < 0 %} + Level Stat Bonus ({{ dexterity_bonus }}){% endif %}">{{ dexterity }}</abbr></td>
                             <td class="center">{% plusminus dexterity_modifier %}</td>
                         </tr>
                         <tr>
                             <th>🧠 Mind <span class="muted">(MIND)</span></th>
-                            <td class="center"><abbr title="Rolled ({{ mind_nobonus }}){% if mind_bonus_race > 0 or mind_bonus_race < 0 %} + Race Bonus ({{ mind_bonus_race }}){% endif %}{% if mind_bonus > 0 or mind_bonus < 0 %} + Levelling Bonus ({{ mind_bonus }}){% endif %}">{{ mind }}</abbr></td>
+                            <td class="center"><abbr title="Rolled ({{ mind_nobonus }}){% if mind_bonus_race > 0 or mind_bonus_race < 0 %} + Race Bonus ({{ mind_bonus_race }}){% endif %}{% if mind_bonus > 0 or mind_bonus < 0 %} + Level Stat Bonus ({{ mind_bonus }}){% endif %}">{{ mind }}</abbr></td>
                             <td class="center">{% plusminus mind_modifier %}</td>
                         </tr>
                     </tbody>
@@ -319,7 +347,7 @@
                                 <th class="stretch">
                                     {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
                                 </th>
-                                <td class="stretch  center">
+                                <td class="center  stretch">
                                     {{ weapon.class | default: '—' }}
                                 </td>
                                 <td class="center  stretch">
@@ -398,6 +426,10 @@
                 </table>
             </figure>
 
+            {% if spell_specialisations_offset > 0 %}
+                <p class="negative  strong">You are missing {{ spell_specialisations_offset }} Spell Specialisation{% if spell_specialisations_offset > 1 %}s{% endif %} (1 for each Magic Level) in your <code>spell_specialisations</code> array!</p>
+            {% endif %}
+
             {% if spells %}
                 <figure id="spells">
                     <table>
@@ -432,7 +464,7 @@
                                         </th>
                                         <td class="stretch">
                                             <p>
-                                                <span class="muted{% if discount > 0 %}  positive{% endif %}">Hitpoints Cost:</span> <strong{% if discount > 0 %} class="positive"{% endif %}>{{ spell.level | times: 2 | plus: 1 | minus: discount }}{% if discount > 0 %} <small>✨ Specialisation</small>{% endif %}</strong>
+                                                <span class="muted{% if discount > 0 %}  positive{% endif %}">HP Cost:</span> <strong{% if discount > 0 %} class="positive"{% endif %}>{{ spell.level | times: 2 | plus: 1 | minus: discount }}{% if discount > 0 %} <small>✨ Specialisation</small>{% endif %}</strong>
                                                 <br>
                                                 <small>{{ spell.description | replace: 'PER_LEVEL_SECOND_MAX', per_level_second_max | replace: 'PER_LEVEL_MAX', per_level_max | replace: 'PER_LEVEL_SECOND', per_level_second | replace: 'PER_LEVEL', per_level }}</small>
                                             </p>

@@ -24,11 +24,11 @@ mind_rolled: 10
 # [Communication, Knowledge, Physical, Subterfuge, (Survival if Druid/Ranger)]
 half_elf_skills: [Knowledge, Physical]
 # If you picked Bard, at Level 6, enter a Spell list:
-# Arcane, Divine, Illusionist, Druid
-bard_spell_list: Arcane
+# Illusionist, Druid
+bard_spell_list: Illusionist
 # If you picked a Spellcaster, at Level 1 and every 2 Levels thereafter (9 at
 # Level 20), enter a Spell from your highest level Spells to specialise in:
-spell_specialisations: [Magic Missile, Invisibility, Fly]
+spell_specialisations: [Magic Missile]
 # Every 3 levels, add 1 Stat to this array (6 at Level 18):
 # STR, DEX, MIND
 stat_bonuses: [MIND, MIND, MIND, MIND, MIND, MIND]

@@ -63,11 +63,6 @@ p {
     transition: all 0.2s ease;
     max-width: 100%;
 }
-@media (max-width: 600px) {
-    .stretch {
-        min-width: 5.5em;
-    }
-}
 @media (min-width: 601px) {
     .stretch {
         min-width: 7em;

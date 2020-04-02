@@ -22,3 +22,5 @@
         {% assign mind_bonus = mind_bonus | plus: 1 %}
     {% endif %}
 {%- endfor -%}
+{%- assign stat_bonus_size = stat_bonuses.size | default: 0 -%}
+{%- assign stat_bonus_offset = stat_bonus_limit | minus: stat_bonus_size -%}
