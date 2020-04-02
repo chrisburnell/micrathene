@@ -226,7 +226,7 @@
                             <th class="stretch">🛡 AC <span class="muted">(Armour Class)</span></th>
                             <td class="center  stretch">{{ armour_class }}</td>
                         </tr>
-                        <tr><th> </th><td></td></tr>
+                        <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
                             <th class="stretch">🎲 Melee <span class="muted">Attack Bonus</span></th>
                             <td class="center  stretch">{% plusminus attack_melee %}</td>
@@ -235,7 +235,7 @@
                             <th class="stretch">⚔️ Melee <span class="muted">Damage Bonus</span></th>
                             <td class="center  stretch">{% plusminus damage_bonus_melee %}</td>
                         </tr>
-                        <tr><th> </th><td></td></tr>
+                        <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
                             <th class="stretch">🎲 Ranged <span class="muted">Attack Bonus</span></th>
                             <td class="center  stretch">{% plusminus attack_ranged %}</td>
@@ -245,7 +245,7 @@
                             <td class="center  stretch">{% plusminus damage_bonus_ranged %}</td>
                         </tr>
                         {% if spells %}
-                            <tr><th> </th><td></td></tr>
+                            <tr aria-hidden="true"><th> </th><td></td></tr>
                             <tr>
                                 <th class="stretch">🎲 Spell <span class="muted">Attack Bonus</span></th>
                                 <td class="center  stretch">{% plusminus attack_magic %}</td>
