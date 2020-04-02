@@ -11,7 +11,7 @@
 {%- assign mind_bonus = 0 -%}
 
 {%- comment %} Loop through Stat Bonuses based on Level {% endcomment -%}
-{%- assign stat_bonuses = stat_bonuses | default: site.emptyArray -%}
+{%- assign stat_bonuses = stat_bonuses | default: [] -%}
 {%- assign stat_bonus_limit = level | divided_by: 3 | floor -%}
 {%- for i in (0..stat_bonus_limit) -%}
     {% if stat_bonuses[i] == 'STR' %}

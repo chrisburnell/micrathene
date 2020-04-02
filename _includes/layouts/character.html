@@ -273,7 +273,7 @@
                                     <th class="stretch">
                                         {{ armour.title | replace: 'Mage', 'Mage Armour' }}
                                     </th>
-                                    <td class="stretch">
+                                    <td class="center  stretch">
                                         {{ armour.class | append: ' Armour' | replace: 'Magic Armour', 'Magic' }}
                                     </td>
                                     <td class="center  stretch">
@@ -329,7 +329,7 @@
                                 <th class="stretch">
                                     {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
                                 </th>
-                                <td class="stretch{% unless weapon.class %}  center{% endunless %}">
+                                <td class="stretch  center">
                                     {{ weapon.class | default: '—' }}
                                 </td>
                                 <td class="center  stretch">
@@ -469,17 +469,19 @@
                                 {{ wealth | default: gold | default: class_data.starting_wealth | default: 0 | append: ' gold' | replace: 'gold gold', 'gold' }}
                             </td>
                         </tr>
-                        <tr>
-                            <th>Equipment</th>
-                            <td class="nobold">
-                                <ul class="table-of-contents">
-                                    {% for item in equipment %}
-                                        {%- assign emoji = '❧' -%}
-                                        <li>{{ item.name | default: item }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                        </tr>
+                        {% if equipment.size > 0 %}
+                            <tr>
+                                <th>Equipment</th>
+                                <td class="nobold">
+                                    <ul class="table-of-contents">
+                                        {% for item in equipment %}
+                                            {%- assign emoji = '❧' -%}
+                                            <li>{{ item.name | default: item }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                 </table>
             </figure>

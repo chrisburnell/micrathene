@@ -21,7 +21,7 @@
 {%- assign hitpoints_laststand = hitpoints | plus: strength_modifier -%}
 
 {% comment %} Lookup Equipment {% endcomment %}
-{%- assign equipment = equipment | default: site.emptyArray -%}
+{%- assign equipment = equipment | default: [] -%}
 {%- assign armour_lookup = armour | default: '' | remove: ' Armour' -%}
 {%- assign armour = equipment_armour | where: 'title', armour_lookup | first | default: false -%}
 {%- assign shield_lookup = shield | default: '' | remove: ' Shield' -%}
