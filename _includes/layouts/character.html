@@ -89,6 +89,7 @@
                                     {% if shields %}<li>Shields</li>{% endif %}
                                     {% if nonmetal_shields %}<li>Non-Metal Shields</li>{% endif %}
                                     {% if buckler_shields %}<li>Bucklers</li>{% endif %}
+                                    {% if two_weapon_fighting %}<li>Two-Weapon Fighting</li>{% endif %}
                                     {% if has_spells_arcane %}<li>Arcane Spellcasting</li>{% endif %}
                                     {% if has_spells_divine %}<li>Divine Spellcasting</li>{% endif %}
                                     {% if has_spells_illusionist %}<li>Illusionist Spellcasting</li>{% endif %}
@@ -292,7 +293,7 @@
                                         {{ armour.title | replace: 'Mage', 'Mage Armour' }}
                                     </th>
                                     <td class="center  stretch">
-                                        {{ armour.class | append: ' Armour' | replace: 'Magic Armour', 'Magic' }}
+                                        {{ armour.class | append: ' Armour' | replace: 'Magic Armour', 'Magic' }}{%- if armour.nonmetal %}, Non-metal{% endif -%}
                                     </td>
                                     <td class="center  stretch">
                                         {% plusminus armour.bonus false %}
@@ -344,35 +345,44 @@
                                 {% assign found_non_ranged_range_weapon = true %}
                             {%- endif -%}
                             <tr class="{% if forloop.index > weapons_equipped.size %}unavailable{% endif %}">
-                                <th class="stretch">
+                                <th>
                                     {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
                                 </th>
-                                <td class="center  stretch">
+                                <td class="center">
                                     {{ weapon.class | default: '—' }}
                                 </td>
-                                <td class="center  stretch">
+                                <td class="center">
                                     {% if weapon.range %}
                                         {{ weapon.range }} ft.
                                     {% else %}
                                         —
                                     {% endif %}
                                 </td>
-                                <td class="center  stretch">
+                                <td class="center">
                                     {% if weapon.class == "Ranged" %}
                                         {% plusminus attack_ranged false %}
                                     {% elsif weapon.range %}
-                                        {% plusminus attack_melee false %}
-                                        {% unless attack_melee == attack_ranged %}
-                                            / {% plusminus attack_ranged false %}
-                                        {% endunless %}
+                                        {%- if weapons_equipped.size == 3 and forloop.index <= 3 and forloop.index > 1 -%}
+                                            {% plusminus attack_melee_dual false %}
+                                            {% unless attack_melee_dual == attack_ranged_dual %}
+                                                / {% plusminus attack_ranged_dual false %}
+                                            {% endunless %}
+                                        {%- else -%}
+                                            {% plusminus attack_melee false %}
+                                            {% unless attack_melee == attack_ranged %}
+                                                / {% plusminus attack_ranged false %}
+                                            {% endunless %}
+                                        {%- endif -%}
                                     {% elsif weapons_equipped.size == 3 and forloop.index <= 3 and forloop.index > 1 %}
-                                        {%- assign attack_melee_dual = attack_melee | minus: 2 -%}
+                                        {%- if class == 'Ranger' -%}
+                                            {%- assign attack_melee_dual = attack_melee | minus: 1 -%}
+                                        {%- endif -%}
                                         {% plusminus attack_melee_dual false %}
                                     {% else %}
                                         {% plusminus attack_melee false %}
                                     {% endif %}
                                 </td>
-                                <td class="center  stretch  mono">
+                                <td class="center  mono">
                                     {% if weapon.damage == null %}
                                         —
                                     {% elsif weapon.class == "Ranged" %}

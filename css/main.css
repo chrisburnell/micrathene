@@ -86,6 +86,12 @@ abbr[title] {
     font-weight: var(--font-weight-bold) !important;
 }
 
+.positive,
+.negative,
+.neutral {
+    font-weight: var(--font-weight-bold);
+}
+
 .positive {
     color: var(--color-liquid);
 }

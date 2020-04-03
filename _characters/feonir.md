@@ -27,7 +27,7 @@ mind_rolled: 10
 ##
 # If you picked a Spellcaster, at Level 1 and every 2 Levels thereafter (9 at
 # Level 20), enter a Spell from your highest level Spells to specialise in:
-spell_specialisations: []
+spell_specialisations: [Magic Missile]
 # Every 3 levels, add 1 Stat to this array (6 at Level 18):
 # STR, DEX, MIND
 stat_bonuses: []
@@ -43,6 +43,9 @@ hitpoints: [6]
 temporary_hitpoints: 0
 hitpoints_lost: 0
 hitpoints_spent: 0 # Use if you're a Spellcaster
-gold: 75
-# equipment:
+gold: 38
+equipment:
+  - name: Light Crossbow
+    equipped: true
+  - name: Dagger
 ---

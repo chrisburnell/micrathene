@@ -47,24 +47,16 @@
                 {% assign shield = shield_lookup %}
             {% endunless %}
         {% elsif weapon_lookup %}
-            {% if class == 'Fighter' or class == 'Rogue' %}
-                {% if weapon_lookup.class == 'Light' and weapons_equipped.size == 1 %}
-                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
-                {% elsif weapon_lookup.class == 'Light' and weapons_equipped[2].class == 'Light' and weapons_equipped.size < 3 %}
-                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
-                {% elsif weapons_equipped.size < 2 %}
-                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
-                {% else %}
-                    {% assign weapons_unequipped = weapons_unequipped | add: weapon_lookup %}
-                    {% assign too_many_weapons = true %}
-                {% endif %}
+
+            {% if weapons_equipped[1].class == 'Light' and weapon_lookup.class == 'Light' and weapons_equipped.size < 3 and shield == false and class == 'Fighter' or class == 'Rogue' %}
+                {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
+            {% elsif weapons_equipped[1].class != 'Two-Handed' and weapon_lookup.class != 'Two-Handed' and weapons_equipped.size < 3 and shield == false and class == 'Ranger' %}
+                {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
+            {% elsif weapons_equipped.size < 2 %}
+                {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
             {% else %}
-                {% if weapons_equipped.size < 2 %}
-                    {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
-                {% else %}
-                    {% assign weapons_unequipped = weapons_unequipped | add: weapon_lookup %}
-                    {% assign too_many_weapons = true %}
-                {% endif %}
+                {% assign weapons_unequipped = weapons_unequipped | add: weapon_lookup %}
+                {% assign too_many_weapons = true %}
             {% endif %}
         {% endif %}
     {% else %}
@@ -118,6 +110,11 @@
 {%- comment %} AC = 10 + DEX + Armour Bonus {% endcomment -%}
 {%- assign armour_class = 10 | plus: dexterity_modifier | plus: armour_bonus -%}
 
+{% comment %} Saving Throws {% endcomment %}
+{%- assign fortitude = physical | plus: strength_modifier -%}
+{%- assign reflex = physical | plus: dexterity_modifier -%}
+{%- assign will = mind_modifier | plus: level -%}
+
 {%- comment %} Fighter/Rogue: Finesse {% endcomment -%}
 {%- if class == 'Fighter' or class == 'Rogue' -%}
     {% assign attack_melee = strength_modifier | at_least: dexterity_modifier | plus: level %}
@@ -145,6 +142,9 @@
 
 {% comment %} Paladin: +1-5 Saving Throws from Levels 1–20 {% endcomment %}
 {%- if class == 'Paladin' -%}
+    {% assign fortitude = level | divided_by: 5 | floor | plus: fortitude %}
+    {% assign reflex = level | divided_by: 5 | floor | plus: reflex %}
+    {% assign will = level | divided_by: 5 | floor | plus: will %}
     {% assign replace_one = level | divided_by: 5 | floor | plus: 1 %}
     {% assign replace_two = level | times: 2 %}
 {%- endif -%}
@@ -155,6 +155,14 @@
     {% assign damage_bonus_ranged = damage_bonus | plus: 1 %}
 {%- endif -%}
 
-{%- assign fortitude = physical | plus: strength_modifier -%}
-{%- assign reflex = physical | plus: dexterity_modifier -%}
-{%- assign will = mind_modifier | plus: level -%}
+{%- comment %} Fighter/Rogue: -2 to Attack with Two-Weapon Fighting {% endcomment -%}
+{%- if class == 'Fighter' or class == 'Rogue' -%}
+    {% assign attack_melee_dual = attack_melee | minus: 2 %}
+    {% assign attack_ranged_dual = attack_ranged | minus: 2 %}
+{%- endif -%}
+
+{%- comment %} Ranger: -1 to Attack with Two-Weapon Fighting {% endcomment -%}
+{%- if class == 'Ranger' -%}
+    {% assign attack_melee_dual = attack_melee | minus: 1 %}
+    {% assign attack_ranged_dual = attack_ranged | minus: 1 %}
+{%- endif -%}

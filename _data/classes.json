@@ -6,15 +6,21 @@
     "medium_armour": true,
     "heavy_armour": true,
     "shields": true,
-    "starting_wealth": 150
+    "two_weapon_fighting": true,
+    "starting_wealth": 150,
+    "features": [
+      "You incur a <span class='negative'>- 2</span> <strong>Attack</strong> penalty when fighting with two weapons."
+    ]
   },
   {
     "title": "Rogue",
     "subterfuge_bonus": 3,
     "light_armour": true,
+    "two_weapon_fighting": true,
     "starting_wealth": 120,
     "features": [
-      "If you successfully Sneak up on a foe (usually Subterfuge + DEX, but depends on the situation), you can add your Subterfuge bonus to the damage of your first attack."
+      "If you successfully sneak up on a foe (usually Subterfuge + DEX, but depends on the situation), you can add your <strong>Subterfuge</strong> bonus to the <strong>Damage</strong> of your 1<sup>ST</sup> <strong>Attack</strong>.",
+      "You incur a <span class='negative'>- 2</span> <strong>Attack</strong> penalty when fighting with two weapons."
     ]
   },
   {
@@ -31,7 +37,7 @@
     "divine_spells": true,
     "starting_wealth": 125,
     "features": [
-      "You can Turn Undead with a successful Magic Attack. DC is the current HP of the Undead. If the DC is exceeded by 10 it is destroyed. This can be used REPLACE_ONE times per day."
+      "You can <strong>Turn Undead</strong> with a successful <strong>Spell Attack</strong>. The <strong>DC</strong> is the current <strong>HP</strong> of the Undead. If the <strong>DC</strong> is exceeded by <strong>10</strong> it is destroyed. This can be used <strong>REPLACE_ONE</strong> times per day."
     ]
   },
   {
@@ -44,9 +50,9 @@
     "shields": true,
     "starting_wealth": 150,
     "features": [
-      "You are immune to diseases.",
-      "You apply a + REPLACE_ONE bonus to all Saving Throws.",
-      "You can Detect Evil with 60 ft. at will and can Heal up to REPLACE_TWO HP per day by Laying on Hands."
+      "You are immune to all diseases.",
+      "You apply a <strong>REPLACE_ONE</strong> bonus to all <strong>Saving Throws</strong>.",
+      "You can <strong>Detect Evil</strong> with 60 ft. at will and can Heal up to <strong>REPLACE_TWO HP</strong> per day by <strong>Laying on Hands</strong>."
     ]
   },
   {
@@ -55,9 +61,10 @@
     "light_armour": true,
     "medium_armour": true,
     "shields": true,
+    "two_weapon_fighting": true,
     "starting_wealth": 120,
     "features": [
-      "You uncur only a <span class='negative'>- 1</span> Attack penalty when fighting with two weapons."
+      "You incur a <span class='negative'>- 1</span> <strong>Attack</strong> penalty when fighting with two weapons."
     ]
   },
   {
@@ -77,8 +84,8 @@
     "starting_wealth": 125,
     "features": [
       "You are immune to the spell-like effect of woodland fey.",
-      "At 3<sup>RD</sup> Level you can Pass Without Trace at will.",
-      "At 7<sup>TH</sup> Level you can assume the form of any small or medium-sized animal up to 3 times per day, and you heal 2 HP when changing back into your normal form."
+      "At 3<sup>RD</sup> Level you can <strong>Pass Without Trace</strong> at will.",
+      "At 7<sup>TH</sup> Level you can assume the form of any <strong>small</strong> or <strong>medium</strong>-sized animal up to 3 × daily, and you heal <strong>2 HP</strong> when changing back into your normal form."
     ]
   },
   {

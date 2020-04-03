@@ -9,7 +9,7 @@ description: Description
 # Enter these once.
 ##
 race: Dwarf
-class: Rogue
+class: Ranger
 strength_rolled: 10
 dexterity_rolled: 10
 mind_rolled: 10
