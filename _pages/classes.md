@@ -1,5 +1,6 @@
 ---
 title: Classes
+description: Who are you?
 body_class: page--classes
 ---
 

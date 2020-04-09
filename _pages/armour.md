@@ -1,5 +1,6 @@
 ---
 title: Armour
+description: Block things
 body_class: page--armour
 ---
 

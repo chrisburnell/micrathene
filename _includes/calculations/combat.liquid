@@ -47,7 +47,6 @@
                 {% assign shield = shield_lookup %}
             {% endunless %}
         {% elsif weapon_lookup %}
-
             {% if weapons_equipped[1].class == 'Light' and weapon_lookup.class == 'Light' and weapons_equipped.size < 3 and shield == false and class == 'Fighter' or class == 'Rogue' %}
                 {% assign weapons_equipped = weapons_equipped | add: weapon_lookup %}
             {% elsif weapons_equipped[1].class != 'Two-Handed' and weapon_lookup.class != 'Two-Handed' and weapons_equipped.size < 3 and shield == false and class == 'Ranger' %}

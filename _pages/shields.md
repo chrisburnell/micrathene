@@ -1,5 +1,6 @@
 ---
 title: Shields
+description: Block more things
 body_class: page--shield
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Weapons
+description: Hit things
 body_class: page--weapons
 ---
 
