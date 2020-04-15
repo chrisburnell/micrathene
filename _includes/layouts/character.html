@@ -24,10 +24,10 @@
                 <li><a href="#personal">Personal</a></li>
                 <li><a href="#stats">Stats</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#combat">Combat</a></li>{% if armour or shield %}
-                <li><a href="#defences">Defences</a></li>{% endif %}
+                <li><a href="#combat">Combat</a></li>
                 <li><a href="#weapons">Weapons</a></li>{% if spells %}
-                <li><a href="#spells">Spells</a></li>{% endif %}
+                <li><a href="#spells">Spells</a></li>{% endif %}{% if armour or shield %}
+                <li><a href="#defences">Defences</a></li>{% endif %}
                 <li><a href="#equipment">Equipment</a></li>
                 <!-- <li><a href="#notes">Notes</a></li> -->
             </ol>
@@ -284,46 +284,6 @@
                 </table>
             </figure>
 
-            {% if armour or shield %}
-                <figure id="defences">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="center  stretch" colspan="3"><a href="#defences">Defences</a></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% if armour %}
-                                <tr>
-                                    <th class="stretch">
-                                        {{ armour.title | replace: 'Mage', 'Mage Armour' }}
-                                    </th>
-                                    <td class="center  stretch">
-                                        {{ armour.class | append: ' Armour' | replace: 'Magic Armour', 'Magic' }}{%- if armour.nonmetal %}, Non-metal{% endif -%}
-                                    </td>
-                                    <td class="center  stretch">
-                                        {% plusminus armour.bonus false %}
-                                    </td>
-                                </tr>
-                            {% endif %}
-                            {% if shield %}
-                                <tr>
-                                    <th class="stretch">
-                                        {{ shield.title }}
-                                    </th>
-                                    <td class="stretch">
-                                        Shield
-                                    </td>
-                                    <td class="center  stretch">
-                                        {% plusminus shield.bonus false %}
-                                    </td>
-                                </tr>
-                            {% endif %}
-                        </tbody>
-                    </table>
-                </figure>
-            {% endif %}
-
             {%- assign weapons = weapons_equipped | concat: weapons_unequipped -%}
             <figure id="weapons">
                 <table>
@@ -443,11 +403,11 @@
                 </table>
             </figure>
 
-            {% if spell_specialisations_offset > 0 %}
-                <p class="negative  strong">You are missing {{ spell_specialisations_offset }} Spell Specialisation{% if spell_specialisations_offset > 1 %}s{% endif %} (1 for each Magic Level) in your <code>spell_specialisations</code> array!</p>
-            {% endif %}
-
             {% if spells %}
+                {% if spell_specialisations_offset > 0 %}
+                    <p class="negative  strong">You are missing {{ spell_specialisations_offset }} Spell Specialisation{% if spell_specialisations_offset > 1 %}s{% endif %} (1 for each Magic Level) in your <code>spell_specialisations</code> array!</p>
+                {% endif %}
+
                 <figure id="spells">
                     <table>
                         <thead>
@@ -500,6 +460,46 @@
                     <dt>Widening</dt>
                     <dd>Spell area-of-effect is 2&times; larger. Costs an additional <strong>6 HP</strong> to cast.</dd>
                 </dl>
+            {% endif %}
+
+            {% if armour or shield %}
+                <figure id="defences">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="center  stretch" colspan="3"><a href="#defences">Defences</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if armour %}
+                                <tr>
+                                    <th class="stretch">
+                                        {{ armour.title | replace: 'Mage', 'Mage Armour' }}
+                                    </th>
+                                    <td class="center  stretch">
+                                        {{ armour.class | append: ' Armour' | replace: 'Magic Armour', 'Magic' }}{%- if armour.nonmetal %}, Non-metal{% endif -%}
+                                    </td>
+                                    <td class="center  stretch">
+                                        {% plusminus armour.bonus false %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            {% if shield %}
+                                <tr>
+                                    <th class="stretch">
+                                        {{ shield.title }}
+                                    </th>
+                                    <td class="stretch">
+                                        Shield
+                                    </td>
+                                    <td class="center  stretch">
+                                        {% plusminus shield.bonus false %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </figure>
             {% endif %}
 
             <figure id="equipment">
