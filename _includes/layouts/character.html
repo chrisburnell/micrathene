@@ -182,7 +182,13 @@
                         </tr>
                         <tr>
                             <th>🍃 Survival</th>
-                            <td class="center  stretch"><abbr title="0{% if survival_bonus_race > 0 or survival_bonus_race < 0 %} + Race Bonus ({{ survival_bonus_race }}){% endif %}{% if survival_bonus_class > 0 or survival_bonus_class < 0 %} + Class Bonus ({{ survival_bonus_class }}){% endif %}{% if survival_nobonus > 0 %} + Level Bonus ({{ survival_nobonus }}){% endif %}">{% plusminus survival %}</abbr></td>
+                            <td class="center  stretch">
+                                {% if class == 'Druid' or class == 'Ranger' %}
+                                    <abbr title="0{% if survival_bonus_race > 0 or survival_bonus_race < 0 %} + Race Bonus ({{ survival_bonus_race }}){% endif %}{% if survival_bonus_class > 0 or survival_bonus_class < 0 %} + Class Bonus ({{ survival_bonus_class }}){% endif %}{% if survival_nobonus > 0 %} + Level Bonus ({{ survival_nobonus }}){% endif %}">{% plusminus survival %}</abbr>
+                                {% else %}
+                                    <span>—</span>
+                                {% endif %}
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -337,6 +343,7 @@
                         {% comment %} For <tfoot> notice {% endcomment %}
                         {%- assign found_non_ranged_range_weapon = false -%}
                         {% for weapon in weapons %}
+                            {%- assign nickname = equipment | where: 'name', weapon.title | map: 'nickname' | first -%}
                             {% comment %} TODO: Fix duplicate Unarmed Strike {% endcomment %}
                             {%- if forloop.index > 1 and weapon.title == 'Unarmed Strike' -%}
                                 {% continue %}
@@ -346,7 +353,7 @@
                             {%- endif -%}
                             <tr class="{% if forloop.index > weapons_equipped.size %}unavailable{% endif %}">
                                 <th>
-                                    {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
+                                    {% if nickname %}<span class="positive">{{ nickname }}</span><br><span class="muted">{{ weapon.title }}</span>{% else %}{{ weapon.title }}{% endif %}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
                                 </th>
                                 <td class="center">
                                     {{ weapon.class | default: '—' }}
@@ -524,7 +531,7 @@
                                             {%- elsif name contains shield.title -%}
                                                 {%- assign emoji = '🛡' -%}
                                             {%- endif -%}
-                                            <li>{{ emoji }} {{ item.name | default: item }}</li>
+                                            <li>{{ emoji }} {% if item.nickname %}<span class="positive">{{ item.nickname }}</span>, <span class="muted">{{ item.name | default: item }}</span>{% else %}{{ item.name | default: item }}{% endif %}</li>
                                         {% endfor %}
                                     </ul>
                                 </td>

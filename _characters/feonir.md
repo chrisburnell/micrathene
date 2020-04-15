@@ -46,6 +46,7 @@ hitpoints_spent: 0 # Use if you're a Spellcaster
 gold: 38
 equipment:
   - name: Light Crossbow
+    nickname: Thorondor
     equipped: true
   - name: Dagger
 ---
