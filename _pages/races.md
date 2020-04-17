@@ -52,6 +52,20 @@ body_class: page--races
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <th>Languages</th>
+                    <td class="nobold">
+                        <ul class="inline-list">
+                            <li>Common</li>
+                            {%- if race.language -%}
+                                <li>{{ race.language }}</li>
+                            {%- endif -%}
+                            {%- if race.title == 'Human' -%}
+                                <li><em>One language of choice</em></li>
+                            {%- endif -%}
+                        </ul>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </figure>
