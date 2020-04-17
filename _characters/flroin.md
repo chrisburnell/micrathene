@@ -1,12 +1,10 @@
 ---
-title: Flroin Glimmerbeard
-alignment: Lawful Good
-
-
 ##
 # CHARACTER CREATION
 # Enter these once.
 ##
+title: Flroin Glimmerbeard
+alignment: Lawful Good
 race: Dwarf
 class: Paladin
 strength_rolled: 15

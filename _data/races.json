@@ -5,45 +5,53 @@
     "communication_bonus": 1,
     "knowledge_bonus": 1,
     "physical_bonus": 1,
-    "subterfuge_bonus": 1
+    "subterfuge_bonus": 1,
+    "bonus_language": true
   },
   {
     "title": "Elf",
     "size_class": "Medium",
-    "mind_bonus": 2
+    "mind_bonus": 2,
+    "language": "Elvish"
   },
   {
     "title": "Dwarf",
     "size_class": "Medium",
-    "strength_bonus": 2
+    "strength_bonus": 2,
+    "language": "Dwarvish"
   },
   {
     "title": "Halfling",
     "size_class": "Small",
-    "dexterity_bonus": 2
+    "dexterity_bonus": 2,
+    "language": "Halfling"
   },
   {
     "title": "Gnome",
     "size_class": "Small",
     "dexterity_bonus": 1,
-    "mind_bonus": 1
+    "mind_bonus": 1,
+    "language": "Gnomish"
   },
   {
     "title": "Half-Orc",
     "size_class": "Medium",
     "strength_bonus": 4,
-    "mind_bonus": -2
+    "mind_bonus": -2,
+    "language": "Orc"
   },
   {
     "title": "Half-Elf",
     "size_class": "Medium",
-    "dexterity_bonus": 1
+    "dexterity_bonus": 1,
+    "language": "Elvish"
   },
   {
     "title": "Lizardman",
     "size_class": "Medium",
     "strength_bonus": 2,
     "dexterity_bonus": 2,
-    "mind_bonus": -2
+    "mind_bonus": -2,
+    "language": "Draconic"
   }
 ]

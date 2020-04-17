@@ -159,3 +159,11 @@ th a:focus,
 th a:active {
     text-decoration-color: currentColor;
 }
+
+.toc-link {
+    color: var(--color-dove);
+    align-self: flex-start;
+    margin-top: var(--measure-large);
+    font-weight: var(--font-weight-bold);
+    text-decoration: underline;
+}

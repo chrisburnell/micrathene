@@ -1,14 +1,12 @@
 ---
 draft: true
 list_priority: true
-title: Example
-description: Description
-
-
 ##
 # CHARACTER CREATION
 # Enter these once.
 ##
+title: Example
+description: Description
 race: Half-Elf
 class: Bard
 strength_rolled: 10

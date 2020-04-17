@@ -19,7 +19,7 @@
 
             <hr>
 
-            <h2 class="delta">Table of Contents</h2>
+            <h2 id="toc" class="delta">Table of Contents</h2>
             <ol class="table-of-contents  default-list">
                 <li><a href="#personal">Personal</a></li>
                 <li><a href="#stats">Stats</a></li>
@@ -28,8 +28,8 @@
                 <li><a href="#weapons">Weapons</a></li>{% if spells %}
                 <li><a href="#spells">Spells</a></li>{% endif %}{% if armour or shield %}
                 <li><a href="#defences">Defences</a></li>{% endif %}
-                <li><a href="#equipment">Equipment</a></li>
-                <!-- <li><a href="#notes">Notes</a></li> -->
+                <li><a href="#equipment">Equipment</a></li>{% unless content == '' %}
+                <li><a href="#notes">Notes</a></li>{% endunless %}
             </ol>
 
             <hr>
@@ -78,6 +78,20 @@
                             <td class="nobold">{% if race_data.size_class == 'Small' %}25 ft. <span class="muted">/</span> 5 squares{% else %}30 ft. <span class="muted">/</span> 6 squares{% endif %}</td>
                         </tr>
                         <tr>
+                            <th>Languages</th>
+                            <td class="nobold">
+                                <ul class="inline-list">
+                                    <li>Common</li>
+                                    {% if race_data.language %}
+                                        <li>{{ race_data.language }}</li>
+                                    {% endif %}
+                                    {% for language in bonus_languages %}
+                                        <li>{{ language }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>Proficiencies</th>
                             <td class="nobold">
                                 <ul class="inline-list">
@@ -109,6 +123,7 @@
                         {% endif %}
                     </tbody>
                 </table>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             </figure>
 
             {% unless strength_rolled %}
@@ -154,6 +169,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             </figure>
 
             <figure id="skills">
@@ -192,6 +208,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             </figure>
 
             <figure id="combat">
@@ -282,6 +299,7 @@
                         {% endif %}
                     </tbody>
                 </table>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             </figure>
 
             {%- assign weapons = weapons_equipped | concat: weapons_unequipped -%}
@@ -401,6 +419,7 @@
                         </tfoot>
                     {% endif %}
                 </table>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             </figure>
 
             {% if spells %}
@@ -460,6 +479,7 @@
                     <dt>Widening</dt>
                     <dd>Spell area-of-effect is 2&times; larger. Costs an additional <strong>6 HP</strong> to cast.</dd>
                 </dl>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             {% endif %}
 
             {% if armour or shield %}
@@ -499,6 +519,7 @@
                             {% endif %}
                         </tbody>
                     </table>
+                    <a href="#toc" class="toc-link">↑ Table of Contents</a>
                 </figure>
             {% endif %}
 
@@ -539,9 +560,26 @@
                         {% endif %}
                     </tbody>
                 </table>
+                <a href="#toc" class="toc-link">↑ Table of Contents</a>
             </figure>
 
-            {{ content }}
+            {% unless content == '' %}
+                <figure id="notes">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="center  stretch"><a href="#notes">Notes</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="stretch">{{ content }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#toc" class="toc-link">↑ Table of Contents</a>
+                </figure>
+            {% endunless %}
         </div>
 
     </div>

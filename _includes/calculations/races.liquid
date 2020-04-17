@@ -10,7 +10,7 @@
 {%- assign subterfuge_bonus_race = race_data.subterfuge_bonus | default: 0 -%}
 {%- assign survival_bonus_race = race_data.survival_bonus | default: 0 -%}
 
-{%- comment %} 2 Bonus Skills for Half-elves {% endcomment -%}
+{%- comment %} 2 Bonus Skills for Half-Elves {% endcomment -%}
 {%- assign half_elf_skills_limit = half_elf_skills.size | default: 0 | at_most: 2 | minus: 1 -%}
 {%- if race == 'Half-Elf' -%}
     {% for i in (0..half_elf_skills_limit) %}

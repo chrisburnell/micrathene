@@ -9,7 +9,7 @@
     "two_weapon_fighting": true,
     "starting_wealth": 150,
     "features": [
-      "You incur a <span class='negative'>- 2</span> <strong>Attack</strong> penalty when fighting with two weapons."
+      "You can wield <strong>2 Light Weapons</strong> at once with a <span class='negative'>- 2</span> penalty to <strong>Attack</strong>."
     ]
   },
   {
@@ -20,7 +20,7 @@
     "starting_wealth": 120,
     "features": [
       "If you successfully sneak up on a foe (usually Subterfuge + DEX, but depends on the situation), you can add your <strong>Subterfuge</strong> bonus to the <strong>Damage</strong> of your 1<sup>ST</sup> <strong>Attack</strong>.",
-      "You incur a <span class='negative'>- 2</span> <strong>Attack</strong> penalty when fighting with two weapons."
+      "You can wield <strong>2 Light Weapons</strong> at once with a <span class='negative'>- 2</span> penalty to <strong>Attack</strong>."
     ]
   },
   {
@@ -51,8 +51,9 @@
     "starting_wealth": 150,
     "features": [
       "You are immune to all diseases.",
-      "You apply a <strong>REPLACE_ONE</strong> bonus to all <strong>Saving Throws</strong>.",
-      "You can <strong>Detect Evil</strong> with 60 ft. at will and can Heal up to <strong>REPLACE_TWO HP</strong> per day by <strong>Laying on Hands</strong>."
+      "You apply a <span class='positive'>+ REPLACE_ONE</span> bonus to all <strong>Saving Throws</strong>.",
+      "You can <strong>Detect Evil</strong> up to <strong>60 ft.</strong> at will.",
+      "You can Heal up to <strong>REPLACE_TWO HP</strong> per day by <strong>Laying on Hands</strong>."
     ]
   },
   {
@@ -64,7 +65,7 @@
     "two_weapon_fighting": true,
     "starting_wealth": 120,
     "features": [
-      "You incur a <span class='negative'>- 1</span> <strong>Attack</strong> penalty when fighting with two weapons."
+      "You can wield <strong>2 Light Weapons</strong> at once with a <span class='negative'>- 1</span> penalty to <strong>Attack</strong>."
     ]
   },
   {

@@ -1,19 +1,12 @@
 ---
-title: Fëonir
-hometown: Hope’s Hollow
-description: Arcane Baker and Paragon for All Those Wild and Free
-alignment: Chaotic Neutral
-gender: Male
-deity: Atheist
-age: 124 years
-height: 185 cm / 6' 1"
-weight: 53 kg / 117 lb
-
-
 ##
 # CHARACTER CREATION
 # Enter these once.
 ##
+title: Fëonir
+description: Arcane Baker and Paragon for All Those Wild and Free
+alignment: Chaotic Neutral
+gender: Male
 race: Elf
 class: Mage
 strength_rolled: 10
@@ -50,3 +43,5 @@ equipment:
     equipped: true
   - name: Dagger
 ---
+
+Character notes go here!

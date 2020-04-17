@@ -1,14 +1,11 @@
 ---
 list_priority: true
-title: Example
-description: Description
-
-
 ##
 # CHARACTER CREATION
 # Enter these once.
 ##
-race: Dwarf
+title: Example
+race: Human
 class: Ranger
 strength_rolled: 10
 dexterity_rolled: 10
@@ -19,6 +16,9 @@ mind_rolled: 10
 # CLASS/RACE/LEVEL UPGRADES
 # Enter these when your class or race requires it and as you level.
 ##
+# If you picked Human, enter a language other than Common:
+# Elvish, Dwarvish, Halfling, Gnomish, Orc, Draconic
+bonus_languages: [Elvish]
 # Every 3 levels, add 1 Stat to this array (6 at Level 18):
 # STR, DEX, MIND
 stat_bonuses: []
