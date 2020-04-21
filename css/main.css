@@ -36,18 +36,22 @@ table {
 }
 
 @media (max-width: 600px) {
-    #weapons tbody th,
-    #weapons tfoot th {
-        font-size: var(--font-size-small);
-    }
-}
-
-@media (max-width: 600px) {
     #spells tbody th {
         max-width: 40vw !important;
         font-size: var(--font-size-small);
         white-space: normal;
     }
+}
+
+th[disabled],
+td[disabled] {
+    filter: grayscale(100%);
+}
+th[disabled],
+td[disabled],
+th[disabled] *,
+td[disabled] * {
+    color: var(--color-dove) !important;
 }
 
 p,

@@ -153,17 +153,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>💪 Strength <span class="muted">(STR)</span></th>
+                            <th>{% emoji '💪' %} Strength <span class="muted">(STR)</span></th>
                             <td class="center"><abbr title="Rolled ({{ strength_nobonus }}){% if strength_bonus_race > 0 or strength_bonus_race < 0 %} + Race Bonus ({{ strength_bonus_race }}){% endif %}{% if strength_bonus > 0 or strength_bonus < 0 %} + Level Stat Bonus ({{ strength_bonus }}){% endif %}">{{ strength }}</abbr></td>
                             <td class="center">{% plusminus strength_modifier %}</td>
                         </tr>
                         <tr>
-                            <th>💨 Dexterity <span class="muted">(DEX)</span></th>
+                            <th>{% emoji '💨' %} Dexterity <span class="muted">(DEX)</span></th>
                             <td class="center"><abbr title="Rolled ({{ dexterity_nobonus }}){% if dexterity_bonus_race > 0 or dexterity_bonus_race < 0 %} + Race Bonus ({{ dexterity_bonus_race }}){% endif %}{% if dexterity_bonus > 0 or dexterity_bonus < 0 %} + Level Stat Bonus ({{ dexterity_bonus }}){% endif %}">{{ dexterity }}</abbr></td>
                             <td class="center">{% plusminus dexterity_modifier %}</td>
                         </tr>
                         <tr>
-                            <th>🧠 Mind <span class="muted">(MIND)</span></th>
+                            <th>{% emoji '🧠' %} Mind <span class="muted">(MIND)</span></th>
                             <td class="center"><abbr title="Rolled ({{ mind_nobonus }}){% if mind_bonus_race > 0 or mind_bonus_race < 0 %} + Race Bonus ({{ mind_bonus_race }}){% endif %}{% if mind_bonus > 0 or mind_bonus < 0 %} + Level Stat Bonus ({{ mind_bonus }}){% endif %}">{{ mind }}</abbr></td>
                             <td class="center">{% plusminus mind_modifier %}</td>
                         </tr>
@@ -181,24 +181,24 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>🗣 Communication</th>
+                            <th>{% emoji '🗣' %} Communication</th>
                             <td class="center  stretch"><abbr title="0{% if communication_bonus_race > 0 or communication_bonus_race < 0 %} + Race Bonus ({{ communication_bonus_race }}){% endif %}{% if communication_bonus_class > 0 or communication_bonus_class < 0 %} + Class Bonus ({{ communication_bonus_class }}){% endif %}{% if communication_nobonus > 0 %} + Level Bonus ({{ communication_nobonus }}){% endif %}">{% plusminus communication %}</abbr></td>
                         </tr>
                         <tr>
-                            <th>📖 Knowledge</th>
+                            <th>{% emoji '📖' %} Knowledge</th>
                             <td class="center  stretch"><abbr title="0{% if knowledge_bonus_race > 0 or knowledge_bonus_race < 0 %} + Race Bonus ({{ knowledge_bonus_race }}){% endif %}{% if knowledge_bonus_class > 0 or knowledge_bonus_class < 0 %} + Class Bonus ({{ knowledge_bonus_class }}){% endif %}{% if knowledge_nobonus > 0 %} + Level Bonus ({{ knowledge_nobonus }}){% endif %}">{% plusminus knowledge %}</abbr></td>
                         </tr>
                         <tr>
-                            <th>🏃‍♂️ Physical</th>
+                            <th>{% emoji '🏃‍♂️' %} Physical</th>
                             <td class="center  stretch"><abbr title="0{% if physical_bonus_race > 0 or physical_bonus_race < 0 %} + Race Bonus ({{ physical_bonus_race }}){% endif %}{% if physical_bonus_class > 0 or physical_bonus_class < 0 %} + Class Bonus ({{ physical_bonus_class }}){% endif %}{% if physical_nobonus > 0 %} + Level Bonus ({{ physical_nobonus }}){% endif %}">{% plusminus physical %}</abbr></td>
                         </tr>
                         <tr>
-                            <th>🔎 Subterfuge</th>
+                            <th>{% emoji '🔎' %} Subterfuge</th>
                             <td class="center  stretch"><abbr title="0{% if subterfuge_bonus_race > 0 or subterfuge_bonus_race < 0 %} + Race Bonus ({{ subterfuge_bonus_race }}){% endif %}{% if subterfuge_bonus_class > 0 or subterfuge_bonus_class < 0 %} + Class Bonus ({{ subterfuge_bonus_class }}){% endif %}{% if subterfuge_nobonus > 0 %} + Level Bonus ({{ subterfuge_nobonus }}){% endif %}">{% plusminus subterfuge %}</abbr></td>
                         </tr>
                         <tr>
-                            <th>🍃 Survival</th>
-                            <td class="center  stretch">
+                            <th{% unless class == 'Druid' or class == 'Ranger' %} disabled{% endunless %}>{% emoji '🍃' %} Survival</th>
+                            <td class="center  stretch"{% unless class == 'Druid' or class == 'Ranger' %} disabled{% endunless %}>
                                 {% if class == 'Druid' or class == 'Ranger' %}
                                     <abbr title="0{% if survival_bonus_race > 0 or survival_bonus_race < 0 %} + Race Bonus ({{ survival_bonus_race }}){% endif %}{% if survival_bonus_class > 0 or survival_bonus_class < 0 %} + Class Bonus ({{ survival_bonus_class }}){% endif %}{% if survival_nobonus > 0 %} + Level Bonus ({{ survival_nobonus }}){% endif %}">{% plusminus survival %}</abbr>
                                 {% else %}
@@ -248,25 +248,25 @@
                             {% endif %}
                         </tr>
                         <tr>
-                            <th class="stretch">🛡 AC <span class="muted">(Armour Class)</span></th>
+                            <th class="stretch">{% emoji '🛡' %} AC <span class="muted">(Armour Class)</span></th>
                             <td class="center  stretch"><abbr title="10 + DEX ({{ dexterity_modifier }}){% if armour.bonus > 0 or armour.bonus < 0 %} + Armour Bonus ({{ armour.bonus }}){% endif %}{% if shield.bonus > 0 or shield.bonus < 0 %} + Shield Bonus ({{ shield.bonus }}){% endif %}">{{ armour_class }}</abbr></td>
                         </tr>
                         <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
-                            <th class="stretch">💪 Fortitude <span class="muted">Save</span></th>
+                            <th class="stretch">{% emoji '💪' %} Fortitude <span class="muted">Save</span></th>
                             <td class="center  stretch"><abbr title="Physical ({{ physical }}) + STR ({{ strength_modifier }})">{% plusminus fortitude %}</abbr></td>
                         </tr>
                         <tr>
-                            <th class="stretch">💨 Reflex <span class="muted">Save</span></th>
+                            <th class="stretch">{% emoji '💨' %} Reflex <span class="muted">Save</span></th>
                             <td class="center  stretch"><abbr title="Physical ({{ physical }}) + DEX ({{ dexterity_modifier }})">{% plusminus reflex %}</abbr></td>
                         </tr>
                         <tr>
-                            <th class="stretch">🧠 Will <span class="muted">Save</span></th>
+                            <th class="stretch">{% emoji '🧠' %} Will <span class="muted">Save</span></th>
                             <td class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }})">{% plusminus will %}</abbr></td>
                         </tr>
                         <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
-                            <th class="stretch">🎲 Melee <span class="muted">Attack Bonus</span></th>
+                            <th class="stretch">{% emoji '🎲' %} Melee <span class="muted">Attack Bonus</span></th>
                             {% if dexterity_modifier > strength_modifier and class == 'Fighter' or class == 'Rogue' %}
                                 <td class="center  stretch"><abbr title="STR/DEX ({{ strength_modifier }}/{{ dexterity_modifier }}) + Level ({{ level }}{% if attack_melee_fighter_bonus > 0%} + Fighter Bonus ({{ attack_melee_fighter_bonus }}/{{ attack_ranged_fighter_bonus }}){% endif %})">{% plusminus attack_melee %} <span class="muted">/</span> {% plusminus attack_ranged %}</abbr></td>
                             {% else %}
@@ -274,29 +274,27 @@
                             {% endif %}
                         </tr>
                         <tr>
-                            <th class="stretch">⚔️ Melee <span class="muted">Damage Bonus</span></th>
+                            <th class="stretch">{% emoji '⚔️' %} Melee <span class="muted">Damage Bonus</span></th>
                             <td class="center  stretch">{% plusminus damage_bonus_melee %}</td>
                         </tr>
                         <tr aria-hidden="true"><th> </th><td></td></tr>
                         <tr>
-                            <th class="stretch">🎲 Ranged <span class="muted">Attack Bonus</span></th>
+                            <th class="stretch">{% emoji '🎲' %} Ranged <span class="muted">Attack Bonus</span></th>
                             <td class="center  stretch"><abbr title="DEX ({{ dexterity_modifier }}) + Level ({{ level }}){% if attack_ranged_fighter_bonus > 0%} + Fighter Bonus ({{ attack_ranged_fighter_bonus }}){% endif %}">{% plusminus attack_ranged %}</abbr></td>
                         </tr>
                         <tr>
-                            <th class="stretch">🏹 Ranged <span class="muted">Damage Bonus</span></th>
+                            <th class="stretch">{% emoji '🏹' %} Ranged <span class="muted">Damage Bonus</span></th>
                             <td class="center  stretch">{% plusminus damage_bonus_ranged %}</td>
                         </tr>
-                        {% if spells %}
-                            <tr aria-hidden="true"><th> </th><td></td></tr>
-                            <tr>
-                                <th class="stretch">🎲 Spell <span class="muted">Attack Bonus</span></th>
-                                <td class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }}){% if attack_magic_fighter_bonus > 0%} + Fighter Bonus ({{ attack_magic_fighter_bonus }}){% endif %}">{% plusminus attack_magic %}</abbr></td>
-                            </tr>
-                            <tr>
-                                <th class="stretch">✨ Spell <span class="muted">Difficulty Class</span></th>
-                                <td class="center  stretch"><abbr title="10 + MIND ({{ mind_modifier }}) + Level ({{ level }})">{{ magic_dc }}</abbr></td>
-                            </tr>
-                        {% endif %}
+                        <tr aria-hidden="true"><th> </th><td></td></tr>
+                        <tr>
+                            <th{% unless spell %} disabled{% endunless %} class="stretch">{% emoji '🎲' %} Spell <span class="muted">Attack Bonus</span></th>
+                            <td{% unless spell %} disabled{% endunless %} class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }}){% if attack_magic_fighter_bonus > 0%} + Fighter Bonus ({{ attack_magic_fighter_bonus }}){% endif %}">{% plusminus attack_magic %}</abbr></td>
+                        </tr>
+                        <tr>
+                            <th{% unless spell %} disabled{% endunless %} class="stretch">{% emoji '✨' %} Spell <span class="muted">Difficulty Class</span></th>
+                            <td{% unless spell %} disabled{% endunless %} class="center  stretch"><abbr title="10 + MIND ({{ mind_modifier }}) + Level ({{ level }})">{{ magic_dc }}</abbr></td>
+                        </tr>
                     </tbody>
                 </table>
                 <a href="#toc" class="toc-link">↑ Table of Contents</a>
@@ -552,7 +550,7 @@
                                             {%- elsif name contains shield.title -%}
                                                 {%- assign emoji = '🛡' -%}
                                             {%- endif -%}
-                                            <li>{{ emoji }} {% if item.nickname %}<span class="positive">{{ item.nickname }}</span>, <span class="muted">{{ item.name | default: item }}</span>{% else %}{{ item.name | default: item }}{% endif %}</li>
+                                            <li>{% emoji emoji %} {% if item.nickname %}<span class="positive">{{ item.nickname }}</span>, <span class="muted">{{ item.name | default: item }}</span>{% else %}{{ item.name | default: item }}{% endif %}</li>
                                         {% endfor %}
                                     </ul>
                                 </td>

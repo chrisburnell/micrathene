@@ -80,4 +80,9 @@ module.exports = function(eleventyConfig) {
         }
         return plusminus(number, space);
     });
+
+    // Emoji
+    eleventyConfig.addShortcode("emoji", function(emoji) {
+        return `<span class="emoji">${emoji}</span>`;
+    })
 };
