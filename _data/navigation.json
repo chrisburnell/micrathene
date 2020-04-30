@@ -5,13 +5,7 @@
     "body_class": "page--home"
   },
   {
-    "title": "Characters",
-    "url": "/characters",
-    "body_class": "page--characters"
-  },
-  {
-    "title": "Calculations",
-    "url": "/calculations",
-    "body_class": "page--calculations"
+    "title": "The Rules ↗",
+    "url": "/docs/Microlite20.pdf"
   }
 ]
