@@ -1,17 +1,20 @@
-module.exports = function(eleventyConfig) {
-    // Pull in necessary packages
-    const slugify = require("slugify");
+const slugify = require("slugify");
+
+module.exports = function(config) {
+    const now = new Date();
+    config.setDataDeepMerge(true);
 
     // Set up layouts
-    eleventyConfig.addLayoutAlias("default", "layouts/default.html");
-    eleventyConfig.addLayoutAlias("character", "layouts/character.html");
+    config.addLayoutAlias("default", "layouts/default.liquid");
+    config.addLayoutAlias("character", "layouts/character.liquid");
 
     // Pass through files
-    eleventyConfig.addPassthroughCopy("css");
-    eleventyConfig.addPassthroughCopy("docs");
-    eleventyConfig.addPassthroughCopy("images");
+    config.addPassthroughCopy("css");
+    config.addPassthroughCopy("js");
+    config.addPassthroughCopy("docs");
+    config.addPassthroughCopy("images");
 
-    // Collections
+    // Character Collection
     const characterSort = (a, b) => {
         if (a.data.list_priority) {
             return -1;
@@ -28,14 +31,23 @@ module.exports = function(eleventyConfig) {
         return 0;
     };
     const characterFilter = (character) => !character.data.draft;
-    eleventyConfig.addCollection("characters", function(collection) {
-        return collection.getFilteredByGlob("_characters/*.md")
+    config.addCollection("characters", function(collection) {
+        return collection.getFilteredByTag("character")
             .filter(characterFilter)
             .sort(characterSort);
     });
 
+    // Pages Collection
+    const titleSort = (a, b) => {
+        return a.data.title.localeCompare(b.data.title);
+    };
+    config.addCollection("pages", collection => {
+        return collection.getFilteredByTag("page")
+            .sort(titleSort);
+    });
+
     // {{ array | where: key,value }}
-    eleventyConfig.addFilter("where", function (array, key, value) {
+    config.addFilter("where", function (array, key, value) {
         return array.filter(item => {
             const keys = key.split(".");
             const reducedKey = keys.reduce((object, key) => {
@@ -46,17 +58,17 @@ module.exports = function(eleventyConfig) {
     });
 
     // {{ number | at_least: comparator }}
-    eleventyConfig.addFilter("at_least", function (number, comparator) {
+    config.addFilter("at_least", function (number, comparator) {
         return Math.max(number, comparator);
     });
 
     // {{ number | at_most: comparator }}
-    eleventyConfig.addFilter("at_most", function (number, comparator) {
+    config.addFilter("at_most", function (number, comparator) {
         return Math.min(number, comparator);
     });
 
     // {{ array | add: item }}
-    eleventyConfig.addFilter("add", function (array, item) {
+    config.addFilter("add", function (array, item) {
         array.push(item);
         return array;
     });
@@ -66,7 +78,7 @@ module.exports = function(eleventyConfig) {
         return slugify(string).toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=_""`~()]/g,"");
     };
     // Slug Shortcode
-    eleventyConfig.addShortcode("slug", function(string) {
+    config.addShortcode("slug", function(string) {
         return slug(string);
     });
 
@@ -75,7 +87,7 @@ module.exports = function(eleventyConfig) {
         return (number < 0 ? ("–" + (space ? " " : "")) : ("+" + (space ? " " : ""))) + Math.abs(number);
     };
     // Plus-Minus Shortcode
-    eleventyConfig.addShortcode("plusminus", function(number, color = true, space = true) {
+    config.addShortcode("plusminus", function(number, color = true, space = true) {
         if (color) {
             return (number < 0 ? `<span class="negative">` : number > 0 ? `<span class="positive">` : `<span class="neutral">`) + plusminus(number, space) + `</span>`;
         }
@@ -83,7 +95,17 @@ module.exports = function(eleventyConfig) {
     });
 
     // Emoji
-    eleventyConfig.addShortcode("emoji", function(emoji) {
+    config.addShortcode("emoji", function(emoji) {
         return `<span class="emoji">${emoji}</span>`;
-    })
+    });
+
+    return {
+        dataTemplateEngine: "liquid",
+        htmlTemplateEngine: "liquid",
+        markdownTemplateEngine: "liquid",
+        passthroughFileCopy: true,
+        dir: {
+            input: "src"
+        }
+    };
 };

@@ -1,6 +1,8 @@
 {
   "layout": "character",
-  "tag": "page",
+  "tags": [
+    "character"
+  ],
   "description": "A Player Character",
   "permalink": "/character/{{ page.fileSlug }}/index.html"
 }

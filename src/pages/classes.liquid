@@ -5,7 +5,7 @@ body_class: page--classes
 ---
 
 {%- for class in classes -%}
-    <figure>
+    <figure id="{{ class.title | slug }}">
         <table>
             <thead>
                 <tr>

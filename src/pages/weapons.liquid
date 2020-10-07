@@ -19,16 +19,16 @@ body_class: page--weapons
             {%- for weapon in equipment_weapons -%}
                 <tr>
                     <th>
-                        {{ weapon.title }}{% if weapon.class != 'Ranged' and weapon.range %} <span class="nobold">†</span>{% endif %}
+                        {{ weapon.title }}
                     </th>
                     <td class="center">
-                        {{ weapon.class | default: '—' }}
+                        {{ weapon.class | default: '—' }}{% if weapon.class != 'Ranged' and weapon.range %} / Ranged{% endif %}
                     </td>
                     <td class="center">
                         {%- if weapon.range -%}
                             {{ weapon.range }} ft.
                         {%- else -%}
-                            —
+                            5 ft.
                         {%- endif -%}
                     </td>
                     <td class="center  mono">

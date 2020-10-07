@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="{{ site.locale }}" class="{% if body_class %}{{ body_class }}{% endif %}" data-user-color-scheme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% unless page.inputPath contains 'index' %}{{ title %}} – {% endunless %}{{ site.title }}</title>
+
+    <link rel="icon" href="/images/favicon.ico" sizes="512x512">
+    <link rel="apple-touch-icon" href="/images/favicon-180.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/favicon-180.png">
+    <link rel="msapplication-square310x310logo" href="/images/favicon-310.png">
+
+    <link rel="author" href="/humans.txt">
+    <link rel="manifest" type="application/manifest+json" href="/manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="{{ site.title }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+    <meta name="msapplication-starturl" content="{{ site.url }}">
+    <meta name="description" content="{{ description | default: site.description }}">
+    <meta name="theme-color" content="#5b5496">
+    <meta name="msapplication-navbutton-color" content="#5b5496">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" href="https://chrisburnell.com/css/main.css">
+
+    <!-- Overwrite some styles -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+
+    <header class=" [ header ] ">
+        <div class="  [ wrap  wrap--large ] ">
+
+            <a rel="home" class="logo" href="/" title="{{ site.title }}">
+                <picture class="icon"
+                        style="transition: none; left: 50%; top: 55%; transform: translateX(-50%) translateY(-50%); width: 4em; height: auto;">
+                    <source srcset="/images/logo.webp"
+                            type="image/webp" />
+                    <img alt="" class="icon"
+                        src="/images/logo.jpg"
+                        role="img"
+                        style="transition: none; left: 50%; top: 55%; transform: translateX(-50%) translateY(-50%); width: 4em; height: auto;">
+                </picture>
+            </a>
+
+            <nav class=" [ navigation ] ">
+                <ol class=" [ navigation__list ] ">
+                    {% for item in navigation %}
+                        <li>
+                            <a href="{{ item.url }}"{% if body_class contains item.body_class %} aria-current="page"{% endif %}>{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class=" [ main ] ">
+        <article id="content" class=" [ content ] [ wrap ] [ page ] ">
+
+            <h1 class=" [ title ] ">{{ title | default: site.title }}</h1>
+
+            <div class=" [ details ] ">
+                <p class=" [ p-summary ] ">{{ description | default: site.description | safe }}</p>
+            </div>
+
+            <div class="content__body">
+                {{ content | safe }}
+            </div>
+
+        </article>
+    </main>
+
+    <script defer src="/js/dice.js"></script>
+
+</body>
+</html>

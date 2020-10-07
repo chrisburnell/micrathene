@@ -39,7 +39,7 @@ equipment:
     equipped: true
   - name: Buckler
     equipped: true
-  - name: Rapier
+  - name: Throwing Axe
     equipped: true
   - name: Thieves Tools
 ---

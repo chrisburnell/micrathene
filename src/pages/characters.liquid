@@ -1,0 +1,23 @@
+---
+hidden: true
+title: Characters
+description: List ’em all
+body_class: page--characters
+---
+<nav class="[ shelf ]">
+    {% for item in collections.characters %}
+        <article>
+            <h3>
+                <a href="{{ item.url }}">{{ item.data.title }}</a>
+            </h3>
+            <div>
+                Level {{ item.data.hitpoints.size | default: 1 | at_most: 20 }}
+                {% if item.data.race %}{{ item.data.race }}{% endif %}
+                {% if item.data.class %}{{ item.data.class }}{% endif %}
+            </div>
+            {% if item.data.description %}
+                <div><em>{{ item.data.description }}</em></div>
+            {% endif %}
+        </article>
+    {% endfor %}
+</nav>

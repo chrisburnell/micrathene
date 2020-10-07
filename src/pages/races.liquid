@@ -5,7 +5,7 @@ body_class: page--races
 ---
 
 {%- for race in races -%}
-    <figure>
+    <figure id="{{ race.title | slug }}">
         <table>
             <thead>
                 <tr>
