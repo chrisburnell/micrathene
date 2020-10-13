@@ -32,11 +32,11 @@ temporary_hitpoints: 0
 hitpoints_lost: 0
 gold: 57
 equipment:
-  - name: Battleaxe
+  - title: Battleaxe
     equipped: true
-  - name: Light Wooden Shield
+  - title: Light Wooden Shield
     equipped: true
-  - name: Scale Mail Armour
+  - title: Scale Mail Armour
     equipped: true
-  - name: Adventuring Tools
+  - title: Adventuring Tools
 ---

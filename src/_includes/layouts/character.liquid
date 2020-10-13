@@ -54,11 +54,11 @@ layout: default
             </tr>
             <tr>
                 <th>Race</th>
-                <td class="nobold">{{ race | default: "N/A" }}</td>
+                <td class="nobold">{{ race | default: 'N/A' }}</td>
             </tr>
             <tr>
                 <th>Class</th>
-                <td class="nobold">{{ class | default: "N/A" }}</td>
+                <td class="nobold">{{ class | default: 'N/A' }}</td>
             </tr>
             <tr>
                 <th>Size</th>
@@ -211,32 +211,33 @@ layout: default
         </thead>
         <tbody>
             <tr>
-                <th class="stretch">❤️ HP <span class="muted">(Hitpoints{% if temporary_hitpoints > 0 %} + Temp{% endif %})</span></th>
+                <th class="stretch">❤️ HP <span class="muted">(Hitpoints{% if temporary_hitpoints > 0 %} + Temp.{% endif %})</span></th>
                 {% if hitpoints > hitpoints_max_quarter %}
-                    <td class="center  stretch"><abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}</td>
-                {% elsif hitpoints > 1 %}
-                    <td class="center  stretch  negative">
-                        <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
-                        <br>
-                        <small>Cutting it close!</small>
-                    </td>
-                {% elsif hitpoints > 0 %}
-                    <td class="center  stretch  negative">
-                        <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %}
-                        <br>
-                        <small>About to rely on STR for {{ strength_modifier }} HP!</small>
-                    </td>
-                {% elsif hitpoints_laststand > 0 %}
-                    <td class="center  stretch  negative">
-                        <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>{% if temporary_hitpoints > 0 %} {% plusminus temp_hitpoints false %}{% endif %} {% plusminus hitpoints_laststand false %}
-                        <br>
-                        <small>Unconscious and surviving on STR alone!</small>
-                    </td>
+                    <td class="center  stretch">
                 {% else %}
                     <td class="center  stretch  negative">
-                        DEAD
-                    </td>
                 {% endif %}
+                    {% if hitpoints_laststand > 0 %}
+                        <abbr title="Strength ({{ strength }}){% for hitpoint in hitpoints_data %} + {% if forloop.first %}6{% else %}{{ hitpoint | at_most: 6 }}{% endif %}{% endfor %}{% if temporary_hitpoints > 0 %} + Temporary ({{ temporary_hitpoints }}){% endif %}{% if hitpoints_lost > 0 %} - Lost ({{ hitpoints_lost }}){% endif %}{% if hitpoints_spent > 0 %} - Spent ({{ hitpoints_spent }}){% endif %}">{{ hitpoints }}</abbr>
+                    {% endif %}
+                    {% if hitpoints > hitpoints_max_quarter %}
+                    {% elsif hitpoints > 1 %}
+                        <br>
+                        <small>Cutting it close!</small>
+                    {% elsif hitpoints > 0 and strength_modifier > 0 %}
+                        <br>
+                        <small>About to rely on STR for {{ strength_modifier }} HP!</small>
+                    {% elsif hitpoints > 0 %}
+                        <br>
+                        <small>About to die!</small>
+                    {% elsif hitpoints_laststand > 0 %}
+                        {% plusminus hitpoints_laststand false %}
+                        <br>
+                        <small>Unconscious and surviving on STR alone!</small>
+                    {% else %}
+                        DEAD
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th class="stretch">{% emoji '🛡' %} AC <span class="muted">(Armour Class)</span></th>
@@ -279,12 +280,12 @@ layout: default
             </tr>
             <tr aria-hidden="true"><th> </th><td></td></tr>
             <tr>
-                <th{% unless spell %} disabled{% endunless %} class="stretch">{% emoji '🎲' %} Spell <span class="muted">Attack Bonus</span></th>
-                <td{% unless spell %} disabled{% endunless %} class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }}){% if attack_magic_fighter_bonus > 0%} + Fighter Bonus ({{ attack_magic_fighter_bonus }}){% endif %}">{% plusminus attack_magic %}</abbr></td>
+                <th{% unless spells %} disabled{% endunless %} class="stretch">{% emoji '🎲' %} Spell <span class="muted">Attack Bonus</span></th>
+                <td{% unless spells %} disabled{% endunless %} class="center  stretch"><abbr title="MIND ({{ mind_modifier }}) + Level ({{ level }}){% if attack_magic_fighter_bonus > 0%} + Fighter Bonus ({{ attack_magic_fighter_bonus }}){% endif %}">{% plusminus attack_magic %}</abbr></td>
             </tr>
             <tr>
-                <th{% unless spell %} disabled{% endunless %} class="stretch">{% emoji '✨' %} Spell <span class="muted">Difficulty Class</span></th>
-                <td{% unless spell %} disabled{% endunless %} class="center  stretch"><abbr title="10 + MIND ({{ mind_modifier }}) + Level ({{ level }})">{{ magic_dc }}</abbr></td>
+                <th{% unless spells %} disabled{% endunless %} class="stretch">{% emoji '✨' %} Spell <span class="muted">Difficulty Class</span></th>
+                <td{% unless spells %} disabled{% endunless %} class="center  stretch"><abbr title="10 + MIND ({{ mind_modifier }}) + Level ({{ level }})">{{ magic_dc }}</abbr></td>
             </tr>
         </tbody>
     </table>
@@ -310,7 +311,7 @@ layout: default
             {% comment %} For <tfoot> notice {% endcomment %}
             {%- assign found_non_ranged_range_weapon = false -%}
             {% for weapon in weapons %}
-                {%- assign nickname = equipment | where: 'name', weapon.title | map: 'nickname' | first -%}
+                {%- assign nickname = equipment | where: 'title', weapon.title | map: 'nickname' | first -%}
                 {% comment %} TODO: Fix duplicate Unarmed Strike {% endcomment %}
                 {%- if forloop.index > 1 and weapon.title == 'Unarmed Strike' -%}
                     {% continue %}
@@ -338,14 +339,12 @@ layout: default
                         {% elsif weapon.range %}
                             {%- if weapons_equipped.size == 3 and forloop.index <= 3 and forloop.index > 1 -%}
                                 <span data-roll="1d20{% plusminus attack_melee_dual false false %}">{% plusminus attack_melee_dual false %}</span>
-                                {% unless attack_melee_dual == attack_ranged_dual %}
-                                    / <span data-roll="1d20{% plusminus attack_ranged_dual false false %}">{% plusminus attack_ranged_dual false %}</span>
-                                {% endunless %}
+                                /
+                                <span data-roll="1d20{% plusminus attack_ranged_dual false false %}">{% plusminus attack_ranged_dual false %}</span>
                             {%- else -%}
                                 <span data-roll="1d20{% plusminus attack_melee false false %}">{% plusminus attack_melee false %}</span>
-                                {% unless attack_melee == attack_ranged %}
-                                    / <span data-roll="1d20{% plusminus attack_ranged false false %}">{% plusminus attack_ranged false %}</span>
-                                {% endunless %}
+                                /
+                                <span data-roll="1d20{% plusminus attack_ranged false false %}">{% plusminus attack_ranged false %}</span>
                             {%- endif -%}
                         {% elsif weapons_equipped.size == 3 and forloop.index <= 3 and forloop.index > 1 %}
                             {%- if class == 'Ranger' -%}
@@ -401,7 +400,7 @@ layout: default
             <tfoot>
                 {% if found_non_ranged_range_weapon %}
                     <tr>
-                        <th class="nobold" colspan="5">† Designates a weapon as both melee and ranged.</th>
+                        <th class="nobold" colspan="5">† Designates a weapon as both melee and ranged.<br>The attack values represent Melee / Ranged.</th>
                     </tr>
                 {% endif %}
                 {% if too_many_weapons == true %}
@@ -541,16 +540,16 @@ layout: default
                     <td class="nobold">
                         <ul class="table-of-contents">
                             {% for item in equipment %}
-                                {%- assign name = item.name | default: item -%}
+                                {%- assign item_title = item.title | default: item -%}
                                 {%- assign emoji = '❧' -%}
-                                {%- if weapons_names contains name -%}
+                                {%- if weapons_titles contains item_title -%}
                                     {%- assign emoji = '⚔️' -%}
-                                {%- elsif name contains armour.title -%}
+                                {%- elsif item_title contains armour.title -%}
                                     {%- assign emoji = '⛓' -%}
-                                {%- elsif name contains shield.title -%}
+                                {%- elsif item_title contains shield.title -%}
                                     {%- assign emoji = '🛡' -%}
                                 {%- endif -%}
-                                <li>{% emoji emoji %} {% if item.nickname %}<span class="positive">{{ item.nickname }}</span>, <span class="muted">{{ item.name | default: item }}</span>{% else %}{{ item.name | default: item }}{% endif %}</li>
+                                <li>{% emoji emoji %} {% if item.nickname %}<span class="positive">{{ item.nickname }}</span>, <span class="muted">{{ item.title | default: item }}</span>{% else %}{{ item.title | default: item }}{% endif %}</li>
                             {% endfor %}
                         </ul>
                     </td>

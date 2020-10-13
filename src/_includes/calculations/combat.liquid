@@ -14,9 +14,10 @@
 {%- assign hitpoints_max = hitpoints | plus: strength -%}
 {%- assign hitpoints_max_quarter = hitpoints_max | divided_by: 4 | ceil -%}
 {%- assign hitpoints_lost = hitpoints_lost | default: 0 | at_least: 0 -%}
+{%- assign hitpoints_spent = hitpoints_spent | default: 0 | at_least: 0 -%}
 {%- assign temp_hitpoints = temporary_hitpoints | default: 0 | at_least: 0 -%}
-{%- assign overflow_hitpoints = temp_hitpoints | minus: hitpoints_lost | at_most: 0 | abs -%}
-{%- assign temp_hitpoints = temp_hitpoints | minus: hitpoints_lost | at_least: 0 -%}
+{%- assign overflow_hitpoints = temp_hitpoints | minus: hitpoints_lost | minus: hitpoints_spent | at_most: 0 | abs -%}
+{%- assign temp_hitpoints = temp_hitpoints | minus: hitpoints_lost | minus: hitpoints_spent | at_least: 0 -%}
 {%- assign hitpoints = hitpoints_max | minus: overflow_hitpoints -%}
 {%- assign hitpoints_laststand = hitpoints | plus: strength_modifier -%}
 
@@ -29,14 +30,14 @@
 {%- assign unarmed_strike = equipment_weapons | where: 'title', 'Unarmed Strike' | first -%}
 {%- assign weapons_equipped = site.emptyArray | add: unarmed_strike | uniq -%}
 {%- assign weapons_unequipped = site.emptyArray | uniq -%}
-{% assign too_many_weapons = false %}
+{%- assign too_many_weapons = false -%}
 {%- for item in equipment -%}
-    {% assign armour_name = item.name | replace: ' Armour', '' %}
-    {% assign armour_lookup = equipment_armour | where: 'title', armour_name | first | default: false %}
-    {% assign shield_name = item.name | replace: ' Shield', '' %}
-    {% assign shield_lookup = equipment_shields | where: 'title', shield_name | first | default: false %}
-    {% assign weapon_name = item.name %}
-    {% assign weapon_lookup = equipment_weapons | where: 'title', weapon_name | first | default: false %}
+    {% assign armour_title = item.title | replace: ' Armour', '' %}
+    {% assign armour_lookup = equipment_armour | where: 'title', armour_title | first | default: false %}
+    {% assign shield_title = item.title | replace: ' Shield', '' %}
+    {% assign shield_lookup = equipment_shields | where: 'title', shield_title | first | default: false %}
+    {% assign weapon_title = item.title %}
+    {% assign weapon_lookup = equipment_weapons | where: 'title', weapon_title | first | default: false %}
     {% if item.equipped %}
         {% if armour_lookup %}
             {% unless armour %}
@@ -64,7 +65,7 @@
         {% endif %}
     {% endif %}
 {%- endfor -%}
-{%- assign weapons_names = weapons_equipped | concat: weapons_unequipped | map: 'title' -%}
+{%- assign weapons_titles = weapons_equipped | concat: weapons_unequipped | map: 'title' -%}
 
 {% comment %} Process Armour {% endcomment %}
 {%- assign armour_bonus = 0 -%}

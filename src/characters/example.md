@@ -44,14 +44,14 @@ hitpoints_lost: 0
 hitpoints_spent: 0 # Use if you're a Spellcaster
 gold: 120
 equipment:
-  - name: Leather Armour
+  - title: Leather Armour
     equipped: true
-  - name: Buckler
+  - title: Buckler
     equipped: true
-  - name: Rapier
+  - title: Rapier
     equipped: true
-  - name: Light Hammer
-  - name: Hand Crossbow
-  - name: Net
-  - name: Thieves Tools
+  - title: Light Hammer
+  - title: Hand Crossbow
+  - title: Net
+  - title: Thieves Tools
 ---

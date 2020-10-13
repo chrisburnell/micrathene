@@ -35,11 +35,11 @@ temporary_hitpoints: 0
 hitpoints_lost: 0
 gold: 120
 equipment:
-  - name: Leather Armour
+  - title: Leather Armour
     equipped: true
-  - name: Buckler
+  - title: Buckler
     equipped: true
-  - name: Throwing Axe
+  - title: Throwing Axe
     equipped: true
-  - name: Thieves Tools
+  - title: Thieves Tools
 ---
