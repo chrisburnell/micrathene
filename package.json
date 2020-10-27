@@ -5,7 +5,8 @@
   "main": "index.md",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve"
+    "start": "npx @11ty/eleventy --serve",
+    "serve": "npm run start"
   },
   "author": "Chris Burnell <me@chrisburnell.com>",
   "contributors": [
@@ -17,7 +18,7 @@
     }
   ],
   "license": "GPL-3.0",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^0.10.0"
   },
   "repository": {
@@ -26,8 +27,5 @@
   },
   "bugs": {
     "url": "https://github.com/chrisburnell/micrathene/issues"
-  },
-  "dependencies": {
-    "npx": "^10.2.2"
   }
 }
